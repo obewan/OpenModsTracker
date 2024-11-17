@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Open Mods Tracker (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Open Mods Tracker (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
