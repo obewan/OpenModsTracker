@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,29 @@ namespace OpenModsTracker
         public AboutPage()
         {
             this.InitializeComponent();
+        }
+
+        private void imageLogo_ActualThemeChanged(FrameworkElement sender, object args)
+        {
+            getImage();
+        }
+
+        private void imageLogo_Loaded(object sender, RoutedEventArgs e)
+        {
+            getImage();
+        }
+
+        private void getImage() {
+            BitmapImage bitmapImage = new BitmapImage();
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                bitmapImage.UriSource = new Uri(imageLogo.BaseUri, "Assets/icon512.png");
+            }
+            else
+            {
+                bitmapImage.UriSource = new Uri(imageLogo.BaseUri, "Assets/icon512-black.png");
+            }
+            imageLogo.Source = bitmapImage;
         }
     }
 }

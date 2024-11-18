@@ -112,6 +112,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Assets\icon512-black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Assets\icon512.png">
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>

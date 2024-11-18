@@ -56,7 +56,7 @@ namespace OpenModsTracker
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            
+
 
             if (args.IsSettingsSelected)
             {

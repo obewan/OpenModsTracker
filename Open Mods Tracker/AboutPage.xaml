@@ -10,7 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Orientation="Vertical">        
-            <Image Source="/Assets/icon512.png" Height="512"/>
+            <Image x:Name="imageLogo" Height="512" ActualThemeChanged="imageLogo_ActualThemeChanged" 
+                   Loaded="imageLogo_Loaded"/>
 
         <RichTextBlock TextWrapping="Wrap" Width="512">
             <Paragraph TextAlignment="Center" FontSize="30" Margin="10">

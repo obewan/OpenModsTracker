@@ -32,12 +32,32 @@ namespace OpenModsTracker
         private void OnThemeSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             ApplicationTheme applicationTheme = themeToggleSwitch.IsOn ? ApplicationTheme.Light: ApplicationTheme.Dark;
-            AppController.Instance.SaveThemePreference(applicationTheme);
+            AppController.Instance.SaveThemePreference(applicationTheme);            
         }
 
         private void OnThemeSwitch_Loaded(object sender, RoutedEventArgs e)
         {
-            ((ToggleSwitch)sender).IsOn = App.Current.RequestedTheme == ApplicationTheme.Light;
+            //get current value
+            ApplicationTheme? theme = AppController.Instance.LoadThemePreference();
+            if (theme.HasValue)
+            {
+                themeToggleSwitch.IsOn = theme.Value == ApplicationTheme.Light; //when page navigate to
+            }else {
+                themeToggleSwitch.IsOn = App.Current.RequestedTheme == ApplicationTheme.Light;
+             }
+        }
+
+        private void RevealModeCheckbox_Changed(object sender, RoutedEventArgs e)
+        {
+            if (revealModeCheckBox.IsChecked == true)
+            {
+                passwordBow_userKey.PasswordRevealMode = PasswordRevealMode.Visible;
+            }
+            else
+            {
+                passwordBow_userKey.PasswordRevealMode = PasswordRevealMode.Hidden;
+            }
+
         }
     }
 }

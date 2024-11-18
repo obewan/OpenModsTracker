@@ -5,16 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OpenModsTracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Horizontal"  Margin="20">
-        <ToggleSwitch x:Name="themeToggleSwitch" AutomationProperties.Name="themeToggleSwitch" OffContent="dark" 
+    <Grid  ColumnDefinitions="Auto, Auto, *" RowDefinitions ="Auto, Auto, *" Margin="50">
+
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"  Margin="10,0">Theme:</TextBlock>
+        <ToggleSwitch Grid.Row="0" Grid.Column="1" x:Name="themeToggleSwitch" AutomationProperties.Name="themeToggleSwitch" OffContent="dark" 
                       OnContent="light"
                       Toggled="OnThemeSwitch_Toggled" ToolTipService.ToolTip="Toggle theme (changes will be apply on restart)" 
                       Loaded="OnThemeSwitch_Loaded"/>
-        </StackPanel>
-    </StackPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="10,0">User App Key:</TextBlock>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Name="passwordBow_userKey" 
+                     Width="350" Margin="0,0,8,0" PlaceholderText="Enter your user app key (secret)" ToolTipService.ToolTip="Warning: your user app key must stay secret"
+                    PasswordRevealMode="Hidden" AutomationProperties.Name="passwordBow_userKey"/>
+        <CheckBox  Grid.Row="1" Grid.Column="2" Name="revealModeCheckBox" Content="Show key" IsChecked="False"
+Checked="RevealModeCheckbox_Changed" Unchecked="RevealModeCheckbox_Changed"/>
+    </Grid>
 </Page>

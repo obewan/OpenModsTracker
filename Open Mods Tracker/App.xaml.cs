@@ -34,7 +34,11 @@ namespace OpenModsTracker
         public App()
         {
             this.InitializeComponent();
-            AppController.Instance.LoadThemePreference();
+            ApplicationTheme? theme = AppController.Instance.LoadThemePreference();
+            if (theme.HasValue)
+            {
+                RequestedTheme = theme.Value; //RequestedTheme can only be set once at app loading, or else there will be an exception.
+            }
         }
 
         /// <summary>
