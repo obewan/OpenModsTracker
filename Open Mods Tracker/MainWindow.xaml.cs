@@ -30,11 +30,12 @@ namespace OpenModsTracker
     {
 
         private DesktopAcrylicBackdrop _desktopAcrylicBackdrop;
+        private Type _pageType = typeof(HomePage);
 
         public MainWindow()
         {
             this.InitializeComponent();
-            TrySetDesktopAcrylicBackdrop();            
+            TrySetDesktopAcrylicBackdrop();
         }
 
 
@@ -42,7 +43,7 @@ namespace OpenModsTracker
         {
             if (DesktopAcrylicController.IsSupported())
             {
-                 _desktopAcrylicBackdrop = new DesktopAcrylicBackdrop();                
+                _desktopAcrylicBackdrop = new DesktopAcrylicBackdrop();
 
                 this.SystemBackdrop = _desktopAcrylicBackdrop;
 
@@ -55,15 +56,16 @@ namespace OpenModsTracker
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            Type pageType = null;
+            
+
             if (args.IsSettingsSelected)
             {
-                pageType = typeof(SettingsPage);
+                _pageType = typeof(SettingsPage);
             }
             else if (args.SelectedItemContainer != null)
             {
                 var selectedTag = args.SelectedItemContainer.Tag.ToString();
-                pageType = selectedTag switch
+                _pageType = selectedTag switch
                 {
                     "HomePage" => typeof(HomePage),
                     "ModsPage" => typeof(ModsPage),
@@ -72,10 +74,12 @@ namespace OpenModsTracker
                 };
             }
 
-            if (pageType != null)
-            {
-                contentFrame.Navigate(pageType);
-            }
+            contentFrame.Navigate(_pageType);
+        }
+
+        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Navigate(_pageType);
         }
     }
 }

@@ -9,10 +9,12 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal"  Margin="20">
         <ToggleSwitch x:Name="themeToggleSwitch" AutomationProperties.Name="themeToggleSwitch" OffContent="dark" 
                       OnContent="light"
-                      Toggled="OnThemeSwitch_Toggled" ToolTipService.ToolTip="Toggle theme (will be set on restart)" 
+                      Toggled="OnThemeSwitch_Toggled" ToolTipService.ToolTip="Toggle theme (changes will be apply on restart)" 
                       Loaded="OnThemeSwitch_Loaded"/>
-    </Grid>
+        </StackPanel>
+    </StackPanel>
 </Page>

@@ -44,6 +44,7 @@ namespace OpenModsTracker
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             m_window = new MainWindow();
+            m_window.AppWindow.SetIcon("icon.ico");
             m_window.Activate();
         }
 
