@@ -9,19 +9,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Orientation="Vertical">        
-            <Image x:Name="imageLogo" Height="512" ActualThemeChanged="imageLogo_ActualThemeChanged" 
+        <ScrollViewer
+x:Name="contentSV"
+Padding="36"
+IsTabStop="False"
+UseSystemFocusVisuals="False"
+VerticalScrollBarVisibility="Auto"
+VerticalScrollMode="Auto">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Image x:Name="imageLogo" Height="512" ActualThemeChanged="imageLogo_ActualThemeChanged" 
                    Loaded="imageLogo_Loaded"/>
 
-        <RichTextBlock TextWrapping="Wrap" Width="512">
-            <Paragraph TextAlignment="Center" FontSize="30" Margin="10">
-                <Bold>Open Mods Tracker</Bold>
-            </Paragraph>
-            <Paragraph Margin="0,10">A mods tracker for modders to track download counts, new issues, new comments, and other information.</Paragraph>
-            <Paragraph>Copyright Dams (aka Obewan) - 2024 - MIT License</Paragraph>
-            <Paragraph>
-                <Hyperlink NavigateUri="https://github.com/obewan/OpenModsTracker">https://github.com/obewan/OpenModsTracker</Hyperlink>
-            </Paragraph>
-        </RichTextBlock>
-    </StackPanel>
+                <RichTextBlock TextWrapping="Wrap" Width="512">
+                    <Paragraph TextAlignment="Center" FontSize="30" Margin="10">
+                        <Bold>Open Mods Tracker</Bold>
+                    </Paragraph>
+                    <Paragraph Margin="0,10">A mods tracker for modders to track download counts, new issues, new comments, and other information.</Paragraph>
+                    <Paragraph>Copyright Dams (aka Obewan) - 2024 - MIT License</Paragraph>
+                    <Paragraph>
+                        <Hyperlink NavigateUri="https://github.com/obewan/OpenModsTracker">https://github.com/obewan/OpenModsTracker</Hyperlink>
+                    </Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+        </ScrollViewer>
 </Page>

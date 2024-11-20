@@ -27,31 +27,13 @@ namespace OpenModsTracker
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainWindow : Window
-    {
-
-        private DesktopAcrylicBackdrop _desktopAcrylicBackdrop;
+    {                
         private Type _pageType = typeof(HomePage);
 
         public MainWindow()
         {
             this.InitializeComponent();
-            TrySetDesktopAcrylicBackdrop();
-        }
-
-
-        bool TrySetDesktopAcrylicBackdrop()
-        {
-            if (DesktopAcrylicController.IsSupported())
-            {
-                _desktopAcrylicBackdrop = new DesktopAcrylicBackdrop();
-
-                this.SystemBackdrop = _desktopAcrylicBackdrop;
-
-                return true; // Succeeded.
-            }
-
-            return false; // DesktopAcrylic is not supported on this system.
-
+            AppController.Instance.TrySetDesktopAcrylicBackdrop(this);         
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)

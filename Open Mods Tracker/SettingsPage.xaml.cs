@@ -26,7 +26,7 @@ namespace OpenModsTracker
     {
         public SettingsPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();         
         }
 
         private void OnThemeSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -76,7 +76,7 @@ namespace OpenModsTracker
         private void passwordBox_userKey_PasswordChanged(object sender, RoutedEventArgs e)
         {
             AppController.Instance.SaveUserKey(passwordBox_userKey.Password);
-            if (passwordBox_userKey.Password == "")
+            if (passwordBox_userKey.Password == string.Empty)
             {
                 revealModeCheckBox.IsEnabled = true;
                 buttonPasswordValidation.IsEnabled = false;
@@ -89,7 +89,7 @@ namespace OpenModsTracker
 
         private void buttonPasswordValidation_Click(object sender, RoutedEventArgs e)
         {
-            if (passwordBox_userKey.Password == null || passwordBox_userKey.Password.Length == 0)
+            if (passwordBox_userKey.Password == null || passwordBox_userKey.Password == string.Empty)
             {
                 return;
             }

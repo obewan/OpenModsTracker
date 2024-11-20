@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Controls;
 
 
 namespace OpenModsTracker
@@ -15,12 +18,27 @@ namespace OpenModsTracker
         private static AppController _instance;
         public static AppController Instance => _instance ??= new AppController();
 
+        private DesktopAcrylicBackdrop _desktopAcrylicBackdrop;
+
         private const string ThemeSettingKey = "ApplicationTheme";
         private const string UserKey = "UserKey";
 
         // Private constructor to enforce singleton pattern
         private AppController()
         {
+        }
+
+        public bool TrySetDesktopAcrylicBackdrop(Window window)
+        {
+            if (DesktopAcrylicController.IsSupported())
+            {
+                _desktopAcrylicBackdrop = new DesktopAcrylicBackdrop();
+
+                window.SystemBackdrop = _desktopAcrylicBackdrop;
+
+                return true;
+            }
+            return false;
         }
 
 
