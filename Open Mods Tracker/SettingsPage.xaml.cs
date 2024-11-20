@@ -26,13 +26,13 @@ namespace OpenModsTracker
     {
         public SettingsPage()
         {
-            this.InitializeComponent();         
+            this.InitializeComponent();
         }
 
         private void OnThemeSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationTheme applicationTheme = themeToggleSwitch.IsOn ? ApplicationTheme.Light: ApplicationTheme.Dark;
-            AppController.Instance.SaveThemePreference(applicationTheme);            
+            ApplicationTheme applicationTheme = themeToggleSwitch.IsOn ? ApplicationTheme.Light : ApplicationTheme.Dark;
+            AppController.Instance.SaveThemePreference(applicationTheme);
         }
 
         private void OnThemeSwitch_Loaded(object sender, RoutedEventArgs e)
@@ -42,21 +42,63 @@ namespace OpenModsTracker
             if (theme.HasValue)
             {
                 themeToggleSwitch.IsOn = theme.Value == ApplicationTheme.Light; //when page navigate to
-            }else {
+            }
+            else
+            {
                 themeToggleSwitch.IsOn = App.Current.RequestedTheme == ApplicationTheme.Light;
-             }
+            }
         }
 
         private void RevealModeCheckbox_Changed(object sender, RoutedEventArgs e)
         {
             if (revealModeCheckBox.IsChecked == true)
             {
-                passwordBow_userKey.PasswordRevealMode = PasswordRevealMode.Visible;
+                passwordBox_userKey.PasswordRevealMode = PasswordRevealMode.Visible;
             }
             else
             {
-                passwordBow_userKey.PasswordRevealMode = PasswordRevealMode.Hidden;
+                passwordBox_userKey.PasswordRevealMode = PasswordRevealMode.Hidden;
             }
+
+        }
+
+        private void passwordBox_userKey_Loaded(object sender, RoutedEventArgs e)
+        {
+            string password = AppController.Instance.LoadUserKey();
+            if (password != null)
+            {
+                passwordBox_userKey.Password = password;
+                revealModeCheckBox.IsEnabled = password.Length == 0;
+                buttonPasswordValidation.IsEnabled = password.Length > 0;
+            }
+        }
+
+        private void passwordBox_userKey_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            AppController.Instance.SaveUserKey(passwordBox_userKey.Password);
+            if (passwordBox_userKey.Password == "")
+            {
+                revealModeCheckBox.IsEnabled = true;
+                buttonPasswordValidation.IsEnabled = false;
+            }
+            else
+            {
+                buttonPasswordValidation.IsEnabled = true;
+            }
+        }
+
+        private void buttonPasswordValidation_Click(object sender, RoutedEventArgs e)
+        {
+            if (passwordBox_userKey.Password == null || passwordBox_userKey.Password.Length == 0)
+            {
+                return;
+            }
+
+        }
+
+        private void buttonPasswordInfo_Click(object sender, RoutedEventArgs e)
+        {
+            buttonPasswordInfoTeachingTip1.IsOpen = true;
 
         }
     }

@@ -16,7 +16,7 @@ namespace OpenModsTracker
         public static AppController Instance => _instance ??= new AppController();
 
         private const string ThemeSettingKey = "ApplicationTheme";
-        private const string SettingsThemeToggleSwitchStateKey = "SettingsThemeToggleSwitchState";
+        private const string UserKey = "UserKey";
 
         // Private constructor to enforce singleton pattern
         private AppController()
@@ -39,6 +39,17 @@ namespace OpenModsTracker
                 return (ApplicationTheme)ivalue.Value;
             }
             return null;
+        }
+
+        public void SaveUserKey(string key)
+        {
+            ApplicationData.Current.LocalSettings.Values[UserKey] = key;
+        }
+
+        public string LoadUserKey()
+        {
+            string sUserKey = ApplicationData.Current.LocalSettings.Values[UserKey] as string;
+            return sUserKey;
         }
     }
 }

@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid  ColumnDefinitions="Auto, Auto, *" RowDefinitions ="Auto, Auto, *" Margin="50">
+    <Grid  ColumnDefinitions="Auto, Auto, Auto, Auto, *" RowDefinitions ="Auto, Auto, *" Margin="50">
 
         <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"  Margin="10,0">Theme:</TextBlock>
         <ToggleSwitch Grid.Row="0" Grid.Column="1" x:Name="themeToggleSwitch" AutomationProperties.Name="themeToggleSwitch" OffContent="dark" 
@@ -18,10 +18,25 @@
                       Loaded="OnThemeSwitch_Loaded"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="10,0">User App Key:</TextBlock>
-        <PasswordBox Grid.Row="1" Grid.Column="1" Name="passwordBow_userKey" 
+        <PasswordBox Grid.Row="1" Grid.Column="1" Name="passwordBox_userKey" 
                      Width="350" Margin="0,0,8,0" PlaceholderText="Enter your user app key (secret)" ToolTipService.ToolTip="Warning: your user app key must stay secret"
-                    PasswordRevealMode="Hidden" AutomationProperties.Name="passwordBow_userKey"/>
-        <CheckBox  Grid.Row="1" Grid.Column="2" Name="revealModeCheckBox" Content="Show key" IsChecked="False"
+                    PasswordRevealMode="Hidden" AutomationProperties.Name="passwordBox_userKey" Loaded="passwordBox_userKey_Loaded" PasswordChanged="passwordBox_userKey_PasswordChanged"/>
+        <CheckBox  Grid.Row="1" Grid.Column="2" Name="revealModeCheckBox" Content="Show" IsChecked="False"
 Checked="RevealModeCheckbox_Changed" Unchecked="RevealModeCheckbox_Changed"/>
+        <Button Grid.Row="1" Grid.Column="3" Name="buttonPasswordValidation" Click="buttonPasswordValidation_Click" IsEnabled="False" ToolTipService.ToolTip="Validate" Margin="5,0">
+            <SymbolIcon Symbol="Accept"/>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="4" Name="buttonPasswordInfo" ToolTipService.ToolTip="Info" Click="buttonPasswordInfo_Click" Margin="5,0">
+            <SymbolIcon Symbol="Help"/>
+        </Button>
+        <TeachingTip x:Name="buttonPasswordInfoTeachingTip1"
+            Target="{x:Bind buttonPasswordInfo}"
+            Title="User App Key"
+            Subtitle="It's easier than ever to see control samples in both light and dark theme!">
+            <TeachingTip.IconSource>
+                <SymbolIconSource Symbol="Help" />
+            </TeachingTip.IconSource>
+        </TeachingTip>
+
     </Grid>
 </Page>
