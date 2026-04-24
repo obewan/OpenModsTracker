@@ -9,7 +9,200 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Padding="28" Spacing="20">
+            <Border Background="{StaticResource HeroGradientBrush}" CornerRadius="28" Padding="28">
+                <Grid RowSpacing="18">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid ColumnSpacing="18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Creator cockpit" FontSize="32" FontWeight="SemiBold" />
+                            <TextBlock Text="Une vue claire de tes mods Nexus: traction, engagement, portfolio le plus performant." MaxWidth="720" Opacity="0.82" TextWrapping="WrapWholeWords" />
+                            <StackPanel Orientation="Horizontal" Spacing="18">
+                                <StackPanel>
+                                    <TextBlock Text="Compte" Opacity="0.68" />
+                                    <TextBlock Text="{Binding UserDisplayName}" FontSize="18" FontWeight="SemiBold" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="Tier" Opacity="0.68" />
+                                    <TextBlock Text="{Binding UserTier}" FontSize="18" FontWeight="SemiBold" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="Dernier refresh" Opacity="0.68" />
+                                    <TextBlock Text="{Binding RefreshedAt}" FontSize="18" FontWeight="SemiBold" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
 
-    </Grid>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="10">
+                            <Button Content="Rafraichir" Click="RefreshButton_Click" IsEnabled="{Binding CanRefresh}">
+                                <Button.ContentTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Refresh" />
+                                            <TextBlock Text="{Binding}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                            <ProgressRing IsActive="{Binding IsBusy}" Width="34" Height="34" HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1" ColumnSpacing="22">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Spacing="6">
+                            <TextBlock Text="Quota API journalier" Opacity="0.68" />
+                            <TextBlock Text="{Binding DailyQuota}" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Spacing="6">
+                            <TextBlock Text="Quota API horaire" Opacity="0.68" />
+                            <TextBlock Text="{Binding HourlyQuota}" FontSize="24" FontWeight="SemiBold" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <InfoBar Title="Etat du dashboard" Message="{Binding InfoMessage}" IsOpen="{Binding HasInfoMessage}" Severity="Informational" IsClosable="False" />
+            <InfoBar Title="Nexus API" Message="{Binding ErrorMessage}" IsOpen="{Binding HasErrors}" Severity="Error" IsClosable="False" />
+
+            <GridView ItemsSource="{Binding SummaryCards}"
+                      SelectionMode="None"
+                      IsItemClickEnabled="False"
+                      HorizontalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch">
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal" MaximumRowsOrColumns="4" />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="local:SummaryCard">
+                        <Border Style="{StaticResource SectionCardStyle}" MinWidth="240" Margin="0,0,14,14">
+                            <StackPanel Spacing="10">
+                                <Ellipse Width="12" Height="12" HorizontalAlignment="Left" Fill="{Binding AccentBrush}" />
+                                <TextBlock Text="{Binding Title}" Opacity="0.68" />
+                                <TextBlock Text="{Binding Value}" FontSize="28" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding Subtitle}" Foreground="{StaticResource AppMutedBrush}" TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+
+            <Grid ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Style="{StaticResource SectionCardStyle}">
+                    <StackPanel Spacing="16">
+                        <TextBlock Text="Top downloads" FontSize="22" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding TopDownloads}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="local:MetricBarItem">
+                                    <StackPanel Margin="0,0,0,12">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Grid.Column="1" Text="{Binding ValueText}" />
+                                        </Grid>
+                                        <ProgressBar Value="{Binding Ratio}" Maximum="1" Height="10" Margin="0,8,0,4" />
+                                        <TextBlock Text="{Binding Subtitle}" Opacity="0.62" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource SectionCardStyle}">
+                    <StackPanel Spacing="16">
+                        <TextBlock Text="Top endorsements" FontSize="22" FontWeight="SemiBold" />
+                        <ItemsControl ItemsSource="{Binding TopEndorsements}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="local:MetricBarItem">
+                                    <StackPanel Margin="0,0,0,12">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Label}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" />
+                                            <TextBlock Grid.Column="1" Text="{Binding ValueText}" />
+                                        </Grid>
+                                        <ProgressBar Value="{Binding Ratio}" Maximum="1" Height="10" Margin="0,8,0,4" />
+                                        <TextBlock Text="{Binding Subtitle}" Opacity="0.62" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="18">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Mods a surveiller" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock Text="Les cartes ci-dessous mettent en avant les chiffres les plus utiles pour repérer les mods qui tirent le portfolio." Opacity="0.68" TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Text="{Binding ModsCountText}" VerticalAlignment="Center" Opacity="0.68" />
+                    </Grid>
+
+                    <ListView ItemsSource="{Binding SpotlightMods}" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="local:PortfolioMod">
+                                <Border Background="#1AFFFFFF" CornerRadius="20" Padding="18" Margin="0,0,0,12">
+                                    <Grid ColumnSpacing="16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="72" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Width="64" Height="64" CornerRadius="18" Background="#26FFFFFF" VerticalAlignment="Top">
+                                            <Viewbox>
+                                                <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" />
+                                            </Viewbox>
+                                        </Border>
+                                        <StackPanel Grid.Column="1" Spacing="6">
+                                            <TextBlock Text="{Binding DisplayName}" FontSize="20" FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding DisplaySummary}" MaxLines="2" TextWrapping="WrapWholeWords" Opacity="0.78" />
+                                            <TextBlock Text="{Binding DisplayAuthor}" Foreground="{StaticResource AppMutedBrush}" />
+                                            <StackPanel Orientation="Horizontal" Spacing="14">
+                                                <TextBlock Text="{Binding DownloadsLabel}" />
+                                                <TextBlock Text="{Binding EndorsementsLabel}" />
+                                                <TextBlock Text="{Binding ViewsLabel}" />
+                                                <TextBlock Text="{Binding UpdatedLabel}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <Button Grid.Column="2" Content="Ouvrir" Tag="{Binding PageUrl}" Click="OpenModButton_Click" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

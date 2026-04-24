@@ -1,67 +1,40 @@
-using Microsoft.UI.Composition;
-using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
-using Microsoft.Windows.Storage;
-using OpenModsTracker;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.AccessControl;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+namespace OpenModsTracker;
 
-namespace OpenModsTracker
+public sealed partial class MainWindow : Window
 {
-    /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainWindow : Window
-    {                
-        private Type _pageType = typeof(HomePage);
+    private Type _pageType = typeof(HomePage);
 
-        public MainWindow()
+    public MainWindow()
+    {
+        InitializeComponent();
+        AppController.Instance.TrySetDesktopAcrylicBackdrop(this);
+    }
+
+    private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+    {
+        if (args.IsSettingsSelected)
         {
-            this.InitializeComponent();
-            AppController.Instance.TrySetDesktopAcrylicBackdrop(this);         
+            _pageType = typeof(SettingsPage);
         }
-
-        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        else if (args.SelectedItemContainer is not null)
         {
-
-
-            if (args.IsSettingsSelected)
+            _pageType = args.SelectedItemContainer.Tag?.ToString() switch
             {
-                _pageType = typeof(SettingsPage);
-            }
-            else if (args.SelectedItemContainer != null)
-            {
-                var selectedTag = args.SelectedItemContainer.Tag.ToString();
-                _pageType = selectedTag switch
-                {
-                    "HomePage" => typeof(HomePage),
-                    "ModsPage" => typeof(ModsPage),
-                    "AboutPage" => typeof(AboutPage),
-                    _ => null
-                };
-            }
-
-            contentFrame.Navigate(_pageType);
+                "HomePage" => typeof(HomePage),
+                "ModsPage" => typeof(ModsPage),
+                "AboutPage" => typeof(AboutPage),
+                _ => typeof(HomePage)
+            };
         }
 
-        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
-        {
-            contentFrame.Navigate(_pageType);
-        }
+        contentFrame.Navigate(_pageType);
+    }
+
+    private void NavigationView_Loaded(object sender, RoutedEventArgs e)
+    {
+        contentFrame.Navigate(_pageType);
     }
 }

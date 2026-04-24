@@ -3,53 +3,125 @@
     x:Class="OpenModsTracker.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:OpenModsTracker"    
+    xmlns:local="using:OpenModsTracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer
-     x:Name="contentSV"     
-     Padding="36"
-     IsTabStop="False"
-     UseSystemFocusVisuals="False"
-     VerticalScrollBarVisibility="Auto"
-     VerticalScrollMode="Auto">
-        <StackPanel>
-            <StackPanel.ChildrenTransitions>
-                <EntranceThemeTransition FromVerticalOffset="50" />
-                <RepositionThemeTransition IsStaggeringEnabled="False" />
-            </StackPanel.ChildrenTransitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Padding="28" Spacing="20">
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Parametres Nexus" FontSize="28" FontWeight="SemiBold" />
+                    <TextBlock Text="Configure la cle API personnelle et la liste des mods a suivre. Une ligne par mod, avec une URL Nexus ou le format game|id." Opacity="0.72" TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Border>
 
-            <Grid  x:Name="settingsGrid" ColumnDefinitions="Auto, Auto, Auto, Auto, *" RowDefinitions ="Auto, Auto, *">
-                <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"  Margin="10,0">Theme:</TextBlock>
-                <ToggleSwitch Grid.Row="0" Grid.Column="1" x:Name="themeToggleSwitch" AutomationProperties.Name="themeToggleSwitch" OffContent="dark"
-                      OnContent="light"
-                      Toggled="OnThemeSwitch_Toggled" ToolTipService.ToolTip="Toggle theme (changes will be apply on restart)"
-                      Loaded="OnThemeSwitch_Loaded"/>
+            <InfoBar Title="Configuration" Message="{Binding StatusMessage}" IsOpen="{Binding HasStatusMessage}" Severity="Informational" IsClosable="False" />
 
-                <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="10,0">User App Key:</TextBlock>
-                <PasswordBox Grid.Row="1" Grid.Column="1" Name="passwordBox_userKey"
-                     Width="350" Margin="0,0,8,0" PlaceholderText="Enter your user app key (secret)" ToolTipService.ToolTip="Warning: your user app key must stay secret"
-                    PasswordRevealMode="Hidden" AutomationProperties.Name="passwordBox_userKey" Loaded="passwordBox_userKey_Loaded" PasswordChanged="passwordBox_userKey_PasswordChanged"/>
-                <CheckBox  Grid.Row="1" Grid.Column="2" Name="revealModeCheckBox" Content="Show" IsChecked="False"
-Checked="RevealModeCheckbox_Changed" Unchecked="RevealModeCheckbox_Changed"/>
-                <Button Grid.Row="1" Grid.Column="3" Name="buttonPasswordValidation" Click="buttonPasswordValidation_Click" IsEnabled="False" ToolTipService.ToolTip="Validate" Margin="5,0">
-                    <SymbolIcon Symbol="Accept"/>
-                </Button>
-                <Button Grid.Row="1" Grid.Column="4" Name="buttonPasswordInfo" ToolTipService.ToolTip="Info" Click="buttonPasswordInfo_Click" Margin="5,0">
-                    <SymbolIcon Symbol="Help"/>
-                </Button>
-                <TeachingTip x:Name="buttonPasswordInfoTeachingTip1"
-            Target="{x:Bind buttonPasswordInfo}"
-            Title="User App Key"
-            Subtitle="It's easier than ever to see control samples in both light and dark theme!">
-                    <TeachingTip.IconSource>
-                        <SymbolIconSource Symbol="Help" />
-                    </TeachingTip.IconSource>
-                </TeachingTip>
-            </Grid>
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="18">
+                    <TextBlock Text="Apparence" FontSize="22" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <TextBlock Text="Theme" VerticalAlignment="Center" />
+                        <ToggleSwitch x:Name="themeToggleSwitch"
+                                      OffContent="Dark"
+                                      OnContent="Light"
+                                      Toggled="OnThemeSwitch_Toggled"
+                                      Loaded="OnThemeSwitch_Loaded" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="18">
+                    <TextBlock Text="Cle API" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock Text="La cle personnelle se genere depuis la page API Access de Nexus Mods. Elle reste locale a l'application." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <PasswordBox x:Name="ApiKeyPasswordBox"
+                                     PlaceholderText="Colle ici ta cle API Nexus"
+                                     PasswordChanged="ApiKeyPasswordBox_PasswordChanged" />
+                        <CheckBox Grid.Column="1"
+                                  x:Name="RevealCheckBox"
+                                  Content="Afficher"
+                                  Checked="RevealModeCheckbox_Changed"
+                                  Unchecked="RevealModeCheckbox_Changed" />
+                        <Button Grid.Column="2" Content="Sauver" Click="SaveSettingsButton_Click" />
+                        <Button Grid.Column="3" Content="Tester" Click="ValidateButton_Click" IsEnabled="{Binding CanValidate}" />
+                    </Grid>
+                    <TextBlock Text="{Binding ValidationMessage}" Foreground="{StaticResource AppMutedBrush}" TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="18">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Text="Portfolio de mods" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock Text="Exemples: `https://www.nexusmods.com/skyrimspecialedition/mods/12604` ou `fallout4|12345`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                        </StackPanel>
+                        <Button Grid.Column="1" Content="Sauver et rafraichir" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
+                    </Grid>
+
+                    <TextBox x:Name="PortfolioTextBox"
+                             AcceptsReturn="True"
+                             MinHeight="220"
+                             TextWrapping="Wrap"
+                             VerticalAlignment="Stretch"
+                             PlaceholderText="Une URL de mod par ligne"
+                             TextChanged="PortfolioTextBox_TextChanged" />
+
+                    <Grid ColumnSpacing="18">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border Background="#1AFFFFFF" CornerRadius="18" Padding="18">
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Resume de parsing" FontWeight="SemiBold" />
+                                <TextBlock Text="{Binding PortfolioSummary}" />
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="1" Background="#1AFFFFFF" CornerRadius="18" Padding="18">
+                            <StackPanel Spacing="8">
+                                <TextBlock Text="Conseil" FontWeight="SemiBold" />
+                                <TextBlock Text="Comme l'API publique documentee ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de verite pour ton tableau de bord." TextWrapping="WrapWholeWords" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource SectionCardStyle}">
+                <StackPanel Spacing="18">
+                    <TextBlock Text="Import GraphQL" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock Text="Le profil Nexus peut maintenant etre importe automatiquement via l'API GraphQL v2. Tu peux saisir ton pseudo Nexus ou une URL `next.nexusmods.com/profile/...`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="ImportProfileTextBox"
+                                 PlaceholderText="Pseudo Nexus ou URL de profil" />
+                        <Button Grid.Column="1"
+                                Content="Importer mes mods"
+                                Click="ImportProfileButton_Click"
+                                IsEnabled="{Binding CanValidate}" />
+                    </Grid>
+                    <TextBlock Text="{Binding ImportSummary}" Foreground="{StaticResource AppMutedBrush}" TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Border>
         </StackPanel>
     </ScrollViewer>
 </Page>
