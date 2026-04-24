@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Open Mods Tracker (Unpackaged, x64)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Open Mods Tracker/bin/x64/Debug/net10.0-windows10.0.26100.0/Open Mods Tracker.exe",
+            "cwd": "${workspaceFolder}/Open Mods Tracker",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "justMyCode": true
+        },
+        {
+            "name": "Open Mods Tracker (Unpackaged, x86)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/Open Mods Tracker/bin/x86/Debug/net10.0-windows10.0.26100.0/Open Mods Tracker.exe",
+            "cwd": "${workspaceFolder}/Open Mods Tracker",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "justMyCode": true
+        }
+    ]
+}

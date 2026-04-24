@@ -8,9 +8,22 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
-                <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+            <SolidColorBrush x:Key="AppPanelBrush" Color="#CC141A24" />
+            <SolidColorBrush x:Key="AppPanelBorderBrush" Color="#33FFFFFF" />
+            <SolidColorBrush x:Key="AppMutedBrush" Color="#B5C0D0" />
+            <LinearGradientBrush x:Key="HeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#1E293B" Offset="0" />
+                <GradientStop Color="#0F172A" Offset="0.55" />
+                <GradientStop Color="#7C2D12" Offset="1" />
+            </LinearGradientBrush>
+            <Style x:Key="SectionCardStyle" TargetType="Border">
+                <Setter Property="Background" Value="{StaticResource AppPanelBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource AppPanelBorderBrush}" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="CornerRadius" Value="24" />
+                <Setter Property="Padding" Value="24" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
