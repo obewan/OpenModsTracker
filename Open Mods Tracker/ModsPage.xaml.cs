@@ -10,8 +10,10 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
 {
     private bool _isBusy;
     private string _statusMessage = string.Empty;
+    private IReadOnlyList<PortfolioMod> _rawMods = [];
     private IReadOnlyList<PortfolioMod> _mods = [];
     private string _collectionSummary = "0 mod";
+    private int _selectedSortIndex = 0;
 
     public ModsPage()
     {
@@ -61,6 +63,18 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         set => SetProperty(ref _collectionSummary, value);
     }
 
+    public int SelectedSortIndex
+    {
+        get => _selectedSortIndex;
+        set
+        {
+            if (SetProperty(ref _selectedSortIndex, value))
+            {
+                ApplySort();
+            }
+        }
+    }
+
     private async void ModsPage_Loaded(object sender, RoutedEventArgs e)
     {
         await LoadAsync(false);
@@ -92,7 +106,8 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         try
         {
             var snapshot = await AppController.Instance.GetDashboardAsync(forceRefresh);
-            Mods = snapshot.Mods;
+            _rawMods = snapshot.Mods;
+            ApplySort();
             CollectionSummary = snapshot.Mods.Count switch
             {
                 <= 1 => $"{snapshot.Mods.Count} mod",
@@ -106,6 +121,18 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         {
             IsBusy = false;
         }
+    }
+
+    private void ApplySort()
+    {
+        if (_rawMods == null) return;
+        
+        Mods = SelectedSortIndex switch
+        {
+            0 => _rawMods.OrderByDescending(m => m.TotalDownloads).ToList(),
+            1 => _rawMods.OrderByDescending(m => m.Endorsements).ToList(),
+            _ => _rawMods.OrderByDescending(m => m.TotalDownloads).ToList()
+        };
     }
 
     private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null)

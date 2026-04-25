@@ -9,14 +9,28 @@
             <ResourceDictionary.MergedDictionaries>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="AppPanelBrush" Color="#CC141A24" />
-            <SolidColorBrush x:Key="AppPanelBorderBrush" Color="#33FFFFFF" />
-            <SolidColorBrush x:Key="AppMutedBrush" Color="#B5C0D0" />
-            <LinearGradientBrush x:Key="HeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#1E293B" Offset="0" />
-                <GradientStop Color="#0F172A" Offset="0.55" />
-                <GradientStop Color="#7C2D12" Offset="1" />
-            </LinearGradientBrush>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <SolidColorBrush x:Key="AppPanelBrush" Color="#CC141A24" />
+                    <SolidColorBrush x:Key="AppPanelBorderBrush" Color="#33FFFFFF" />
+                    <SolidColorBrush x:Key="AppMutedBrush" Color="#B5C0D0" />
+                    <LinearGradientBrush x:Key="HeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#1E293B" Offset="0" />
+                        <GradientStop Color="#0F172A" Offset="0.55" />
+                        <GradientStop Color="#7C2D12" Offset="1" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AppPanelBrush" Color="#99FFFFFF" />
+                    <SolidColorBrush x:Key="AppPanelBorderBrush" Color="#1A000000" />
+                    <SolidColorBrush x:Key="AppMutedBrush" Color="#64748B" />
+                    <LinearGradientBrush x:Key="HeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#F1F5F9" Offset="0" />
+                        <GradientStop Color="#E2E8F0" Offset="0.55" />
+                        <GradientStop Color="#FFEDD5" Offset="1" />
+                    </LinearGradientBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
             <Style x:Key="SectionCardStyle" TargetType="Border">
                 <Setter Property="Background" Value="{StaticResource AppPanelBrush}" />
                 <Setter Property="BorderBrush" Value="{StaticResource AppPanelBorderBrush}" />

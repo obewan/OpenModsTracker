@@ -4,10 +4,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OpenModsTracker"
+    xmlns:lvc="using:LiveChartsCore.SkiaSharpView.WinUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Padding="28" Spacing="20">
@@ -23,26 +23,26 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Spacing="10">
-                            <TextBlock Text="Creator cockpit" FontSize="32" FontWeight="SemiBold" />
-                            <TextBlock Text="Une vue claire de tes mods Nexus: traction, engagement, portfolio le plus performant." MaxWidth="720" Opacity="0.82" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Uid="HomePage_Cockpit" Text="Creator cockpit" FontSize="32" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="HomePage_Subtitle" Text="Une vue claire de tes mods Nexus: traction, engagement, portfolio le plus performant." MaxWidth="720" Opacity="0.82" TextWrapping="WrapWholeWords" />
                             <StackPanel Orientation="Horizontal" Spacing="18">
                                 <StackPanel>
-                                    <TextBlock Text="Compte" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_Account" Text="Compte" Opacity="0.68" />
                                     <TextBlock Text="{Binding UserDisplayName}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <TextBlock Text="Tier" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_Tier" Text="Tier" Opacity="0.68" />
                                     <TextBlock Text="{Binding UserTier}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <TextBlock Text="Dernier refresh" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_LastRefresh" Text="Dernier refresh" Opacity="0.68" />
                                     <TextBlock Text="{Binding RefreshedAt}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="10">
-                            <Button Content="Rafraichir" Click="RefreshButton_Click" IsEnabled="{Binding CanRefresh}">
+                            <Button x:Uid="HomePage_RefreshBtn" Content="Rafraichir" Click="RefreshButton_Click" IsEnabled="{Binding CanRefresh}">
                                 <Button.ContentTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" Spacing="8">
@@ -62,19 +62,19 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Spacing="6">
-                            <TextBlock Text="Quota API journalier" Opacity="0.68" />
+                            <TextBlock x:Uid="HomePage_DailyQuota" Text="Quota API journalier" Opacity="0.68" />
                             <TextBlock Text="{Binding DailyQuota}" FontSize="24" FontWeight="SemiBold" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Spacing="6">
-                            <TextBlock Text="Quota API horaire" Opacity="0.68" />
+                            <TextBlock x:Uid="HomePage_HourlyQuota" Text="Quota API horaire" Opacity="0.68" />
                             <TextBlock Text="{Binding HourlyQuota}" FontSize="24" FontWeight="SemiBold" />
                         </StackPanel>
                     </Grid>
                 </Grid>
             </Border>
 
-            <InfoBar Title="Etat du dashboard" Message="{Binding InfoMessage}" IsOpen="{Binding HasInfoMessage}" Severity="Informational" IsClosable="False" />
-            <InfoBar Title="Nexus API" Message="{Binding ErrorMessage}" IsOpen="{Binding HasErrors}" Severity="Error" IsClosable="False" />
+            <InfoBar x:Uid="HomePage_DashboardState" Title="Etat du dashboard" Message="{Binding InfoMessage}" IsOpen="{Binding HasInfoMessage}" Severity="Informational" IsClosable="False" />
+            <InfoBar x:Uid="HomePage_NexusAPI" Title="Nexus API" Message="{Binding ErrorMessage}" IsOpen="{Binding HasErrors}" Severity="Error" IsClosable="False" />
 
             <GridView ItemsSource="{Binding SummaryCards}"
                       SelectionMode="None"
@@ -108,7 +108,7 @@
 
                 <Border Style="{StaticResource SectionCardStyle}">
                     <StackPanel Spacing="16">
-                        <TextBlock Text="Top downloads" FontSize="22" FontWeight="SemiBold" />
+                        <TextBlock x:Uid="HomePage_TopDownloads" Text="Top downloads" FontSize="22" FontWeight="SemiBold" />
                         <ItemsControl ItemsSource="{Binding TopDownloads}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="local:MetricBarItem">
@@ -132,7 +132,7 @@
 
                 <Border Grid.Column="1" Style="{StaticResource SectionCardStyle}">
                     <StackPanel Spacing="16">
-                        <TextBlock Text="Top endorsements" FontSize="22" FontWeight="SemiBold" />
+                        <TextBlock x:Uid="HomePage_TopEndorsements" Text="Top endorsements" FontSize="22" FontWeight="SemiBold" />
                         <ItemsControl ItemsSource="{Binding TopEndorsements}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="local:MetricBarItem">
@@ -155,6 +155,14 @@
                 </Border>
             </Grid>
 
+            <!-- Chart Section -->
+            <Border Style="{StaticResource SectionCardStyle}" Height="350">
+                <StackPanel Spacing="16" Height="302">
+                    <TextBlock x:Uid="HomePage_DownloadsHistory" Text="Historique des téléchargements" FontSize="22" FontWeight="SemiBold" />
+                    <lvc:CartesianChart Series="{Binding ChartSeries}" XAxes="{Binding XAxes}" />
+                </StackPanel>
+            </Border>
+
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
                     <Grid>
@@ -163,8 +171,8 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Text="Mods a surveiller" FontSize="22" FontWeight="SemiBold" />
-                            <TextBlock Text="Les cartes ci-dessous mettent en avant les chiffres les plus utiles pour repérer les mods qui tirent le portfolio." Opacity="0.68" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Uid="HomePage_ModsToWatch" Text="Mods a surveiller" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="HomePage_ModsToWatchSub" Text="Les cartes ci-dessous mettent en avant les chiffres les plus utiles pour repérer les mods qui tirent le portfolio." Opacity="0.68" TextWrapping="WrapWholeWords" />
                         </StackPanel>
                         <TextBlock Grid.Column="1" Text="{Binding ModsCountText}" VerticalAlignment="Center" Opacity="0.68" />
                     </Grid>
@@ -195,7 +203,7 @@
                                                 <TextBlock Text="{Binding UpdatedLabel}" />
                                             </StackPanel>
                                         </StackPanel>
-                                        <Button Grid.Column="2" Content="Ouvrir" Tag="{Binding PageUrl}" Click="OpenModButton_Click" VerticalAlignment="Center" />
+                                        <Button Grid.Column="2" x:Uid="OpenBtn" Content="Ouvrir" Tag="{Binding PageUrl}" Click="OpenModButton_Click" VerticalAlignment="Center" />
                                     </Grid>
                                 </Border>
                             </DataTemplate>

@@ -1,5 +1,7 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
+using System;
 
 namespace OpenModsTracker;
 
@@ -36,5 +38,29 @@ public sealed partial class MainWindow : Window
     private void NavigationView_Loaded(object sender, RoutedEventArgs e)
     {
         contentFrame.Navigate(_pageType);
+    }
+
+    private void HeaderLogoImage_ActualThemeChanged(FrameworkElement sender, object args)
+    {
+        UpdateHeaderLogo();
+    }
+
+    private void HeaderLogoImage_Loaded(object sender, RoutedEventArgs e)
+    {
+        UpdateHeaderLogo();
+    }
+
+    private void UpdateHeaderLogo()
+    {
+        BitmapImage bitmapImage = new BitmapImage();
+        if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+        {
+            bitmapImage.UriSource = new Uri(HeaderLogoImage.BaseUri, "Assets/icon512.png");
+        }
+        else
+        {
+            bitmapImage.UriSource = new Uri(HeaderLogoImage.BaseUri, "Assets/icon512-black.png");
+        }
+        HeaderLogoImage.Source = bitmapImage;
     }
 }

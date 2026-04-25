@@ -1,4 +1,4 @@
-﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml;
 using Windows.ApplicationModel;
 
 namespace OpenModsTracker
@@ -7,6 +7,12 @@ namespace OpenModsTracker
     {
         public App()
         {
+            var lang = AppController.Instance.LoadLanguagePreference();
+            if (!string.IsNullOrEmpty(lang))
+            {
+                Microsoft.Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = lang;
+            }
+
             this.InitializeComponent();
             ApplicationTheme? theme = AppController.Instance.LoadThemePreference();
             if (theme.HasValue)

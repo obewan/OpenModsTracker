@@ -421,8 +421,8 @@ query mods($filter: ModsFilter, $offset: Int, $count: Int, $viewUploaderHidden: 
             },
             new SummaryCard
             {
-                Title = "Views",
-                Value = FormatCompact(totalViews),
+                Title = "Mods suivis",
+                Value = FormatCompact(mods.Count),
                 AccentBrush = CreateBrush("#A78BFA"),
                 Subtitle = lastUpdated is null ? "Derniere mise a jour inconnue" : $"Derniere update: {lastUpdated.DisplayName}"
             }

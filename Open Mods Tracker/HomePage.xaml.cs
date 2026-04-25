@@ -3,6 +3,10 @@ using System.Runtime.CompilerServices;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.System;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 
 namespace OpenModsTracker;
 
@@ -11,9 +15,9 @@ public sealed partial class HomePage : Page, INotifyPropertyChanged
     private bool _isBusy;
     private string _infoMessage = string.Empty;
     private string _errorMessage = string.Empty;
-    private string _userDisplayName = "Compte inconnu";
-    private string _userTier = "Standard";
-    private string _refreshedAt = "Jamais";
+    private string _userDisplayName = Localizer.GetString("UnknownAuthor");
+    private string _userTier = Localizer.GetString("Standard");
+    private string _refreshedAt = Localizer.GetString("Never");
     private string _dailyQuota = "n/a";
     private string _hourlyQuota = "n/a";
     private IReadOnlyList<SummaryCard> _summaryCards = [];
@@ -21,6 +25,8 @@ public sealed partial class HomePage : Page, INotifyPropertyChanged
     private IReadOnlyList<MetricBarItem> _topEndorsements = [];
     private IReadOnlyList<PortfolioMod> _spotlightMods = [];
     private string _modsCountText = "0 mod";
+    private ISeries[] _chartSeries = [];
+    private Axis[] _xAxes = [];
 
     public HomePage()
     {
@@ -131,6 +137,18 @@ public sealed partial class HomePage : Page, INotifyPropertyChanged
         set => SetProperty(ref _modsCountText, value);
     }
 
+    public ISeries[] ChartSeries
+    {
+        get => _chartSeries;
+        set => SetProperty(ref _chartSeries, value);
+    }
+
+    public Axis[] XAxes
+    {
+        get => _xAxes;
+        set => SetProperty(ref _xAxes, value);
+    }
+
     private async void HomePage_Loaded(object sender, RoutedEventArgs e)
     {
         await LoadDashboardAsync(false);
@@ -162,8 +180,8 @@ public sealed partial class HomePage : Page, INotifyPropertyChanged
         try
         {
             var snapshot = await AppController.Instance.GetDashboardAsync(forceRefresh);
-            UserDisplayName = snapshot.User?.DisplayName ?? "Compte non valide";
-            UserTier = snapshot.User?.DisplayTier ?? "Standard";
+            UserDisplayName = snapshot.User?.DisplayName ?? Localizer.GetString("InvalidAccount");
+            UserTier = snapshot.User?.DisplayTier ?? Localizer.GetString("Standard");
             RefreshedAt = snapshot.DisplayRefreshedAt;
             DailyQuota = snapshot.RateLimit?.DisplayDaily ?? "n/a";
             HourlyQuota = snapshot.RateLimit?.DisplayHourly ?? "n/a";
@@ -178,6 +196,33 @@ public sealed partial class HomePage : Page, INotifyPropertyChanged
             };
             InfoMessage = snapshot.InfoMessage;
             ErrorMessage = snapshot.ErrorMessage;
+
+            // Load Chart Data
+            var history = await StatsTracker.Instance.LoadHistoryAsync();
+            if (history.DataPoints.Count > 0)
+            {
+                ChartSeries = new ISeries[]
+                {
+                    new LineSeries<long>
+                    {
+                        Values = history.DataPoints.Select(x => x.TotalDownloads).ToArray(),
+                        Name = "Downloads",
+                        Fill = new SolidColorPaint(SKColors.DodgerBlue.WithAlpha(50)),
+                        Stroke = new SolidColorPaint(SKColors.DodgerBlue) { StrokeThickness = 3 },
+                        GeometrySize = 8,
+                        GeometryStroke = new SolidColorPaint(SKColors.DodgerBlue) { StrokeThickness = 2 }
+                    }
+                };
+
+                XAxes = new Axis[]
+                {
+                    new Axis
+                    {
+                        Labels = history.DataPoints.Select(x => x.Timestamp.ToString("d MMM")).ToArray(),
+                        LabelsPaint = new SolidColorPaint(new SKColor(181, 192, 208)) // AppMutedBrush
+                    }
+                };
+            }
         }
         catch (Exception ex)
         {

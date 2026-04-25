@@ -90,10 +90,10 @@ public sealed class PortfolioMod
     public DateTimeOffset? UpdatedAt { get; init; }
 
     public string DisplayName => string.IsNullOrWhiteSpace(Name) ? $"{Reference.GameDomain}/{Reference.ModId}" : Name;
-    public string DisplayAuthor => string.IsNullOrWhiteSpace(Author) ? "Auteur inconnu" : Author;
-    public string DisplaySummary => string.IsNullOrWhiteSpace(Summary) ? "Aucun resume fourni par l'API." : Summary;
-    public string DisplayVersion => string.IsNullOrWhiteSpace(Version) ? "Version inconnue" : $"v{Version}";
-    public string DisplayStatus => string.IsNullOrWhiteSpace(Status) ? "Statut indisponible" : Status.Replace('_', ' ');
+    public string DisplayAuthor => string.IsNullOrWhiteSpace(Author) ? Localizer.GetString("UnknownAuthor") : Author;
+    public string DisplaySummary => string.IsNullOrWhiteSpace(Summary) ? Localizer.GetString("NoSummary") : Summary;
+    public string DisplayVersion => string.IsNullOrWhiteSpace(Version) ? Localizer.GetString("UnknownVersion") : $"v{Version}";
+    public string DisplayStatus => string.IsNullOrWhiteSpace(Status) ? Localizer.GetString("StatusUnavailable") : Status.Replace('_', ' ');
     public string DisplayUpdatedAt => UpdatedAt?.ToLocalTime().ToString("dd MMM yyyy", CultureInfo.CurrentCulture) ?? "n/a";
     public string DisplayUploadedAt => UploadedAt?.ToLocalTime().ToString("dd MMM yyyy", CultureInfo.CurrentCulture) ?? "n/a";
     public string DisplayDownloads => FormatCompact(TotalDownloads);
@@ -106,10 +106,10 @@ public sealed class PortfolioMod
     public string DownloadsLabel => $"DL {DisplayDownloads}";
     public string EndorsementsLabel => $"Endorsements {DisplayEndorsements}";
     public string ViewsLabel => $"Views {DisplayViews}";
-    public string UpdatedLabel => $"Maj {DisplayUpdatedAt}";
-    public string AuthorLabel => $"Auteur: {DisplayAuthor}";
-    public string UpdatedAtLabel => $"Maj: {DisplayUpdatedAt}";
-    public string UploadedAtLabel => $"Creation: {DisplayUploadedAt}";
+    public string UpdatedLabel => $"{Localizer.GetString("UpdatedLabel").TrimEnd(' ', ':')} {DisplayUpdatedAt}";
+    public string AuthorLabel => $"{Localizer.GetString("AuthorLabel")}{DisplayAuthor}";
+    public string UpdatedAtLabel => $"{Localizer.GetString("UpdatedLabel")}{DisplayUpdatedAt}";
+    public string UploadedAtLabel => $"{Localizer.GetString("CreatedLabel")}{DisplayUploadedAt}";
 
     private static string FormatCompact(long value)
     {
@@ -147,8 +147,8 @@ public sealed class UserProfile
     public bool IsPremium { get; init; }
     public bool IsSupporter { get; init; }
 
-    public string DisplayName => string.IsNullOrWhiteSpace(Name) ? "Utilisateur Nexus" : Name;
-    public string DisplayTier => IsPremium ? "Premium" : IsSupporter ? "Supporter" : "Standard";
+    public string DisplayName => string.IsNullOrWhiteSpace(Name) ? Localizer.GetString("NexusUser") : Name;
+    public string DisplayTier => IsPremium ? "Premium" : IsSupporter ? "Supporter" : Localizer.GetString("Standard");
 }
 
 public sealed class ApiRateLimit
@@ -184,7 +184,7 @@ public sealed class DashboardSnapshot
     public bool HasMods => Mods.Count > 0;
     public bool HasErrors => !string.IsNullOrWhiteSpace(ErrorMessage);
     public string DisplayRefreshedAt => RefreshedAt == default
-        ? "Jamais"
+        ? Localizer.GetString("Never")
         : RefreshedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm", CultureInfo.CurrentCulture);
 }
 
