@@ -9,7 +9,7 @@
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
-AppId={A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
+AppId={{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
@@ -73,7 +73,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 ; Main application files
-Source: "bin\Release\net10.0-windows10.0.26100.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "bin\x64\Release\net10.0-windows10.0.26100.0\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
