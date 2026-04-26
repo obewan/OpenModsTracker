@@ -34,10 +34,16 @@
                         <StackPanel Orientation="Horizontal" Spacing="12">
                             <TextBlock x:Uid="SettingsPage_Language" Text="Langue" VerticalAlignment="Center" />
                             <ComboBox x:Name="LanguageComboBox" Width="150" SelectionChanged="LanguageComboBox_SelectionChanged">
-                                <ComboBoxItem Content="English" Tag="en-US" />
-                                <ComboBoxItem Content="Français" Tag="fr-FR" />
-                                <ComboBoxItem Content="Español" Tag="es-ES" />
+                                <ComboBoxItem Content="English" Tag="en-US" />                                
                                 <ComboBoxItem Content="中文" Tag="zh-CN" />
+                                <ComboBoxItem Content="Deutsch" Tag="de-DE" />
+                                <ComboBoxItem Content="Español" Tag="es-ES" />
+                                <ComboBoxItem Content="Français" Tag="fr-FR" />                                                                
+                                <ComboBoxItem Content="Italiano" Tag="it-IT" />
+                                <ComboBoxItem Content="日本語" Tag="ja-JP" />                                
+                                <ComboBoxItem Content="Português" Tag="pt-BR" />
+                                <ComboBoxItem Content="Русский" Tag="ru-RU" />
+                                <ComboBoxItem Content="Nederlands" Tag="nl-NL" />                                
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>

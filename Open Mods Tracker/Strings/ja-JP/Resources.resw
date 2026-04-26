@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>オープンmodsトラッカー</value>
+  </data>
+  <data name="UnknownAuthor" xml:space="preserve">
+    <value>不明な作者</value>
+  </data>
+  <data name="NoSummary" xml:space="preserve">
+    <value>APIはサマリーを提供しませんでした。</value>
+  </data>
+  <data name="UnknownVersion" xml:space="preserve">
+    <value>不明なバージョン</value>
+  </data>
+  <data name="StatusUnavailable" xml:space="preserve">
+    <value>ステータス利用不可</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="AuthorLabel" xml:space="preserve">
+    <value>作者：</value>
+  </data>
+  <data name="UpdatedLabel" xml:space="preserve">
+    <value>更新日：</value>
+  </data>
+  <data name="CreatedLabel" xml:space="preserve">
+    <value>作成日：</value>
+  </data>
+  <data name="NexusUser" xml:space="preserve">
+    <value>Nexusユーザー</value>
+  </data>
+  <data name="InvalidAccount" xml:space="preserve">
+    <value>無効なアカウント</value>
+  </data>
+  <data name="Standard" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="HomePage_Cockpit.Text" xml:space="preserve">
+    <value>クリエイターダッシュボード</value>
+  </data>
+  <data name="HomePage_Subtitle.Text" xml:space="preserve">
+    <value>Nexusモッドの明確な概要：ダウンロード、エンゲージメント、パフォーマンス最高的ポートフォリオ。</value>
+  </data>
+  <data name="HomePage_Account.Text" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="HomePage_Tier.Text" xml:space="preserve">
+    <value>ティア</value>
+  </data>
+  <data name="HomePage_LastRefresh.Text" xml:space="preserve">
+    <value>最終更新</value>
+  </data>
+  <data name="HomePage_RefreshBtn.Content" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="HomePage_DailyQuota.Text" xml:space="preserve">
+    <value>日次APIクォータ</value>
+  </data>
+  <data name="HomePage_HourlyQuota.Text" xml:space="preserve">
+    <value>時間次APIクォータ</value>
+  </data>
+  <data name="HomePage_DashboardState.Title" xml:space="preserve">
+    <value>ダッシュボード状態</value>
+  </data>
+  <data name="HomePage_NexusAPI.Title" xml:space="preserve">
+    <value>Nexus API</value>
+  </data>
+  <data name="HomePage_TopDownloads.Text" xml:space="preserve">
+    <value>ダウンロード最多</value>
+  </data>
+  <data name="HomePage_TopEndorsements.Text" xml:space="preserve">
+    <value>エンドースメント最多</value>
+  </data>
+  <data name="HomePage_ModsToWatch.Text" xml:space="preserve">
+    <value>注目モッド</value>
+  </data>
+  <data name="HomePage_ModsToWatchSub.Text" xml:space="preserve">
+    <value>以下のカードは、ポートフォリオを押し上げるモッドを特定するのに最も役立つ指標を強調しています。</value>
+  </data>
+  <data name="HomePage_DownloadsHistory.Text" xml:space="preserve">
+    <value>ダウンロード履歴</value>
+  </data>
+  <data name="OpenBtn.Content" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="ModsPage_Title.Text" xml:space="preserve">
+    <value>ポートフォリオ</value>
+  </data>
+  <data name="ModsPage_Subtitle.Text" xml:space="preserve">
+    <value>パフォーマンス順に並べられた、すべての追跡モッド。</value>
+  </data>
+  <data name="ModsPage_SortBy.Text" xml:space="preserve">
+    <value>並び替え：</value>
+  </data>
+  <data name="ModsPage_SortDownloads.Content" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="ModsPage_SortEndorsements.Content" xml:space="preserve">
+    <value>エンドースメント</value>
+  </data>
+  <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
+    <value>更新日</value>
+  </data>
+  <data name="ModsPage_SortViews.Content" xml:space="preserve">
+    <value>閲覧数</value>
+  </data>
+  <data name="ModsPage_SortComments.Content" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
+    <value>名前で検索...</value>
+  </data>
+  <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
+    <value>新しいモッドを発見</value>
+  </data>
+  <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
+    <value>まず設定でNexus APIキーを追加してください。</value>
+  </data>
+  <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
+    <value>ダッシュボードを一度開いて、Nexusユーザー名を検出します。</value>
+  </data>
+  <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
+    <value>プロファイルに新しいモッドが見つかりませんでした。</value>
+  </data>
+  <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
+    <value>{0}個の新しいモッドが見つかりました</value>
+  </data>
+  <data name="ModsPage_Discover_AddAll" xml:space="preserve">
+    <value>すべて追加</value>
+  </data>
+  <data name="ModsPage_Discover_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
+    <value>{0}個のモッドをポートフォリオに追加しました。</value>
+  </data>
+  <data name="SettingsPage_Title.Text" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SettingsPage_General.Text" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="SettingsPage_Language.Text" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="SettingsPage_Theme.Text" xml:space="preserve">
+    <value>アプリテーマ</value>
+  </data>
+  <data name="SettingsPage_API.Text" xml:space="preserve">
+    <value>Nexus API</value>
+  </data>
+  <data name="SettingsPage_APIKey.Header" xml:space="preserve">
+    <value>個人APIキー</value>
+  </data>
+  <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
+    <value>Nexus Modsデータの取得に必要です。</value>
+  </data>
+  <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
+    <value>ポートフォリオ設定</value>
+  </data>
+  <data name="SettingsPage_PortfolioSub.Text" xml:space="preserve">
+    <value>モッドのURLまたはIDを入力（1行に1つ）。</value>
+  </data>
+  <data name="SettingsPage_GeneralInfo.Text" xml:space="preserve">
+    <value>個人APIキーと追跡するモッドリストを設定します。1行に1つのモッド、Nexus URLまたはgame|id形式を使用。</value>
+  </data>
+  <data name="SettingsPage_RevealBtn.Content" xml:space="preserve">
+    <value>表示</value>
+  </data>
+  <data name="SettingsPage_SaveBtn.Content" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="SettingsPage_TestBtn.Content" xml:space="preserve">
+    <value>テスト</value>
+  </data>
+  <data name="SettingsPage_SaveRefreshBtn.Content" xml:space="preserve">
+    <value>保存して更新</value>
+  </data>
+  <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
+    <value>1行に1つのモッドURL</value>
+  </data>
+  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+    <value>分析サマリー</value>
+  </data>
+  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+    <value>アドバイス</value>
+  </data>
+  <data name="SettingsPage_AdviceText" xml:space="preserve">
+    <value>文書化されたパブリックAPIは作者の全モッドをまだ直接リストしていないため、ポートフォリオはダッシュボードの真実のソースとして機能します。</value>
+  </data>
+  <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
+    <value>GraphQLインポート</value>
+  </data>
+  <data name="SettingsPage_ImportGraphQLInfo.Text" xml:space="preserve">
+    <value>NexusプロファイルはGraphQL v2 API経由で自動インポートできます。Nexusユーザー名または`next.nexusmods.com/profile/...`のようなURLを入力できます。</value>
+  </data>
+  <data name="SettingsPage_ImportProfileInput.PlaceholderText" xml:space="preserve">
+    <value>Nexusユーザー名またはプロファイルURL</value>
+  </data>
+  <data name="SettingsPage_ImportBtn.Content" xml:space="preserve">
+    <value>モッドをインポート</value>
+  </data>
+  <data name="SettingsPage_ThemeSaved" xml:space="preserve">
+    <value>テーマを保存しました。アプリ全体を再起動して変更を適用してください。</value>
+  </data>
+  <data name="SettingsPage_ConfigSaved" xml:space="preserve">
+    <value>設定がローカルに保存されました。</value>
+  </data>
+  <data name="SettingsPage_ValidationSuccess" xml:space="preserve">
+    <value>Nexus検証成功。</value>
+  </data>
+  <data name="SettingsPage_ValidationFailed" xml:space="preserve">
+    <value>検証失敗：</value>
+  </data>
+  <data name="SettingsPage_ConfigSavedRefreshed" xml:space="preserve">
+    <value>設定を保存し、ダッシュボードを更新しました。</value>
+  </data>
+  <data name="SettingsPage_ImportInProgress" xml:space="preserve">
+    <value>GraphQLインポート進行中...</value>
+  </data>
+  <data name="SettingsPage_ImportFinished" xml:space="preserve">
+    <value>GraphQL経由の作者インポートが完了しました。</value>
+  </data>
+  <data name="SettingsPage_ImportFailed" xml:space="preserve">
+    <value>インポート失敗：</value>
+  </data>
+  <data name="SettingsPage_KeySaved" xml:space="preserve">
+    <value>キーを保存しました。テストするかダッシュボードに戻ることができます。</value>
+  </data>
+  <data name="SettingsPage_ModsZero" xml:space="preserve">
+    <value>0個のモッドを検出。Nexus URLまたはgame|idペアを追加してください。</value>
+  </data>
+  <data name="SettingsPage_ModsOne" xml:space="preserve">
+    <value>1個のモッドを検出：</value>
+  </data>
+  <data name="SettingsPage_ModsMany" xml:space="preserve">
+    <value>個のモッド。最初のモッド：</value>
+  </data>
+  <data name="SettingsPage_LangSaved" xml:space="preserve">
+    <value>言語を保存しました。アプリを再起動して適用してください。</value>
+  </data>
+  <data name="Nav_Home.Content" xml:space="preserve">
+    <value>ダッシュボード</value>
+  </data>
+  <data name="Nav_Mods.Content" xml:space="preserve">
+    <value>モッド</value>
+  </data>
+  <data name="Nav_Settings.Content" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Nav_About.Content" xml:space="preserve">
+    <value>について</value>
+  </data>
+  <data name="MainWindow_AppTitle.Text" xml:space="preserve">
+    <value>オープンmodsトラッカー</value>
+  </data>
+  <data name="MainWindow_AppSubtitle.Text" xml:space="preserve">
+    <value>モッドを追跡し、実際の効果を確認するNexusパネル。</value>
+  </data>
+  <data name="Nav_Stats.Content" xml:space="preserve">
+    <value>統計</value>
+  </data>
+  <data name="ModsPage_Domain.Text" xml:space="preserve">
+    <value>ゲーム：</value>
+  </data>
+  <data name="StatsPage_Title.Text" xml:space="preserve">
+    <value>統計</value>
+  </data>
+  <data name="StatsPage_Subtitle.Text" xml:space="preserve">
+    <value>ローカル履歴に基づくグラフとトレンド。</value>
+  </data>
+  <data name="StatsPage_Domain.Text" xml:space="preserve">
+    <value>ゲーム</value>
+  </data>
+  <data name="StatsPage_Recency.Text" xml:space="preserve">
+    <value>期間</value>
+  </data>
+  <data name="StatsPage_Metric.Text" xml:space="preserve">
+    <value>指標</value>
+  </data>
+  <data name="StatsPage_Downloads.Content" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="StatsPage_Endorsements.Content" xml:space="preserve">
+    <value>エンドースメント</value>
+  </data>
+  <data name="StatsPage_ModeTotals.Content" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="StatsPage_ModeTop5.Content" xml:space="preserve">
+    <value>トップ10モッド</value>
+  </data>
+  <data name="StatsPage_ModeTotalsLabel" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="StatsPage_ModeTop10Label" xml:space="preserve">
+    <value>トップ10モッド</value>
+  </data>
+  <data name="StatsPage_Metric_Downloads" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="StatsPage_Metric_Endorsements" xml:space="preserve">
+    <value>エンドースメント</value>
+  </data>
+  <data name="StatsPage_Recency_Week" xml:space="preserve">
+    <value>過去1週間</value>
+  </data>
+  <data name="StatsPage_Recency_Month" xml:space="preserve">
+    <value>過去1ヶ月</value>
+  </data>
+  <data name="StatsPage_Recency_Quarter" xml:space="preserve">
+    <value>過去3ヶ月</value>
+  </data>
+  <data name="StatsPage_Recency_Year" xml:space="preserve">
+    <value>過去1年</value>
+  </data>
+  <data name="StatsPage_Recency_All" xml:space="preserve">
+    <value>すべて</value>
+  </data>
+  <data name="AboutPage_Title.Text" xml:space="preserve">
+    <value>について</value>
+  </data>
+  <data name="AboutPage_Version.Text" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="AboutPage_Description.Text" xml:space="preserve">
+    <value>リアルタイム統計と分析を備えた、Nexus Modsポートフォリオを追跡・管理するオープンソースアプリケーション。</value>
+  </data>
+  <data name="AboutPage_Feedback.Text" xml:space="preserve">
+    <value>フィードバックと提案</value>
+  </data>
+  <data name="AboutPage_Source.Text" xml:space="preserve">
+    <value>ソースコード</value>
+  </data>
+  <data name="AboutPage_License.Text" xml:space="preserve">
+    <value>ライセンス</value>
+  </data>
+  <data name="AboutPage_MITLicense" xml:space="preserve">
+    <value>MITライセンス</value>
+  </data>
+</root>
