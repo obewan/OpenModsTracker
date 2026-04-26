@@ -187,6 +187,10 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         {
             0 => filtered.OrderByDescending(m => m.TotalDownloads).ToList(),
             1 => filtered.OrderByDescending(m => m.Endorsements).ToList(),
+            2 => filtered
+                .OrderByDescending(m => m.UpdatedAt ?? DateTimeOffset.MinValue)
+                .ThenByDescending(m => m.TotalDownloads)
+                .ToList(),
             _ => filtered.OrderByDescending(m => m.TotalDownloads).ToList()
         };
 
@@ -221,5 +225,87 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private async void DiscoverModsButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var apiKey = AppController.Instance.LoadUserKey();
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                StatusMessage = Localizer.GetString("ModsPage_Discover_NoApiKey");
+                return;
+            }
+
+            var cached = AppController.Instance.GetCachedDashboard();
+            var profile = cached?.User?.Name;
+            if (string.IsNullOrWhiteSpace(profile))
+            {
+                StatusMessage = Localizer.GetString("ModsPage_Discover_NoProfile");
+                return;
+            }
+
+            StatusMessage = Localizer.GetString("SettingsPage_ImportInProgress");
+            var imported = await new NexusApiService().ImportPortfolioAsync(apiKey, profile, CancellationToken.None);
+
+            var current = AppController.Instance.LoadPortfolioReferences();
+            var currentKeys = new HashSet<string>(current.Select(m => $"{m.GameDomain}:{m.ModId}"), StringComparer.OrdinalIgnoreCase);
+            var missing = imported.Mods
+                .Where(m => !currentKeys.Contains($"{m.GameDomain}:{m.ModId}"))
+                .ToList();
+
+            if (missing.Count == 0)
+            {
+                StatusMessage = Localizer.GetString("ModsPage_Discover_NoneFound");
+                return;
+            }
+
+            var dialog = new ContentDialog
+            {
+                XamlRoot = XamlRoot,
+                Title = string.Format(Localizer.GetString("ModsPage_Discover_FoundTitle"), missing.Count),
+                PrimaryButtonText = Localizer.GetString("ModsPage_Discover_AddAll"),
+                CloseButtonText = Localizer.GetString("ModsPage_Discover_Cancel"),
+                DefaultButton = ContentDialogButton.Primary,
+                Content = new ListView
+                {
+                    ItemsSource = missing.Select(m => m.CanonicalUrl).ToList(),
+                    MinWidth = 520,
+                    MaxHeight = 360
+                }
+            };
+
+            var result = await dialog.ShowAsync();
+            if (result != ContentDialogResult.Primary)
+            {
+                StatusMessage = string.Empty;
+                return;
+            }
+
+            var merged = MergeReferences(current.Concat(missing));
+            AppController.Instance.SavePortfolio(string.Join(Environment.NewLine, merged.Select(m => m.CanonicalUrl)));
+
+            StatusMessage = string.Format(Localizer.GetString("ModsPage_Discover_AddedStatus"), missing.Count);
+            await LoadAsync(true);
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = ex.Message;
+        }
+    }
+
+    private static IReadOnlyList<ModReference> MergeReferences(IEnumerable<ModReference> mods)
+    {
+        var map = new Dictionary<string, ModReference>(StringComparer.OrdinalIgnoreCase);
+        foreach (var mod in mods)
+        {
+            map[$"{mod.GameDomain}:{mod.ModId}"] = mod;
+        }
+
+        return map.Values
+            .OrderBy(static mod => mod.GameDomain, StringComparer.OrdinalIgnoreCase)
+            .ThenBy(static mod => mod.ModId)
+            .ToList();
     }
 }

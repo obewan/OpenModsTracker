@@ -138,6 +138,9 @@
   <data name="ModsPage_SortEndorsements.Content" xml:space="preserve">
     <value>Endorsements</value>
   </data>
+  <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
+    <value>Updated</value>
+  </data>
   <data name="ModsPage_SortViews.Content" xml:space="preserve">
     <value>Views</value>
   </data>
@@ -146,6 +149,30 @@
   </data>
   <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
     <value>Search by name...</value>
+  </data>
+  <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
+    <value>Discover new mods</value>
+  </data>
+  <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
+    <value>Add your Nexus API key in Settings first.</value>
+  </data>
+  <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
+    <value>Open the dashboard once so we can detect your Nexus profile name.</value>
+  </data>
+  <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
+    <value>No new mods found for your profile.</value>
+  </data>
+  <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
+    <value>{0} new mods found</value>
+  </data>
+  <data name="ModsPage_Discover_AddAll" xml:space="preserve">
+    <value>Add all</value>
+  </data>
+  <data name="ModsPage_Discover_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
+    <value>Added {0} mods to your portfolio.</value>
   </data>
   <data name="SettingsPage_Title.Text" xml:space="preserve">
     <value>Settings</value>
@@ -245,6 +272,9 @@
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Game</value>
+  </data>
+  <data name="StatsPage_Recency.Text" xml:space="preserve">
+    <value>Recency</value>
   </data>
   <data name="StatsPage_Metric.Text" xml:space="preserve">
     <value>Metric</value>

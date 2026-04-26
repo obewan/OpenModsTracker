@@ -16,7 +16,7 @@ public sealed class HistoryDataPoint
     public long TotalEndorsements { get; set; }
 
     /// <summary>
-    /// Per-mod metrics for a small set (typically top mods).
+    /// Per-mod metrics for the full tracked portfolio.
     /// Key format: "{gameDomain}:{modId}".
     /// </summary>
     public Dictionary<string, HistoryModMetrics> Mods { get; set; } = new();
@@ -66,7 +66,7 @@ public sealed class StatsTracker
                     last.Timestamp = now;
                     last.TotalDownloads = snapshot.Mods.Sum(m => m.TotalDownloads);
                     last.TotalEndorsements = snapshot.Mods.Sum(m => m.Endorsements);
-                    last.Mods = BuildTopMods(snapshot);
+                    last.Mods = BuildAllMods(snapshot);
                     await SaveHistoryInternalAsync(history);
                     return;
                 }
@@ -77,7 +77,7 @@ public sealed class StatsTracker
                 Timestamp = now,
                 TotalDownloads = snapshot.Mods.Sum(m => m.TotalDownloads),
                 TotalEndorsements = snapshot.Mods.Sum(m => m.Endorsements),
-                Mods = BuildTopMods(snapshot)
+                Mods = BuildAllMods(snapshot)
             });
 
             await SaveHistoryInternalAsync(history);
@@ -88,13 +88,10 @@ public sealed class StatsTracker
         }
     }
 
-    private static Dictionary<string, HistoryModMetrics> BuildTopMods(DashboardSnapshot snapshot)
+    private static Dictionary<string, HistoryModMetrics> BuildAllMods(DashboardSnapshot snapshot)
     {
-        // Store a small, stable subset to keep the history file compact.
-        // This is used for per-mod curves on the Stats page.
+        // Store the full portfolio so we can chart/filter recent mods too.
         return snapshot.Mods
-            .OrderByDescending(m => m.TotalDownloads)
-            .Take(10)
             .ToDictionary(
                 m => $"{m.Reference.GameDomain}:{m.Reference.ModId}",
                 m => new HistoryModMetrics

@@ -138,6 +138,9 @@
   <data name="ModsPage_SortEndorsements.Content" xml:space="preserve">
     <value>Endorsements</value>
   </data>
+  <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
+    <value>Dernière maj</value>
+  </data>
   <data name="ModsPage_SortViews.Content" xml:space="preserve">
     <value>Vues</value>
   </data>
@@ -146,6 +149,30 @@
   </data>
   <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
     <value>Rechercher par nom...</value>
+  </data>
+  <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
+    <value>Découvrir de nouveaux mods</value>
+  </data>
+  <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
+    <value>Ajoute d'abord ta clé API Nexus dans les paramètres.</value>
+  </data>
+  <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
+    <value>Ouvre le dashboard une fois pour détecter ton pseudo Nexus.</value>
+  </data>
+  <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
+    <value>Aucun nouveau mod trouvé pour ton profil.</value>
+  </data>
+  <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
+    <value>{0} nouveaux mods trouvés</value>
+  </data>
+  <data name="ModsPage_Discover_AddAll" xml:space="preserve">
+    <value>Tout ajouter</value>
+  </data>
+  <data name="ModsPage_Discover_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
+    <value>{0} mods ajoutés au portfolio.</value>
   </data>
   <data name="SettingsPage_Title.Text" xml:space="preserve">
     <value>Paramètres</value>
@@ -245,6 +272,9 @@
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Jeu</value>
+  </data>
+  <data name="StatsPage_Recency.Text" xml:space="preserve">
+    <value>Récence</value>
   </data>
   <data name="StatsPage_Metric.Text" xml:space="preserve">
     <value>Métrique</value>

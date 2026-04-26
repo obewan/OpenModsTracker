@@ -40,6 +40,11 @@
                                       ItemsSource="{Binding Domains}"
                                       SelectedItem="{Binding SelectedDomain, Mode=TwoWay}" />
 
+                            <TextBlock x:Uid="StatsPage_Recency" Text="Recency" VerticalAlignment="Center" Opacity="0.72" />
+                            <ComboBox Width="160"
+                                      ItemsSource="{Binding RecencyOptions}"
+                                      SelectedItem="{Binding SelectedRecency, Mode=TwoWay}" />
+
                             <TextBlock x:Uid="StatsPage_Metric" Text="Metric" VerticalAlignment="Center" Opacity="0.72" />
                             <ComboBox Width="220"
                                       SelectedIndex="{Binding SelectedMetricIndex, Mode=TwoWay}"

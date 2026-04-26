@@ -43,8 +43,14 @@
                             <ComboBox SelectedIndex="{Binding SelectedSortIndex, Mode=TwoWay}" Width="160" VerticalAlignment="Center">
                                 <ComboBoxItem x:Uid="ModsPage_SortDownloads" Content="Téléchargements" />
                                 <ComboBoxItem x:Uid="ModsPage_SortEndorsements" Content="Endorsements" />
+                                <ComboBoxItem x:Uid="ModsPage_SortUpdated" Content="Updated" />
                             </ComboBox>
                         </StackPanel>
+                        <Button x:Uid="ModsPage_DiscoverBtn"
+                                Content="Discover new mods"
+                                Click="DiscoverModsButton_Click"
+                                IsEnabled="{Binding CanRefresh}"
+                                VerticalAlignment="Center" />
                         <Button x:Uid="HomePage_RefreshBtn" Content="Rafraichir" Click="RefreshButton_Click" IsEnabled="{Binding CanRefresh}" VerticalAlignment="Center" />
                         <TextBlock Text="{Binding CollectionSummary}" Opacity="0.68" VerticalAlignment="Center" Margin="8,0,0,0" />
                     </StackPanel>

@@ -33,10 +33,13 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
     private int _selectedModeIndex;
     private IReadOnlyList<string> _domains = [];
     private string _selectedDomain = "All";
+    private IReadOnlyList<string> _recencyOptions = [];
+    private string _selectedRecency = "All";
     private IReadOnlyList<StatsModRow> _modRows = [];
     private TableSort _tableSort = TableSort.LatestDesc;
 
     private HistoryRecord? _history;
+    private Dictionary<string, DateTimeOffset?> _publishedAtByKey = new(StringComparer.OrdinalIgnoreCase);
 
     public StatsPage()
     {
@@ -136,6 +139,24 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         }
     }
 
+    public IReadOnlyList<string> RecencyOptions
+    {
+        get => _recencyOptions;
+        set => SetProperty(ref _recencyOptions, value);
+    }
+
+    public string SelectedRecency
+    {
+        get => _selectedRecency;
+        set
+        {
+            if (SetProperty(ref _selectedRecency, value))
+            {
+                UpdateChart();
+            }
+        }
+    }
+
     public IReadOnlyList<StatsModRow> ModRows
     {
         get => _modRows;
@@ -163,6 +184,18 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
                 return;
             }
 
+            // Snapshot data (for publish dates). We only need this for filtering "recently published" mods.
+            var snapshot = AppController.Instance.GetCachedDashboard();
+            if (snapshot is null)
+            {
+                snapshot = await AppController.Instance.GetDashboardAsync(false);
+            }
+
+            _publishedAtByKey = snapshot.Mods.ToDictionary(
+                m => $"{m.Reference.GameDomain}:{m.Reference.ModId}",
+                m => m.UploadedAt,
+                StringComparer.OrdinalIgnoreCase);
+
             XAxes = new[]
             {
                 new Axis
@@ -184,12 +217,61 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
                 SelectedDomain = "All";
             }
 
+            RecencyOptions =
+            [
+                "All",
+                "7d",
+                "30d",
+                "90d"
+            ];
+
+            if (!RecencyOptions.Contains(SelectedRecency, StringComparer.OrdinalIgnoreCase))
+            {
+                SelectedRecency = "All";
+            }
+
             UpdateChart();
         }
         catch (Exception ex)
         {
             ErrorMessage = ex.Message;
         }
+    }
+
+    private DateTimeOffset? GetRecencyCutoff()
+    {
+        return SelectedRecency switch
+        {
+            "7d" => DateTimeOffset.Now.AddDays(-7),
+            "30d" => DateTimeOffset.Now.AddDays(-30),
+            "90d" => DateTimeOffset.Now.AddDays(-90),
+            _ => null
+        };
+    }
+
+    private IEnumerable<string> ApplyDomainAndRecencyFilters(IEnumerable<string> keys)
+    {
+        if (!string.IsNullOrWhiteSpace(SelectedDomain) &&
+            !SelectedDomain.Equals("All", StringComparison.OrdinalIgnoreCase))
+        {
+            keys = keys.Where(k => k.StartsWith(SelectedDomain + ":", StringComparison.OrdinalIgnoreCase));
+        }
+
+        var cutoff = GetRecencyCutoff();
+        if (cutoff.HasValue)
+        {
+            keys = keys.Where(k =>
+            {
+                if (!_publishedAtByKey.TryGetValue(k, out var publishedAt) || !publishedAt.HasValue)
+                {
+                    return false;
+                }
+
+                return publishedAt.Value >= cutoff.Value;
+            });
+        }
+
+        return keys;
     }
 
     private void UpdateChart()
@@ -240,16 +322,10 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         var last = _history.DataPoints.Last();
         var prev = _history.DataPoints.Count >= 2 ? _history.DataPoints[^2] : null;
 
-        IEnumerable<string> keys = last.Mods.Keys;
-        if (!string.IsNullOrWhiteSpace(SelectedDomain) &&
-            !SelectedDomain.Equals("All", StringComparison.OrdinalIgnoreCase))
-        {
-            keys = keys.Where(k => k.StartsWith(SelectedDomain + ":", StringComparison.OrdinalIgnoreCase));
-        }
+        IEnumerable<string> keys = ApplyDomainAndRecencyFilters(last.Mods.Keys);
 
         var rows = keys
             .Distinct(StringComparer.OrdinalIgnoreCase)
-            .Take(10)
             .Select(key =>
             {
                 last.Mods.TryGetValue(key, out var lastMetrics);
@@ -286,11 +362,20 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
             })
             .ToList();
 
-        return _tableSort switch
+        // Keep the table readable (top 10) after filters/sort.
+        rows = _tableSort switch
         {
             TableSort.NameAsc => rows.OrderBy(r => r.Name, StringComparer.CurrentCultureIgnoreCase).ToList(),
             TableSort.DeltaDesc => rows.OrderByDescending(r => r.Delta).ToList(),
             _ => rows.OrderByDescending(r => r.Latest).ToList()
+        };
+
+        rows = rows.Take(10).ToList();
+
+        return _tableSort switch
+        {
+            // Already sorted above.
+            _ => rows
         };
     }
 
@@ -324,14 +409,8 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
 
     private ISeries[] BuildTopModsSeries(Metric metric)
     {
-        IEnumerable<string> sourceKeys = _history!.DataPoints
-            .SelectMany(p => p.Mods.Keys);
-
-        if (!string.IsNullOrWhiteSpace(SelectedDomain) &&
-            !SelectedDomain.Equals("All", StringComparison.OrdinalIgnoreCase))
-        {
-            sourceKeys = sourceKeys.Where(k => k.StartsWith(SelectedDomain + ":", StringComparison.OrdinalIgnoreCase));
-        }
+        IEnumerable<string> sourceKeys = ApplyDomainAndRecencyFilters(
+            _history!.DataPoints.SelectMany(p => p.Mods.Keys));
 
         var keys = sourceKeys
             .Distinct(StringComparer.OrdinalIgnoreCase)
@@ -343,8 +422,20 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
             return [];
         }
 
-        // Keep it readable (top 10) even if older points had different top lists.
-        keys = keys.Take(10).ToArray();
+        // Pick the top 10 *after* applying filters (domain/recency), based on latest value.
+        var last = _history!.DataPoints.Last();
+        keys = keys
+            .Select(key =>
+            {
+                if (!last.Mods.TryGetValue(key, out var mm)) return (key, value: 0L);
+                var value = metric == Metric.Endorsements ? mm.Endorsements : mm.Downloads;
+                return (key, value);
+            })
+            .OrderByDescending(x => x.value)
+            .ThenBy(x => x.key, StringComparer.OrdinalIgnoreCase)
+            .Take(10)
+            .Select(x => x.key)
+            .ToArray();
 
         var palette = new[]
         {
