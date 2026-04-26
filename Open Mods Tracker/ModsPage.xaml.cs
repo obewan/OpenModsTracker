@@ -14,6 +14,10 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
     private IReadOnlyList<PortfolioMod> _mods = [];
     private string _collectionSummary = "0 mod";
     private int _selectedSortIndex = 0;
+    private IReadOnlyList<string> _domains = [];
+    private string _selectedDomain = "All";
+    private string _searchText = string.Empty;
+    private int _totalModsCount;
 
     public ModsPage()
     {
@@ -63,6 +67,36 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         set => SetProperty(ref _collectionSummary, value);
     }
 
+    public IReadOnlyList<string> Domains
+    {
+        get => _domains;
+        set => SetProperty(ref _domains, value);
+    }
+
+    public string SearchText
+    {
+        get => _searchText;
+        set
+        {
+            if (SetProperty(ref _searchText, value))
+            {
+                ApplySort();
+            }
+        }
+    }
+
+    public string SelectedDomain
+    {
+        get => _selectedDomain;
+        set
+        {
+            if (SetProperty(ref _selectedDomain, value))
+            {
+                ApplySort();
+            }
+        }
+    }
+
     public int SelectedSortIndex
     {
         get => _selectedSortIndex;
@@ -107,12 +141,18 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
         {
             var snapshot = await AppController.Instance.GetDashboardAsync(forceRefresh);
             _rawMods = snapshot.Mods;
-            ApplySort();
-            CollectionSummary = snapshot.Mods.Count switch
+            _totalModsCount = snapshot.Mods.Count;
+            Domains = ["All", .. snapshot.Mods
+                .Select(m => m.Reference.GameDomain)
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)];
+
+            if (!Domains.Contains(SelectedDomain, StringComparer.OrdinalIgnoreCase))
             {
-                <= 1 => $"{snapshot.Mods.Count} mod",
-                _ => $"{snapshot.Mods.Count} mods"
-            };
+                SelectedDomain = "All";
+            }
+            ApplySort();
             StatusMessage = string.IsNullOrWhiteSpace(snapshot.ErrorMessage)
                 ? snapshot.InfoMessage
                 : snapshot.ErrorMessage;
@@ -126,13 +166,44 @@ public sealed partial class ModsPage : Page, INotifyPropertyChanged
     private void ApplySort()
     {
         if (_rawMods == null) return;
-        
-        Mods = SelectedSortIndex switch
+
+        IEnumerable<PortfolioMod> filtered = _rawMods;
+
+        if (!string.IsNullOrWhiteSpace(SelectedDomain) &&
+            !SelectedDomain.Equals("All", StringComparison.OrdinalIgnoreCase))
         {
-            0 => _rawMods.OrderByDescending(m => m.TotalDownloads).ToList(),
-            1 => _rawMods.OrderByDescending(m => m.Endorsements).ToList(),
-            _ => _rawMods.OrderByDescending(m => m.TotalDownloads).ToList()
+            filtered = filtered.Where(m => string.Equals(m.Reference.GameDomain, SelectedDomain, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (!string.IsNullOrWhiteSpace(SearchText))
+        {
+            var needle = SearchText.Trim();
+            filtered = filtered.Where(m =>
+                (!string.IsNullOrWhiteSpace(m.DisplayName) && m.DisplayName.Contains(needle, StringComparison.CurrentCultureIgnoreCase)) ||
+                (!string.IsNullOrWhiteSpace(m.DisplaySummary) && m.DisplaySummary.Contains(needle, StringComparison.CurrentCultureIgnoreCase)));
+        }
+
+        var filteredList = SelectedSortIndex switch
+        {
+            0 => filtered.OrderByDescending(m => m.TotalDownloads).ToList(),
+            1 => filtered.OrderByDescending(m => m.Endorsements).ToList(),
+            _ => filtered.OrderByDescending(m => m.TotalDownloads).ToList()
         };
+
+        Mods = filteredList;
+
+        if (_totalModsCount <= 0)
+        {
+            CollectionSummary = "0 mod";
+        }
+        else if (filteredList.Count == _totalModsCount)
+        {
+            CollectionSummary = _totalModsCount <= 1 ? $"{_totalModsCount} mod" : $"{_totalModsCount} mods";
+        }
+        else
+        {
+            CollectionSummary = $"{filteredList.Count} / {_totalModsCount} mods";
+        }
     }
 
     private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null)

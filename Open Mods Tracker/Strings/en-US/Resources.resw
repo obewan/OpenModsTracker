@@ -231,4 +231,61 @@
   <data name="MainWindow_AppSubtitle.Text" xml:space="preserve">
     <value>Nexus dashboard to track your mods and see what really performs.</value>
   </data>
+  <data name="Nav_Stats.Content" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="ModsPage_Domain.Text" xml:space="preserve">
+    <value>Game:</value>
+  </data>
+  <data name="StatsPage_Title.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_Subtitle.Text" xml:space="preserve">
+    <value>Charts and trends based on your local history.</value>
+  </data>
+  <data name="StatsPage_Domain.Text" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="StatsPage_Metric.Text" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="StatsPage_Downloads.Content" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="StatsPage_Endorsements.Content" xml:space="preserve">
+    <value>Endorsements</value>
+  </data>
+  <data name="StatsPage_ModeTotals.Content" xml:space="preserve">
+    <value>Totals</value>
+  </data>
+  <data name="StatsPage_ModeTop5.Content" xml:space="preserve">
+    <value>Top 10 mods</value>
+  </data>
+  <data name="StatsPage_ModeTotalsLabel" xml:space="preserve">
+    <value>Totals</value>
+  </data>
+  <data name="StatsPage_ModeTop10Label" xml:space="preserve">
+    <value>Top 10 mods</value>
+  </data>
+  <data name="StatsPage_Metric_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="StatsPage_Metric_Endorsements" xml:space="preserve">
+    <value>Endorsements</value>
+  </data>
+  <data name="StatsPage_InfoBar.Title" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_ErrorBar.Title" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_NoHistory" xml:space="preserve">
+    <value>No history yet. Refresh the dashboard to collect a first point.</value>
+  </data>
+  <data name="StatsPage_NoPerModHistory" xml:space="preserve">
+    <value>No per-mod history yet. Refresh the dashboard to record top mods.</value>
+  </data>
+  <data name="StatsPage_ChartTitle_History" xml:space="preserve">
+    <value>History</value>
+  </data>
 </root>

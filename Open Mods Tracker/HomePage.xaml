@@ -4,10 +4,16 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:OpenModsTracker"
+    xmlns:converters="using:OpenModsTracker.Converters"
     xmlns:lvc="using:LiveChartsCore.SkiaSharpView.WinUI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:StringToBitmapImageConverter x:Key="StringToBitmapImageConverter" />
+        <converters:StringNullOrWhitespaceToVisibilityConverter x:Key="StringNullOrWhitespaceToVisibilityConverter" />
+    </Page.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Padding="28" Spacing="20">
@@ -156,11 +162,20 @@
             </Grid>
 
             <!-- Chart Section -->
-            <Border Style="{StaticResource SectionCardStyle}" Height="350">
-                <StackPanel Spacing="16" Height="302">
+            <Border Style="{StaticResource SectionCardStyle}" MinHeight="350">
+                <Grid RowSpacing="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
                     <TextBlock x:Uid="HomePage_DownloadsHistory" Text="Historique des téléchargements" FontSize="22" FontWeight="SemiBold" />
-                    <lvc:CartesianChart Series="{Binding ChartSeries}" XAxes="{Binding XAxes}" />
-                </StackPanel>
+                    <lvc:CartesianChart Grid.Row="1"
+                                       Series="{Binding ChartSeries}"
+                                       XAxes="{Binding XAxes}"
+                                       MinHeight="260"
+                                       VerticalAlignment="Stretch"
+                                       HorizontalAlignment="Stretch" />
+                </Grid>
             </Border>
 
             <Border Style="{StaticResource SectionCardStyle}">
@@ -187,10 +202,21 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
-                                        <Border Width="64" Height="64" CornerRadius="18" Background="#26FFFFFF" VerticalAlignment="Top">
-                                            <Viewbox>
-                                                <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" />
-                                            </Viewbox>
+                                        <Border Width="64"
+                                                Height="64"
+                                                CornerRadius="18"
+                                                Background="#26FFFFFF"
+                                                VerticalAlignment="Top">
+                                            <Grid>
+                                                <Image Stretch="UniformToFill"
+                                                       Source="{Binding PictureUrl, Converter={StaticResource StringToBitmapImageConverter}}" />
+                                                <Border Background="#40000000"
+                                                        Visibility="{Binding PictureUrl, Converter={StaticResource StringNullOrWhitespaceToVisibilityConverter}}">
+                                                    <Viewbox>
+                                                        <TextBlock Text="{Binding DisplayName}" FontWeight="SemiBold" />
+                                                    </Viewbox>
+                                                </Border>
+                                            </Grid>
                                         </Border>
                                         <StackPanel Grid.Column="1" Spacing="6">
                                             <TextBlock Text="{Binding DisplayName}" FontSize="20" FontWeight="SemiBold" />
@@ -199,7 +225,6 @@
                                             <StackPanel Orientation="Horizontal" Spacing="14">
                                                 <TextBlock Text="{Binding DownloadsLabel}" />
                                                 <TextBlock Text="{Binding EndorsementsLabel}" />
-                                                <TextBlock Text="{Binding ViewsLabel}" />
                                                 <TextBlock Text="{Binding UpdatedLabel}" />
                                             </StackPanel>
                                         </StackPanel>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="OpenModsTracker.StatsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OpenModsTracker"
+    xmlns:lvc="using:LiveChartsCore.SkiaSharpView.WinUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Padding="28" Spacing="20">
+
+            <Border Style="{StaticResource SectionCardStyle}">
+                <Grid RowSpacing="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel>
+                        <TextBlock x:Uid="StatsPage_Title" Text="Stats" FontSize="32" FontWeight="SemiBold" />
+                        <TextBlock x:Uid="StatsPage_Subtitle"
+                                   Text="Charts and trends based on your local history."
+                                   Opacity="0.68"
+                                   TextWrapping="WrapWholeWords" />
+                    </StackPanel>
+
+                    <Grid Grid.Row="1" ColumnSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <TextBlock x:Uid="StatsPage_Domain" Text="Game" VerticalAlignment="Center" Opacity="0.72" />
+                            <ComboBox Width="220"
+                                      ItemsSource="{Binding Domains}"
+                                      SelectedItem="{Binding SelectedDomain, Mode=TwoWay}" />
+
+                            <TextBlock x:Uid="StatsPage_Metric" Text="Metric" VerticalAlignment="Center" Opacity="0.72" />
+                            <ComboBox Width="220"
+                                      SelectedIndex="{Binding SelectedMetricIndex, Mode=TwoWay}"
+                                      SelectionChanged="MetricCombo_SelectionChanged">
+                                <ComboBoxItem x:Uid="StatsPage_Downloads" Content="Downloads" />
+                                <ComboBoxItem x:Uid="StatsPage_Endorsements" Content="Endorsements" />
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                            <RadioButtons SelectedIndex="{Binding SelectedModeIndex, Mode=TwoWay}"
+                                          SelectionChanged="ModeRadio_SelectionChanged">
+                                <RadioButton x:Uid="StatsPage_ModeTotals" Content="Totals" />
+                                <RadioButton x:Uid="StatsPage_ModeTop5" Content="Top 5 mods" />
+                            </RadioButtons>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2" MinHeight="420" RowSpacing="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{Binding ChartTitle}" FontSize="20" FontWeight="SemiBold" />
+
+                        <lvc:CartesianChart Grid.Row="1"
+                                           Series="{Binding ChartSeries}"
+                                           XAxes="{Binding XAxes}"
+                                           YAxes="{Binding YAxes}"
+                                           MinHeight="360"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <InfoBar x:Uid="StatsPage_InfoBar"
+                     Title="Stats"
+                     Message="{Binding InfoMessage}"
+                     IsOpen="{Binding HasInfoMessage}"
+                     Severity="Informational"
+                     IsClosable="False" />
+            <InfoBar x:Uid="StatsPage_ErrorBar"
+                     Title="Stats"
+                     Message="{Binding ErrorMessage}"
+                     IsOpen="{Binding HasErrors}"
+                     Severity="Error"
+                     IsClosable="False" />
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

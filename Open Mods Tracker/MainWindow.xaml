@@ -37,6 +37,7 @@
         <NavigationView.MenuItems>
                 <NavigationViewItem x:Uid="Nav_Home" Icon="Home" Content="Dashboard" Tag="HomePage" IsSelected="True" />
                 <NavigationViewItem x:Uid="Nav_Mods" Icon="Library" Content="Portfolio" Tag="ModsPage" />
+                <NavigationViewItem x:Uid="Nav_Stats" Icon="AllApps" Content="Stats" Tag="StatsPage" />
         </NavigationView.MenuItems>
         <NavigationView.FooterMenuItems>
                 <NavigationViewItem x:Uid="Nav_About" Icon="Help" Content="About" Tag="AboutPage" />

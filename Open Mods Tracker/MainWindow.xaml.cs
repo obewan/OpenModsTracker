@@ -27,6 +27,7 @@ public sealed partial class MainWindow : Window
             {
                 "HomePage" => typeof(HomePage),
                 "ModsPage" => typeof(ModsPage),
+                "StatsPage" => typeof(StatsPage),
                 "AboutPage" => typeof(AboutPage),
                 _ => typeof(HomePage)
             };

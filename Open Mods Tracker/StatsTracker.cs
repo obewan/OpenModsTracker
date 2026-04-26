@@ -2,12 +2,24 @@ using System.Text.Json;
 
 namespace OpenModsTracker;
 
+public sealed class HistoryModMetrics
+{
+    public string Label { get; set; } = string.Empty;
+    public long Downloads { get; set; }
+    public long Endorsements { get; set; }
+}
+
 public sealed class HistoryDataPoint
 {
     public DateTimeOffset Timestamp { get; set; }
     public long TotalDownloads { get; set; }
     public long TotalEndorsements { get; set; }
-    public long TotalViews { get; set; }
+
+    /// <summary>
+    /// Per-mod metrics for a small set (typically top mods).
+    /// Key format: "{gameDomain}:{modId}".
+    /// </summary>
+    public Dictionary<string, HistoryModMetrics> Mods { get; set; } = new();
 }
 
 public sealed class HistoryRecord
@@ -35,7 +47,7 @@ public sealed class StatsTracker
 
     public async Task SaveSnapshotAsync(DashboardSnapshot snapshot)
     {
-        if (snapshot == null || !snapshot.HasMods) return;
+        if (snapshot == null) return;
 
         await _lock.WaitAsync();
         try
@@ -54,7 +66,7 @@ public sealed class StatsTracker
                     last.Timestamp = now;
                     last.TotalDownloads = snapshot.Mods.Sum(m => m.TotalDownloads);
                     last.TotalEndorsements = snapshot.Mods.Sum(m => m.Endorsements);
-                    last.TotalViews = snapshot.Mods.Sum(m => m.Views);
+                    last.Mods = BuildTopMods(snapshot);
                     await SaveHistoryInternalAsync(history);
                     return;
                 }
@@ -65,7 +77,7 @@ public sealed class StatsTracker
                 Timestamp = now,
                 TotalDownloads = snapshot.Mods.Sum(m => m.TotalDownloads),
                 TotalEndorsements = snapshot.Mods.Sum(m => m.Endorsements),
-                TotalViews = snapshot.Mods.Sum(m => m.Views)
+                Mods = BuildTopMods(snapshot)
             });
 
             await SaveHistoryInternalAsync(history);
@@ -74,6 +86,23 @@ public sealed class StatsTracker
         {
             _lock.Release();
         }
+    }
+
+    private static Dictionary<string, HistoryModMetrics> BuildTopMods(DashboardSnapshot snapshot)
+    {
+        // Store a small, stable subset to keep the history file compact.
+        // This is used for per-mod curves on the Stats page.
+        return snapshot.Mods
+            .OrderByDescending(m => m.TotalDownloads)
+            .Take(10)
+            .ToDictionary(
+                m => $"{m.Reference.GameDomain}:{m.Reference.ModId}",
+                m => new HistoryModMetrics
+                {
+                    Label = m.DisplayName,
+                    Downloads = m.TotalDownloads,
+                    Endorsements = m.Endorsements,
+                });
     }
 
     public async Task<HistoryRecord> LoadHistoryAsync()

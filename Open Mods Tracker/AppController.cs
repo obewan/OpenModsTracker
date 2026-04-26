@@ -124,7 +124,7 @@ internal sealed class AppController
             _snapshotTimestamp = DateTimeOffset.Now;
 
             // Save history snapshot
-            _ = StatsTracker.Instance.SaveSnapshotAsync(_snapshot);
+            await StatsTracker.Instance.SaveSnapshotAsync(_snapshot);
 
             return _snapshot;
         }

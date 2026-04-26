@@ -82,10 +82,6 @@ public sealed class PortfolioMod
     public long TotalDownloads { get; init; }
     public long UniqueDownloads { get; init; }
     public long Endorsements { get; init; }
-    public long Views { get; init; }
-    public long Comments { get; init; }
-    public long Bugs { get; init; }
-    public long Tracking { get; init; }
     public DateTimeOffset? UploadedAt { get; init; }
     public DateTimeOffset? UpdatedAt { get; init; }
 
@@ -99,13 +95,8 @@ public sealed class PortfolioMod
     public string DisplayDownloads => FormatCompact(TotalDownloads);
     public string DisplayUniqueDownloads => FormatCompact(UniqueDownloads);
     public string DisplayEndorsements => FormatCompact(Endorsements);
-    public string DisplayViews => FormatCompact(Views);
-    public string DisplayComments => FormatCompact(Comments);
-    public string DisplayBugs => FormatCompact(Bugs);
-    public string DisplayTracking => FormatCompact(Tracking);
     public string DownloadsLabel => $"DL {DisplayDownloads}";
     public string EndorsementsLabel => $"Endorsements {DisplayEndorsements}";
-    public string ViewsLabel => $"Views {DisplayViews}";
     public string UpdatedLabel => $"{Localizer.GetString("UpdatedLabel").TrimEnd(' ', ':')} {DisplayUpdatedAt}";
     public string AuthorLabel => $"{Localizer.GetString("AuthorLabel")}{DisplayAuthor}";
     public string UpdatedAtLabel => $"{Localizer.GetString("UpdatedLabel")}{DisplayUpdatedAt}";
