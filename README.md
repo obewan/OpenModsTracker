@@ -14,7 +14,7 @@ An open-source desktop application to track and manage your Nexus Mods portfolio
 - **Portfolio Management** — Add mods manually or import your entire Nexus profile automatically
 - **Real-time Statistics** — Track top downloaded mods and most endorsed content
 - **Rate Limit Monitoring** — Keep track of your Nexus API usage
-- **Multi-language Support** — Available in English, Chinese, Spanish and French
+- **Multi-language Support** — Available in English, Chinese, German,Spanish, French, Italian, Japanese, Portuguese, Russian and Nederlands.
 
 ## Requirements
 
