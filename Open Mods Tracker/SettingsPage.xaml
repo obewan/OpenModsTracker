@@ -37,6 +37,7 @@
                                 <ComboBoxItem Content="English" Tag="en-US" />
                                 <ComboBoxItem Content="Français" Tag="fr-FR" />
                                 <ComboBoxItem Content="Español" Tag="es-ES" />
+                                <ComboBoxItem Content="中文" Tag="zh-CN" />
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>
