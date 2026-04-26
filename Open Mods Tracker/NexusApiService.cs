@@ -351,10 +351,6 @@ query mods($filter: ModsFilter, $offset: Int, $count: Int, $viewUploaderHidden: 
             TotalDownloads = GetInt64(root, "mod_downloads", "downloads", "total_downloads", "download_count"),
             UniqueDownloads = GetInt64(root, "mod_unique_downloads", "unique_downloads", "unique_download_count"),
             Endorsements = GetInt64(root, "mod_endorsements", "endorsements", "endorsement_count"),
-            Views = GetInt64(root, "mod_views", "views", "view_count"),
-            Comments = GetInt64(root, "comments_count", "posts_count", "comments", "posts"),
-            Bugs = GetInt64(root, "bugs_count", "bugs", "bug_reports_count"),
-            Tracking = GetInt64(root, "tracked_count", "tracking_count", "tracked"),
             UploadedAt = GetDateTime(root, "created_time", "uploaded_timestamp", "published_timestamp", "created_at"),
             UpdatedAt = GetDateTime(root, "updated_time", "updated_timestamp", "last_updated", "updated_at")
         };
@@ -388,7 +384,6 @@ query mods($filter: ModsFilter, $offset: Int, $count: Int, $viewUploaderHidden: 
         var totalDownloads = mods.Sum(static mod => mod.TotalDownloads);
         var totalUniqueDownloads = mods.Sum(static mod => mod.UniqueDownloads);
         var totalEndorsements = mods.Sum(static mod => mod.Endorsements);
-        var totalViews = mods.Sum(static mod => mod.Views);
         var bestDownload = mods.MaxBy(static mod => mod.TotalDownloads);
         var bestEndorsements = mods.MaxBy(static mod => mod.Endorsements);
         var lastUpdated = mods
@@ -421,8 +416,8 @@ query mods($filter: ModsFilter, $offset: Int, $count: Int, $viewUploaderHidden: 
             },
             new SummaryCard
             {
-                Title = "Views",
-                Value = FormatCompact(totalViews),
+                Title = "Mods suivis",
+                Value = FormatCompact(mods.Count),
                 AccentBrush = CreateBrush("#A78BFA"),
                 Subtitle = lastUpdated is null ? "Derniere mise a jour inconnue" : $"Derniere update: {lastUpdated.DisplayName}"
             }

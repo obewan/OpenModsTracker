@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Open Mods Tracker</value>
+  </data>
+  <data name="UnknownAuthor" xml:space="preserve">
+    <value>Auteur inconnu</value>
+  </data>
+  <data name="NoSummary" xml:space="preserve">
+    <value>Aucun resumé fourni par l'API.</value>
+  </data>
+  <data name="UnknownVersion" xml:space="preserve">
+    <value>Version inconnue</value>
+  </data>
+  <data name="StatusUnavailable" xml:space="preserve">
+    <value>Statut indisponible</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Jamais</value>
+  </data>
+  <data name="AuthorLabel" xml:space="preserve">
+    <value>Auteur: </value>
+  </data>
+  <data name="UpdatedLabel" xml:space="preserve">
+    <value>Maj: </value>
+  </data>
+  <data name="CreatedLabel" xml:space="preserve">
+    <value>Création: </value>
+  </data>
+  <data name="NexusUser" xml:space="preserve">
+    <value>Utilisateur Nexus</value>
+  </data>
+  <data name="InvalidAccount" xml:space="preserve">
+    <value>Compte non valide</value>
+  </data>
+  <data name="Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="HomePage_Cockpit.Text" xml:space="preserve">
+    <value>Cockpit créateur</value>
+  </data>
+  <data name="HomePage_Subtitle.Text" xml:space="preserve">
+    <value>Une vue claire de tes mods Nexus: traction, engagement, portfolio le plus performant.</value>
+  </data>
+  <data name="HomePage_Account.Text" xml:space="preserve">
+    <value>Compte</value>
+  </data>
+  <data name="HomePage_Tier.Text" xml:space="preserve">
+    <value>Tier</value>
+  </data>
+  <data name="HomePage_LastRefresh.Text" xml:space="preserve">
+    <value>Dernier refresh</value>
+  </data>
+  <data name="HomePage_RefreshBtn.Content" xml:space="preserve">
+    <value>Rafraîchir</value>
+  </data>
+  <data name="HomePage_DailyQuota.Text" xml:space="preserve">
+    <value>Quota API journalier</value>
+  </data>
+  <data name="HomePage_HourlyQuota.Text" xml:space="preserve">
+    <value>Quota API horaire</value>
+  </data>
+  <data name="HomePage_DashboardState.Title" xml:space="preserve">
+    <value>État du dashboard</value>
+  </data>
+  <data name="HomePage_NexusAPI.Title" xml:space="preserve">
+    <value>API Nexus</value>
+  </data>
+  <data name="HomePage_TopDownloads.Text" xml:space="preserve">
+    <value>Top téléchargements</value>
+  </data>
+  <data name="HomePage_TopEndorsements.Text" xml:space="preserve">
+    <value>Top endorsements</value>
+  </data>
+  <data name="HomePage_ModsToWatch.Text" xml:space="preserve">
+    <value>Mods à surveiller</value>
+  </data>
+  <data name="HomePage_ModsToWatchSub.Text" xml:space="preserve">
+    <value>Les cartes ci-dessous mettent en avant les chiffres les plus utiles pour repérer les mods qui tirent le portfolio.</value>
+  </data>
+  <data name="HomePage_DownloadsHistory.Text" xml:space="preserve">
+    <value>Historique des téléchargements</value>
+  </data>
+  <data name="OpenBtn.Content" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="ModsPage_Title.Text" xml:space="preserve">
+    <value>Portfolio</value>
+  </data>
+  <data name="ModsPage_Subtitle.Text" xml:space="preserve">
+    <value>Toutes les fiches suivies, triées par performance.</value>
+  </data>
+  <data name="ModsPage_SortBy.Text" xml:space="preserve">
+    <value>Trier par:</value>
+  </data>
+  <data name="ModsPage_SortDownloads.Content" xml:space="preserve">
+    <value>Téléchargements</value>
+  </data>
+  <data name="ModsPage_SortEndorsements.Content" xml:space="preserve">
+    <value>Endorsements</value>
+  </data>
+  <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
+    <value>Dernière maj</value>
+  </data>
+  <data name="ModsPage_SortViews.Content" xml:space="preserve">
+    <value>Vues</value>
+  </data>
+  <data name="ModsPage_SortComments.Content" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
+    <value>Rechercher par nom...</value>
+  </data>
+  <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
+    <value>Découvrir de nouveaux mods</value>
+  </data>
+  <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
+    <value>Ajoute d'abord ta clé API Nexus dans les paramètres.</value>
+  </data>
+  <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
+    <value>Ouvre le dashboard une fois pour détecter ton pseudo Nexus.</value>
+  </data>
+  <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
+    <value>Aucun nouveau mod trouvé pour ton profil.</value>
+  </data>
+  <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
+    <value>{0} nouveaux mods trouvés</value>
+  </data>
+  <data name="ModsPage_Discover_AddAll" xml:space="preserve">
+    <value>Tout ajouter</value>
+  </data>
+  <data name="ModsPage_Discover_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
+    <value>{0} mods ajoutés au portfolio.</value>
+  </data>
+  <data name="SettingsPage_Title.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SettingsPage_General.Text" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="SettingsPage_Language.Text" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="SettingsPage_Theme.Text" xml:space="preserve">
+    <value>Thème de l'application</value>
+  </data>
+  <data name="SettingsPage_API.Text" xml:space="preserve">
+    <value>API Nexus</value>
+  </data>
+  <data name="SettingsPage_APIKey.Header" xml:space="preserve">
+    <value>Clé API Personnelle</value>
+  </data>
+  <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
+    <value>Requise pour récupérer les données depuis Nexus Mods.</value>
+  </data>
+  <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
+    <value>Configuration du Portfolio</value>
+  </data>
+  <data name="SettingsPage_PortfolioSub.Text" xml:space="preserve">
+    <value>Entrez vos URLs de mods ou IDs (un par ligne).</value>
+  </data>
+  <data name="SettingsPage_ThemeSaved" xml:space="preserve">
+    <value>Thème enregistré. Redémarre l'application pour voir le changement partout.</value>
+  </data>
+  <data name="SettingsPage_ConfigSaved" xml:space="preserve">
+    <value>Configuration enregistrée localement.</value>
+  </data>
+  <data name="SettingsPage_ValidationSuccess" xml:space="preserve">
+    <value>Validation Nexus réussie.</value>
+  </data>
+  <data name="SettingsPage_ValidationFailed" xml:space="preserve">
+    <value>Validation impossible: </value>
+  </data>
+  <data name="SettingsPage_ConfigSavedRefreshed" xml:space="preserve">
+    <value>Configuration sauvée et dashboard invalide/rafraichi.</value>
+  </data>
+  <data name="SettingsPage_ImportInProgress" xml:space="preserve">
+    <value>Import GraphQL en cours...</value>
+  </data>
+  <data name="SettingsPage_ImportFinished" xml:space="preserve">
+    <value>Import auteur via GraphQL terminé.</value>
+  </data>
+  <data name="SettingsPage_ImportFailed" xml:space="preserve">
+    <value>Import impossible: </value>
+  </data>
+  <data name="SettingsPage_KeySaved" xml:space="preserve">
+    <value>Clé enregistrée. Tu peux tester ou revenir au dashboard.</value>
+  </data>
+  <data name="SettingsPage_ModsZero" xml:space="preserve">
+    <value>0 mod détecté. Ajoute des URLs Nexus ou des paires game|id.</value>
+  </data>
+  <data name="SettingsPage_ModsOne" xml:space="preserve">
+    <value>1 mod détecté: </value>
+  </data>
+  <data name="SettingsPage_ModsMany" xml:space="preserve">
+    <value> mods détectés. Premier mod: </value>
+  </data>
+  <data name="SettingsPage_LangSaved" xml:space="preserve">
+    <value>Langue sauvegardée. Redémarre l'application pour appliquer.</value>
+  </data>
+  <data name="Nav_Home.Content" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Nav_Mods.Content" xml:space="preserve">
+    <value>Mods</value>
+  </data>
+  <data name="Nav_Settings.Content" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Nav_About.Content" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="MainWindow_AppTitle.Text" xml:space="preserve">
+    <value>Open Mods Tracker</value>
+  </data>
+  <data name="MainWindow_AppSubtitle.Text" xml:space="preserve">
+    <value>Dashboard Nexus pour suivre tes mods et voir ce qui performe vraiment.</value>
+  </data>
+  <data name="Nav_Stats.Content" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="ModsPage_Domain.Text" xml:space="preserve">
+    <value>Jeu:</value>
+  </data>
+  <data name="StatsPage_Title.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_Subtitle.Text" xml:space="preserve">
+    <value>Courbes et tendances basées sur l'historique local.</value>
+  </data>
+  <data name="StatsPage_Domain.Text" xml:space="preserve">
+    <value>Jeu</value>
+  </data>
+  <data name="StatsPage_Recency.Text" xml:space="preserve">
+    <value>Récence</value>
+  </data>
+  <data name="StatsPage_Metric.Text" xml:space="preserve">
+    <value>Métrique</value>
+  </data>
+  <data name="StatsPage_Downloads.Content" xml:space="preserve">
+    <value>Téléchargements</value>
+  </data>
+  <data name="StatsPage_Endorsements.Content" xml:space="preserve">
+    <value>Endorsements</value>
+  </data>
+  <data name="StatsPage_ModeTotals.Content" xml:space="preserve">
+    <value>Totaux</value>
+  </data>
+  <data name="StatsPage_ModeTop5.Content" xml:space="preserve">
+    <value>Top 10 mods</value>
+  </data>
+  <data name="StatsPage_ModeTotalsLabel" xml:space="preserve">
+    <value>Totaux</value>
+  </data>
+  <data name="StatsPage_ModeTop10Label" xml:space="preserve">
+    <value>Top 10 mods</value>
+  </data>
+  <data name="StatsPage_Metric_Downloads" xml:space="preserve">
+    <value>Téléchargements</value>
+  </data>
+  <data name="StatsPage_Metric_Endorsements" xml:space="preserve">
+    <value>Endorsements</value>
+  </data>
+  <data name="StatsPage_InfoBar.Title" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_ErrorBar.Title" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="StatsPage_NoHistory" xml:space="preserve">
+    <value>Aucun historique pour l'instant. Rafraîchis le dashboard pour créer un premier point.</value>
+  </data>
+  <data name="StatsPage_NoPerModHistory" xml:space="preserve">
+    <value>Aucun historique par mod pour l'instant. Rafraîchis le dashboard pour enregistrer les top mods.</value>
+  </data>
+  <data name="StatsPage_ChartTitle_History" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="StatsPage_TableSort_Name.Content" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="StatsPage_TableSort_Latest.Content" xml:space="preserve">
+    <value>Dernier</value>
+  </data>
+  <data name="StatsPage_TableSort_Delta.Content" xml:space="preserve">
+    <value>Δ</value>
+  </data>
+  <data name="StatsPage_TableHeader_Mod.Text" xml:space="preserve">
+    <value>Mod</value>
+  </data>
+  <data name="StatsPage_TableHeader_Domain.Text" xml:space="preserve">
+    <value>Jeu</value>
+  </data>
+  <data name="StatsPage_TableHeader_Latest.Text" xml:space="preserve">
+    <value>Dernier</value>
+  </data>
+  <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
+    <value>Δ</value>
+  </data>
+</root>

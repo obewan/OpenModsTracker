@@ -6,15 +6,14 @@
     xmlns:local="using:OpenModsTracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Padding="28" Spacing="20">
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="12">
-                    <TextBlock Text="Parametres Nexus" FontSize="28" FontWeight="SemiBold" />
-                    <TextBlock Text="Configure la cle API personnelle et la liste des mods a suivre. Une ligne par mod, avec une URL Nexus ou le format game|id." Opacity="0.72" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_Title" Text="Parametres Nexus" FontSize="28" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_GeneralInfo" Text="Configure la cle API personnelle et la liste des mods a suivre. Une ligne par mod, avec une URL Nexus ou le format game|id." Opacity="0.72" TextWrapping="WrapWholeWords" />
                 </StackPanel>
             </Border>
 
@@ -22,22 +21,31 @@
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock Text="Apparence" FontSize="22" FontWeight="SemiBold" />
-                    <StackPanel Orientation="Horizontal" Spacing="12">
-                        <TextBlock Text="Theme" VerticalAlignment="Center" />
-                        <ToggleSwitch x:Name="themeToggleSwitch"
-                                      OffContent="Dark"
-                                      OnContent="Light"
-                                      Toggled="OnThemeSwitch_Toggled"
-                                      Loaded="OnThemeSwitch_Loaded" />
+                    <TextBlock x:Uid="SettingsPage_General" Text="Général" FontSize="22" FontWeight="SemiBold" />
+                    <StackPanel Orientation="Horizontal" Spacing="24">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <TextBlock x:Uid="SettingsPage_Theme" Text="Theme" VerticalAlignment="Center" />
+                            <ToggleSwitch x:Name="themeToggleSwitch"
+                                          OffContent="Dark"
+                                          OnContent="Light"
+                                          Toggled="OnThemeSwitch_Toggled"
+                                          Loaded="OnThemeSwitch_Loaded" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <TextBlock x:Uid="SettingsPage_Language" Text="Langue" VerticalAlignment="Center" />
+                            <ComboBox x:Name="LanguageComboBox" Width="150" SelectionChanged="LanguageComboBox_SelectionChanged">
+                                <ComboBoxItem Content="English" Tag="en-US" />
+                                <ComboBoxItem Content="Français" Tag="fr-FR" />
+                            </ComboBox>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </Border>
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock Text="Cle API" FontSize="22" FontWeight="SemiBold" />
-                    <TextBlock Text="La cle personnelle se genere depuis la page API Access de Nexus Mods. Elle reste locale a l'application." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_API" Text="Cle API" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_APIKeyInfo" Text="La cle personnelle se genere depuis la page API Access de Nexus Mods. Elle reste locale a l'application." Opacity="0.7" TextWrapping="WrapWholeWords" />
                     <Grid ColumnSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -46,15 +54,17 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <PasswordBox x:Name="ApiKeyPasswordBox"
+                                     x:Uid="SettingsPage_APIKeyInput"
                                      PlaceholderText="Colle ici ta cle API Nexus"
                                      PasswordChanged="ApiKeyPasswordBox_PasswordChanged" />
                         <CheckBox Grid.Column="1"
                                   x:Name="RevealCheckBox"
+                                  x:Uid="SettingsPage_RevealBtn"
                                   Content="Afficher"
                                   Checked="RevealModeCheckbox_Changed"
                                   Unchecked="RevealModeCheckbox_Changed" />
-                        <Button Grid.Column="2" Content="Sauver" Click="SaveSettingsButton_Click" />
-                        <Button Grid.Column="3" Content="Tester" Click="ValidateButton_Click" IsEnabled="{Binding CanValidate}" />
+                        <Button Grid.Column="2" x:Uid="SettingsPage_SaveBtn" Content="Sauver" Click="SaveSettingsButton_Click" />
+                        <Button Grid.Column="3" x:Uid="SettingsPage_TestBtn" Content="Tester" Click="ValidateButton_Click" IsEnabled="{Binding CanValidate}" />
                     </Grid>
                     <TextBlock Text="{Binding ValidationMessage}" Foreground="{StaticResource AppMutedBrush}" TextWrapping="WrapWholeWords" />
                 </StackPanel>
@@ -68,10 +78,10 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock Text="Portfolio de mods" FontSize="22" FontWeight="SemiBold" />
-                            <TextBlock Text="Exemples: `https://www.nexusmods.com/skyrimspecialedition/mods/12604` ou `fallout4|12345`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Uid="SettingsPage_Portfolio" Text="Portfolio de mods" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="SettingsPage_PortfolioSub" Text="Exemples: `https://www.nexusmods.com/skyrimspecialedition/mods/12604` ou `fallout4|12345`." Opacity="0.7" TextWrapping="WrapWholeWords" />
                         </StackPanel>
-                        <Button Grid.Column="1" Content="Sauver et rafraichir" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
+                        <Button Grid.Column="1" x:Uid="SettingsPage_SaveRefreshBtn" Content="Sauver et rafraichir" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
                     </Grid>
 
                     <TextBox x:Name="PortfolioTextBox"
@@ -79,6 +89,7 @@
                              MinHeight="220"
                              TextWrapping="Wrap"
                              VerticalAlignment="Stretch"
+                             x:Uid="SettingsPage_PortfolioInput"
                              PlaceholderText="Une URL de mod par ligne"
                              TextChanged="PortfolioTextBox_TextChanged" />
 

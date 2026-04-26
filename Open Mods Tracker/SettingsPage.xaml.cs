@@ -8,9 +8,9 @@ namespace OpenModsTracker;
 public sealed partial class SettingsPage : Page, INotifyPropertyChanged
 {
     private string _statusMessage = string.Empty;
-    private string _validationMessage = "Teste la cle pour verifier le compte Nexus associe.";
-    private string _portfolioSummary = "0 mod detecte.";
-    private string _importSummary = "Importe tous les mods d'un profil sans les ajouter un par un.";
+    private string _validationMessage = ""; // Initialized in Loaded or not needed if placeholder is fine
+    private string _portfolioSummary = Localizer.GetString("SettingsPage_ModsZero");
+    private string _importSummary = ""; // Can be set if needed
 
     public SettingsPage()
     {
@@ -67,13 +67,34 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         {
             ImportProfileTextBox.Text = cachedDashboard.User.Name;
         }
+
+        var lang = AppController.Instance.LoadLanguagePreference();
+        if (string.IsNullOrEmpty(lang)) lang = "en-US";
+        
+        foreach (ComboBoxItem item in LanguageComboBox.Items)
+        {
+            if (item.Tag.ToString() == lang)
+            {
+                LanguageComboBox.SelectedItem = item;
+                break;
+            }
+        }
+    }
+
+    private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (LanguageComboBox.SelectedItem is ComboBoxItem item && item.Tag is string lang)
+        {
+            AppController.Instance.SaveLanguagePreference(lang);
+            StatusMessage = Localizer.GetString("SettingsPage_LangSaved");
+        }
     }
 
     private void OnThemeSwitch_Toggled(object sender, RoutedEventArgs e)
     {
         ApplicationTheme applicationTheme = themeToggleSwitch.IsOn ? ApplicationTheme.Light : ApplicationTheme.Dark;
         AppController.Instance.SaveThemePreference(applicationTheme);
-        StatusMessage = "Theme enregistre. Redemarre l'application pour voir le changement partout.";
+        StatusMessage = Localizer.GetString("SettingsPage_ThemeSaved");
     }
 
     private void OnThemeSwitch_Loaded(object sender, RoutedEventArgs e)
@@ -104,7 +125,7 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
     private void SaveSettingsButton_Click(object sender, RoutedEventArgs e)
     {
         SaveAll();
-        StatusMessage = "Configuration enregistree localement.";
+        StatusMessage = Localizer.GetString("SettingsPage_ConfigSaved");
     }
 
     private async void ValidateButton_Click(object sender, RoutedEventArgs e)
@@ -113,8 +134,8 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         {
             SaveAll();
             var user = await AppController.Instance.ValidateUserAsync();
-            ValidationMessage = $"Cle valide pour {user.DisplayName} ({user.DisplayTier}).";
-            StatusMessage = "Validation Nexus reussie.";
+            ValidationMessage = $"{Localizer.GetString("SettingsPage_ValidationSuccess")} {user.DisplayName} ({user.DisplayTier}).";
+            StatusMessage = Localizer.GetString("SettingsPage_ValidationSuccess");
             if (string.IsNullOrWhiteSpace(ImportProfileTextBox.Text))
             {
                 ImportProfileTextBox.Text = user.Name;
@@ -122,7 +143,7 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            ValidationMessage = $"Validation impossible: {ex.Message}";
+            ValidationMessage = $"{Localizer.GetString("SettingsPage_ValidationFailed")}{ex.Message}";
         }
     }
 
@@ -132,7 +153,7 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         {
             SaveAll();
             await AppController.Instance.GetDashboardAsync(true);
-            StatusMessage = "Configuration sauvee et dashboard invalide/refraichi.";
+            StatusMessage = Localizer.GetString("SettingsPage_ConfigSavedRefreshed");
         }
         catch (Exception ex)
         {
@@ -145,7 +166,7 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         try
         {
             SaveAll();
-            ImportSummary = "Import GraphQL en cours...";
+            ImportSummary = Localizer.GetString("SettingsPage_ImportInProgress");
             var importedPortfolio = await new NexusApiService().ImportPortfolioAsync(
                 ApiKeyPasswordBox.Password,
                 ImportProfileTextBox.Text,
@@ -155,12 +176,12 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
             PortfolioTextBox.Text = string.Join(Environment.NewLine, merged.Select(static mod => mod.CanonicalUrl));
             SaveAll();
 
-            ImportSummary = $"{importedPortfolio.Mods.Count} mods importes pour {importedPortfolio.ProfileName} (memberId {importedPortfolio.MemberId}).";
-            StatusMessage = "Import auteur via GraphQL termine.";
+            ImportSummary = $"{importedPortfolio.Mods.Count} mods imported for {importedPortfolio.ProfileName}";
+            StatusMessage = Localizer.GetString("SettingsPage_ImportFinished");
         }
         catch (Exception ex)
         {
-            ImportSummary = $"Import impossible: {ex.Message}";
+            ImportSummary = $"{Localizer.GetString("SettingsPage_ImportFailed")}{ex.Message}";
         }
     }
 
@@ -169,7 +190,7 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         AppController.Instance.SaveUserKey(ApiKeyPasswordBox.Password);
         AppController.Instance.SavePortfolio(PortfolioTextBox.Text);
         UpdatePortfolioSummary();
-        ValidationMessage = "Cle enregistree. Tu peux tester ou revenir au dashboard.";
+        ValidationMessage = Localizer.GetString("SettingsPage_KeySaved");
     }
 
     private void UpdatePortfolioSummary()
@@ -177,9 +198,9 @@ public sealed partial class SettingsPage : Page, INotifyPropertyChanged
         var parsed = ModReference.ParseMany(PortfolioTextBox.Text);
         PortfolioSummary = parsed.Count switch
         {
-            0 => "0 mod detecte. Ajoute des URLs Nexus ou des paires game|id.",
-            1 => $"1 mod detecte: {parsed[0].GameDomain}/{parsed[0].ModId}",
-            _ => $"{parsed.Count} mods detectes. Premier mod: {parsed[0].GameDomain}/{parsed[0].ModId}"
+            0 => Localizer.GetString("SettingsPage_ModsZero"),
+            1 => $"{Localizer.GetString("SettingsPage_ModsOne")}{parsed[0].GameDomain}/{parsed[0].ModId}",
+            _ => $"{parsed.Count}{Localizer.GetString("SettingsPage_ModsMany")}{parsed[0].GameDomain}/{parsed[0].ModId}"
         };
     }
 

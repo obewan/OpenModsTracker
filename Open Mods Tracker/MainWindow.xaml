@@ -8,7 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Open Mods Tracker"
     mc:Ignorable="d">
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+    <Grid>
         <NavigationView x:Name="navigationView"
                         PaneDisplayMode="Left"
                         IsBackButtonVisible="Collapsed"
@@ -16,17 +19,28 @@
                         SelectionChanged="NavigationView_SelectionChanged"
                         Loaded="NavigationView_Loaded">
             <NavigationView.Header>
-                <StackPanel Orientation="Vertical" Spacing="2">
-                    <TextBlock Text="Open Mods Tracker" Style="{StaticResource TitleTextBlockStyle}" />
-                    <TextBlock Text="Dashboard Nexus pour suivre tes mods et voir ce qui performe vraiment." Opacity="0.72" />
-                </StackPanel>
+                <Border Margin="24,24,24,0" Padding="12,12">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="HeaderLogoImage" Width="42" Height="42" Margin="0,0,16,0" VerticalAlignment="Center" 
+                               ActualThemeChanged="HeaderLogoImage_ActualThemeChanged" Loaded="HeaderLogoImage_Loaded" />
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Spacing="2" VerticalAlignment="Center">
+                            <TextBlock x:Uid="MainWindow_AppTitle" Text="Open Mods Tracker" FontSize="26" FontWeight="Bold" />
+                            <TextBlock x:Uid="MainWindow_AppSubtitle" Text="Dashboard Nexus pour suivre tes mods et voir ce qui performe vraiment." FontSize="14" Foreground="{ThemeResource AppMutedBrush}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
             </NavigationView.Header>
         <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Dashboard" Tag="HomePage" IsSelected="True" />
-                <NavigationViewItem Icon="Library" Content="Portfolio" Tag="ModsPage" />
+                <NavigationViewItem x:Uid="Nav_Home" Icon="Home" Content="Dashboard" Tag="HomePage" IsSelected="True" />
+                <NavigationViewItem x:Uid="Nav_Mods" Icon="Library" Content="Portfolio" Tag="ModsPage" />
+                <NavigationViewItem x:Uid="Nav_Stats" Icon="AllApps" Content="Stats" Tag="StatsPage" />
         </NavigationView.MenuItems>
         <NavigationView.FooterMenuItems>
-                <NavigationViewItem Icon="Help" Content="About" Tag="AboutPage" />
+                <NavigationViewItem x:Uid="Nav_About" Icon="Help" Content="About" Tag="AboutPage" />
         </NavigationView.FooterMenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>

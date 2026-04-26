@@ -54,6 +54,18 @@ internal sealed class AppController
         return LoadSettings().ApplicationTheme;
     }
 
+    public void SaveLanguagePreference(string languageCode)
+    {
+        var settings = LoadSettings();
+        settings.Language = languageCode;
+        SaveSettings(settings);
+    }
+
+    public string LoadLanguagePreference()
+    {
+        return LoadSettings().Language;
+    }
+
     public void SaveUserKey(string key)
     {
         var settings = LoadSettings();
@@ -110,6 +122,10 @@ internal sealed class AppController
 
             _snapshot = await _apiService.BuildDashboardAsync(LoadUserKey(), LoadPortfolioReferences(), cancellationToken);
             _snapshotTimestamp = DateTimeOffset.Now;
+
+            // Save history snapshot
+            await StatsTracker.Instance.SaveSnapshotAsync(_snapshot);
+
             return _snapshot;
         }
         finally
@@ -188,6 +204,7 @@ internal sealed class AppController
     private sealed class AppSettings
     {
         public ApplicationTheme? ApplicationTheme { get; set; }
+        public string Language { get; set; } = string.Empty;
         public string UserKey { get; set; } = string.Empty;
         public string Portfolio { get; set; } = string.Empty;
     }
