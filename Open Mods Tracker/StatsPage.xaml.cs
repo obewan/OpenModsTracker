@@ -9,6 +9,18 @@ using SkiaSharp;
 
 namespace OpenModsTracker;
 
+public sealed class StatsModRow
+{
+    public required string ModKey { get; init; }
+    public required string Name { get; init; }
+    public required string Domain { get; init; }
+    public required long Latest { get; init; }
+    public required long Previous { get; init; }
+    public long Delta => Latest - Previous;
+    public required string LatestText { get; init; }
+    public required string DeltaText { get; init; }
+}
+
 public sealed partial class StatsPage : Page, INotifyPropertyChanged
 {
     private string _infoMessage = string.Empty;
@@ -21,6 +33,8 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
     private int _selectedModeIndex;
     private IReadOnlyList<string> _domains = [];
     private string _selectedDomain = "All";
+    private IReadOnlyList<StatsModRow> _modRows = [];
+    private TableSort _tableSort = TableSort.LatestDesc;
 
     private HistoryRecord? _history;
 
@@ -122,6 +136,12 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         }
     }
 
+    public IReadOnlyList<StatsModRow> ModRows
+    {
+        get => _modRows;
+        set => SetProperty(ref _modRows, value);
+    }
+
     private async void StatsPage_Loaded(object sender, RoutedEventArgs e)
     {
         await LoadAsync();
@@ -177,6 +197,7 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         if (_history is null || _history.DataPoints.Count == 0)
         {
             ChartSeries = [];
+            ModRows = [];
             return;
         }
 
@@ -205,6 +226,72 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         ChartSeries = mode == Mode.Totals
             ? BuildTotalsSeries(metric)
             : BuildTopModsSeries(metric);
+
+        ModRows = BuildModRows(metric);
+    }
+
+    private IReadOnlyList<StatsModRow> BuildModRows(Metric metric)
+    {
+        if (_history is null || _history.DataPoints.Count == 0)
+        {
+            return [];
+        }
+
+        var last = _history.DataPoints.Last();
+        var prev = _history.DataPoints.Count >= 2 ? _history.DataPoints[^2] : null;
+
+        IEnumerable<string> keys = last.Mods.Keys;
+        if (!string.IsNullOrWhiteSpace(SelectedDomain) &&
+            !SelectedDomain.Equals("All", StringComparison.OrdinalIgnoreCase))
+        {
+            keys = keys.Where(k => k.StartsWith(SelectedDomain + ":", StringComparison.OrdinalIgnoreCase));
+        }
+
+        var rows = keys
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .Take(10)
+            .Select(key =>
+            {
+                last.Mods.TryGetValue(key, out var lastMetrics);
+                HistoryModMetrics? prevMetrics = null;
+                if (prev is not null)
+                {
+                    prev.Mods.TryGetValue(key, out prevMetrics);
+                }
+
+                var latest = lastMetrics is null ? 0 : metric == Metric.Endorsements ? lastMetrics.Endorsements : lastMetrics.Downloads;
+                var previous = prevMetrics is null ? 0 : metric == Metric.Endorsements ? prevMetrics.Endorsements : prevMetrics.Downloads;
+
+                var name = lastMetrics?.Label;
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    name = prevMetrics?.Label;
+                }
+
+                var domain = key.Split(':', 2)[0];
+
+                var delta = latest - previous;
+                var deltaText = delta >= 0 ? $"+{delta:N0}" : $"{delta:N0}";
+
+                return new StatsModRow
+                {
+                    ModKey = key,
+                    Name = string.IsNullOrWhiteSpace(name) ? key : name,
+                    Domain = domain,
+                    Latest = latest,
+                    Previous = previous,
+                    LatestText = latest.ToString("N0"),
+                    DeltaText = deltaText
+                };
+            })
+            .ToList();
+
+        return _tableSort switch
+        {
+            TableSort.NameAsc => rows.OrderBy(r => r.Name, StringComparer.CurrentCultureIgnoreCase).ToList(),
+            TableSort.DeltaDesc => rows.OrderByDescending(r => r.Delta).ToList(),
+            _ => rows.OrderByDescending(r => r.Latest).ToList()
+        };
     }
 
     private ISeries[] BuildTotalsSeries(Metric metric)
@@ -317,6 +404,24 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
         UpdateChart();
     }
 
+    private void SortByName_Click(object sender, RoutedEventArgs e)
+    {
+        _tableSort = TableSort.NameAsc;
+        UpdateChart();
+    }
+
+    private void SortByLatest_Click(object sender, RoutedEventArgs e)
+    {
+        _tableSort = TableSort.LatestDesc;
+        UpdateChart();
+    }
+
+    private void SortByDelta_Click(object sender, RoutedEventArgs e)
+    {
+        _tableSort = TableSort.DeltaDesc;
+        UpdateChart();
+    }
+
     private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(storage, value))
@@ -344,6 +449,13 @@ public sealed partial class StatsPage : Page, INotifyPropertyChanged
     {
         Totals,
         TopMods
+    }
+
+    private enum TableSort
+    {
+        LatestDesc,
+        DeltaDesc,
+        NameAsc
     }
 }
 

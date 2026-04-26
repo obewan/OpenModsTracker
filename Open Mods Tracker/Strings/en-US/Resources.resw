@@ -288,4 +288,28 @@
   <data name="StatsPage_ChartTitle_History" xml:space="preserve">
     <value>History</value>
   </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="StatsPage_TableSort_Name.Content" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="StatsPage_TableSort_Latest.Content" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="StatsPage_TableSort_Delta.Content" xml:space="preserve">
+    <value>Δ</value>
+  </data>
+  <data name="StatsPage_TableHeader_Mod.Text" xml:space="preserve">
+    <value>Mod</value>
+  </data>
+  <data name="StatsPage_TableHeader_Domain.Text" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="StatsPage_TableHeader_Latest.Text" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
+    <value>Δ</value>
+  </data>
 </root>
