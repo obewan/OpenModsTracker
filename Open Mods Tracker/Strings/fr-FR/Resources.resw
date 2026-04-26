@@ -200,8 +200,45 @@
   </data>
   <data name="SettingsPage_PortfolioSub.Text" xml:space="preserve">
     <value>Entrez vos URLs de mods ou IDs (un par ligne).</value>
+  </data>  <data name="SettingsPage_GeneralInfo.Text" xml:space="preserve">
+    <value>Configure la clé API personnelle et la liste des mods à suivre. Une ligne par mod, avec une URL Nexus ou le format game|id.</value>
   </data>
-  <data name="SettingsPage_ThemeSaved" xml:space="preserve">
+  <data name="SettingsPage_RevealBtn.Content" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="SettingsPage_SaveBtn.Content" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="SettingsPage_TestBtn.Content" xml:space="preserve">
+    <value>Tester</value>
+  </data>
+  <data name="SettingsPage_SaveRefreshBtn.Content" xml:space="preserve">
+    <value>Sauvegarder et rafraîchir</value>
+  </data>
+  <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
+    <value>Une URL de mod par ligne</value>
+  </data>
+  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+    <value>Résumé du parsing</value>
+  </data>
+  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+    <value>Conseil</value>
+  </data>
+  <data name="SettingsPage_AdviceText" xml:space="preserve">
+    <value>Comme l'API publique documentée ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de vérité pour ton tableau de bord.</value>
+  </data>
+  <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
+    <value>Import GraphQL</value>
+  </data>
+  <data name="SettingsPage_ImportGraphQLInfo.Text" xml:space="preserve">
+    <value>Le profil Nexus peut maintenant être importé automatiquement via l'API GraphQL v2. Tu peux saisir ton pseudo Nexus ou une URL `next.nexusmods.com/profile/...`.</value>
+  </data>
+  <data name="SettingsPage_ImportProfileInput.PlaceholderText" xml:space="preserve">
+    <value>Pseudo Nexus ou URL de profil</value>
+  </data>
+  <data name="SettingsPage_ImportBtn.Content" xml:space="preserve">
+    <value>Importer mes mods</value>
+  </data>  <data name="SettingsPage_ThemeSaved" xml:space="preserve">
     <value>Thème enregistré. Redémarre l'application pour voir le changement partout.</value>
   </data>
   <data name="SettingsPage_ConfigSaved" xml:space="preserve">

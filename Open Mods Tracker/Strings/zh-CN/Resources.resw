@@ -40,345 +40,342 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppTitle" xml:space="preserve">
-    <value>Open Mods Tracker</value>
+    <value>开放式模组追踪器</value>
   </data>
   <data name="UnknownAuthor" xml:space="preserve">
-    <value>Unknown Author</value>
+    <value>未知作者</value>
   </data>
   <data name="NoSummary" xml:space="preserve">
-    <value>No summary provided by the API.</value>
+    <value>API未提供摘要。</value>
   </data>
   <data name="UnknownVersion" xml:space="preserve">
-    <value>Unknown version</value>
+    <value>未知版本</value>
   </data>
   <data name="StatusUnavailable" xml:space="preserve">
-    <value>Status unavailable</value>
+    <value>状态不可用</value>
   </data>
   <data name="Never" xml:space="preserve">
-    <value>Never</value>
+    <value>从未</value>
   </data>
   <data name="AuthorLabel" xml:space="preserve">
-    <value>Author: </value>
+    <value>作者：</value>
   </data>
   <data name="UpdatedLabel" xml:space="preserve">
-    <value>Updated: </value>
+    <value>更新于：</value>
   </data>
   <data name="CreatedLabel" xml:space="preserve">
-    <value>Created: </value>
+    <value>创建于：</value>
   </data>
   <data name="NexusUser" xml:space="preserve">
-    <value>Nexus User</value>
+    <value>Nexus用户</value>
   </data>
   <data name="InvalidAccount" xml:space="preserve">
-    <value>Invalid Account</value>
+    <value>无效账户</value>
   </data>
   <data name="Standard" xml:space="preserve">
-    <value>Standard</value>
+    <value>标准</value>
   </data>
   <data name="HomePage_Cockpit.Text" xml:space="preserve">
-    <value>Creator cockpit</value>
+    <value>创作者控制台</value>
   </data>
   <data name="HomePage_Subtitle.Text" xml:space="preserve">
-    <value>A clear view of your Nexus mods: traction, engagement, top performing portfolio.</value>
+    <value>清晰了解你的Nexus模组：下载量、参与度、表现最优的组合。</value>
   </data>
   <data name="HomePage_Account.Text" xml:space="preserve">
-    <value>Account</value>
+    <value>账户</value>
   </data>
   <data name="HomePage_Tier.Text" xml:space="preserve">
-    <value>Tier</value>
+    <value>等级</value>
   </data>
   <data name="HomePage_LastRefresh.Text" xml:space="preserve">
-    <value>Last refresh</value>
+    <value>上次刷新</value>
   </data>
   <data name="HomePage_RefreshBtn.Content" xml:space="preserve">
-    <value>Refresh</value>
+    <value>刷新</value>
   </data>
   <data name="HomePage_DailyQuota.Text" xml:space="preserve">
-    <value>Daily API quota</value>
+    <value>每日API配额</value>
   </data>
   <data name="HomePage_HourlyQuota.Text" xml:space="preserve">
-    <value>Hourly API quota</value>
+    <value>每小时API配额</value>
   </data>
   <data name="HomePage_DashboardState.Title" xml:space="preserve">
-    <value>Dashboard state</value>
+    <value>控制台状态</value>
   </data>
   <data name="HomePage_NexusAPI.Title" xml:space="preserve">
     <value>Nexus API</value>
   </data>
   <data name="HomePage_TopDownloads.Text" xml:space="preserve">
-    <value>Top downloads</value>
+    <value>下载最多</value>
   </data>
   <data name="HomePage_TopEndorsements.Text" xml:space="preserve">
-    <value>Top endorsements</value>
+    <value>好评最多</value>
   </data>
   <data name="HomePage_ModsToWatch.Text" xml:space="preserve">
-    <value>Mods to watch</value>
+    <value>值得关注的模组</value>
   </data>
   <data name="HomePage_ModsToWatchSub.Text" xml:space="preserve">
-    <value>The cards below highlight the most useful metrics to spot the mods driving your portfolio.</value>
+    <value>以下卡片突出显示最有价值的指标，帮助你识别推动组合增长的模组。</value>
   </data>
   <data name="HomePage_DownloadsHistory.Text" xml:space="preserve">
-    <value>Downloads history</value>
+    <value>下载历史</value>
   </data>
   <data name="OpenBtn.Content" xml:space="preserve">
-    <value>Open</value>
+    <value>打开</value>
   </data>
   <data name="ModsPage_Title.Text" xml:space="preserve">
-    <value>Portfolio</value>
+    <value>组合</value>
   </data>
   <data name="ModsPage_Subtitle.Text" xml:space="preserve">
-    <value>All tracked mods, sorted by performance.</value>
+    <value>所有追踪的模组，按性能排序。</value>
   </data>
   <data name="ModsPage_SortBy.Text" xml:space="preserve">
-    <value>Sort by:</value>
+    <value>排序方式：</value>
   </data>
   <data name="ModsPage_SortDownloads.Content" xml:space="preserve">
-    <value>Downloads</value>
+    <value>下载量</value>
   </data>
   <data name="ModsPage_SortEndorsements.Content" xml:space="preserve">
-    <value>Endorsements</value>
+    <value>好评数</value>
   </data>
   <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
-    <value>Updated</value>
+    <value>更新时间</value>
   </data>
   <data name="ModsPage_SortViews.Content" xml:space="preserve">
-    <value>Views</value>
+    <value>浏览量</value>
   </data>
   <data name="ModsPage_SortComments.Content" xml:space="preserve">
-    <value>Comments</value>
+    <value>评论数</value>
   </data>
   <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
-    <value>Search by name...</value>
+    <value>按名称搜索...</value>
   </data>
   <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
-    <value>Discover new mods</value>
+    <value>发现新模组</value>
   </data>
   <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
-    <value>Add your Nexus API key in Settings first.</value>
+    <value>请先在设置中添加你的Nexus API密钥。</value>
   </data>
   <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
-    <value>Open the dashboard once so we can detect your Nexus profile name.</value>
+    <value>打开控制台一次以检测你的Nexus用户名。</value>
   </data>
   <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
-    <value>No new mods found for your profile.</value>
+    <value>未找到你的个人资料的新模组。</value>
   </data>
   <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
-    <value>{0} new mods found</value>
+    <value>发现 {0} 个新模组</value>
   </data>
   <data name="ModsPage_Discover_AddAll" xml:space="preserve">
-    <value>Add all</value>
+    <value>全部添加</value>
   </data>
   <data name="ModsPage_Discover_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
-    <value>Added {0} mods to your portfolio.</value>
+    <value>已添加 {0} 个模组到你的组合。</value>
   </data>
   <data name="SettingsPage_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="SettingsPage_General.Text" xml:space="preserve">
-    <value>General</value>
+    <value>常规</value>
   </data>
   <data name="SettingsPage_Language.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>语言</value>
   </data>
   <data name="SettingsPage_Theme.Text" xml:space="preserve">
-    <value>Application Theme</value>
+    <value>应用主题</value>
   </data>
   <data name="SettingsPage_API.Text" xml:space="preserve">
     <value>Nexus API</value>
   </data>
   <data name="SettingsPage_APIKey.Header" xml:space="preserve">
-    <value>Personal API Key</value>
+    <value>个人API密钥</value>
   </data>
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
-    <value>Required to fetch data from Nexus Mods.</value>
+    <value>获取Nexus模组数据所需。</value>
   </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
-    <value>Portfolio Configuration</value>
+    <value>组合设置</value>
   </data>
   <data name="SettingsPage_PortfolioSub.Text" xml:space="preserve">
-    <value>Enter your mod URLs or IDs (one per line).</value>
+    <value>输入你的模组URL或ID（每行一个）。</value>
   </data>
   <data name="SettingsPage_GeneralInfo.Text" xml:space="preserve">
-    <value>Configure your personal API key and the list of mods to track. One line per mod, with a Nexus URL or game|id format.</value>
+    <value>配置你的个人API密钥和要追踪的模组列表。每行一个模组，使用Nexus URL或 game|id 格式。</value>
   </data>
   <data name="SettingsPage_RevealBtn.Content" xml:space="preserve">
-    <value>Show</value>
+    <value>显示</value>
   </data>
   <data name="SettingsPage_SaveBtn.Content" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="SettingsPage_TestBtn.Content" xml:space="preserve">
-    <value>Test</value>
+    <value>测试</value>
   </data>
   <data name="SettingsPage_SaveRefreshBtn.Content" xml:space="preserve">
-    <value>Save and refresh</value>
+    <value>保存并刷新</value>
   </data>
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
-    <value>One mod URL per line</value>
+    <value>每行一个模组URL</value>
   </data>
   <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
-    <value>Parsing summary</value>
+    <value>分析摘要</value>
   </data>
   <data name="SettingsPage_AdviceLabel" xml:space="preserve">
-    <value>Tip</value>
+    <value>建议</value>
   </data>
   <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Since the documented public API doesn't yet directly list all mods from an author, the portfolio serves as the source of truth for your dashboard.</value>
+    <value>由于公开记录的API尚未直接列出作者的所有模组，组合作为控制台的真实来源。</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
-    <value>GraphQL Import</value>
+    <value>GraphQL导入</value>
   </data>
   <data name="SettingsPage_ImportGraphQLInfo.Text" xml:space="preserve">
-    <value>Your Nexus profile can now be imported automatically via the GraphQL v2 API. You can enter your Nexus username or a URL like `next.nexusmods.com/profile/...`.</value>
+    <value>你的Nexus个人资料现在可以通过GraphQL v2 API自动导入。你可以输入你的Nexus用户名或URL，如 `next.nexusmods.com/profile/...`。</value>
   </data>
   <data name="SettingsPage_ImportProfileInput.PlaceholderText" xml:space="preserve">
-    <value>Nexus username or profile URL</value>
+    <value>Nexus用户名或个人资料URL</value>
   </data>
   <data name="SettingsPage_ImportBtn.Content" xml:space="preserve">
-    <value>Import my mods</value>
+    <value>导入我的模组</value>
   </data>
   <data name="SettingsPage_ThemeSaved" xml:space="preserve">
-    <value>Theme saved. Restart the application to see the change everywhere.</value>
+    <value>主题已保存。请重启应用以查看全局更改。</value>
   </data>
   <data name="SettingsPage_ConfigSaved" xml:space="preserve">
-    <value>Configuration saved locally.</value>
+    <value>配置已本地保存。</value>
   </data>
   <data name="SettingsPage_ValidationSuccess" xml:space="preserve">
-    <value>Nexus validation successful.</value>
+    <value>Nexus验证成功。</value>
   </data>
   <data name="SettingsPage_ValidationFailed" xml:space="preserve">
-    <value>Validation failed: </value>
+    <value>验证失败：</value>
   </data>
   <data name="SettingsPage_ConfigSavedRefreshed" xml:space="preserve">
-    <value>Configuration saved and dashboard refreshed.</value>
+    <value>配置已保存，控制台已刷新。</value>
   </data>
   <data name="SettingsPage_ImportInProgress" xml:space="preserve">
-    <value>GraphQL import in progress...</value>
+    <value>GraphQL导入进行中...</value>
   </data>
   <data name="SettingsPage_ImportFinished" xml:space="preserve">
-    <value>Author import via GraphQL finished.</value>
+    <value>通过GraphQL的作者导入已完成。</value>
   </data>
   <data name="SettingsPage_ImportFailed" xml:space="preserve">
-    <value>Import failed: </value>
+    <value>导入失败：</value>
   </data>
   <data name="SettingsPage_KeySaved" xml:space="preserve">
-    <value>Key saved. You can test it or return to the dashboard.</value>
+    <value>密钥已保存。你可以测试它或返回控制台。</value>
   </data>
   <data name="SettingsPage_ModsZero" xml:space="preserve">
-    <value>0 mods detected. Add Nexus URLs or game|id pairs.</value>
+    <value>检测到0个模组。请添加Nexus URL或game|id对。</value>
   </data>
   <data name="SettingsPage_ModsOne" xml:space="preserve">
-    <value>1 mod detected: </value>
+    <value>检测到1个模组：</value>
   </data>
   <data name="SettingsPage_ModsMany" xml:space="preserve">
-    <value> mods detected. First mod: </value>
+    <value>个模组。第一个模组：</value>
   </data>
   <data name="SettingsPage_LangSaved" xml:space="preserve">
-    <value>Language saved. Restart app to apply.</value>
+    <value>语言已保存。请重启应用以应用更改。</value>
   </data>
   <data name="Nav_Home.Content" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>控制台</value>
   </data>
   <data name="Nav_Mods.Content" xml:space="preserve">
-    <value>Mods</value>
+    <value>模组</value>
   </data>
   <data name="Nav_Settings.Content" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="Nav_About.Content" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="MainWindow_AppTitle.Text" xml:space="preserve">
-    <value>Open Mods Tracker</value>
+    <value>开放式模组追踪器</value>
   </data>
   <data name="MainWindow_AppSubtitle.Text" xml:space="preserve">
-    <value>Nexus dashboard to track your mods and see what really performs.</value>
+    <value>Nexus面板，用于追踪你的模组并查看实际效果。</value>
   </data>
   <data name="Nav_Stats.Content" xml:space="preserve">
-    <value>Stats</value>
+    <value>统计</value>
   </data>
   <data name="ModsPage_Domain.Text" xml:space="preserve">
-    <value>Game:</value>
+    <value>游戏：</value>
   </data>
   <data name="StatsPage_Title.Text" xml:space="preserve">
-    <value>Stats</value>
+    <value>统计</value>
   </data>
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
-    <value>Charts and trends based on your local history.</value>
+    <value>基于本地历史的图表和趋势。</value>
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
-    <value>Game</value>
+    <value>游戏</value>
   </data>
   <data name="StatsPage_Recency.Text" xml:space="preserve">
-    <value>Recency</value>
+    <value>时间范围</value>
   </data>
   <data name="StatsPage_Metric.Text" xml:space="preserve">
-    <value>Metric</value>
+    <value>指标</value>
   </data>
   <data name="StatsPage_Downloads.Content" xml:space="preserve">
-    <value>Downloads</value>
+    <value>下载量</value>
   </data>
   <data name="StatsPage_Endorsements.Content" xml:space="preserve">
-    <value>Endorsements</value>
+    <value>好评数</value>
   </data>
   <data name="StatsPage_ModeTotals.Content" xml:space="preserve">
-    <value>Totals</value>
+    <value>总计</value>
   </data>
   <data name="StatsPage_ModeTop5.Content" xml:space="preserve">
-    <value>Top 10 mods</value>
+    <value>前10模组</value>
   </data>
   <data name="StatsPage_ModeTotalsLabel" xml:space="preserve">
-    <value>Totals</value>
+    <value>总计</value>
   </data>
   <data name="StatsPage_ModeTop10Label" xml:space="preserve">
-    <value>Top 10 mods</value>
+    <value>前10模组</value>
   </data>
   <data name="StatsPage_Metric_Downloads" xml:space="preserve">
-    <value>Downloads</value>
+    <value>下载量</value>
   </data>
   <data name="StatsPage_Metric_Endorsements" xml:space="preserve">
-    <value>Endorsements</value>
+    <value>好评数</value>
   </data>
-  <data name="StatsPage_InfoBar.Title" xml:space="preserve">
-    <value>Stats</value>
+  <data name="StatsPage_Recency_Week" xml:space="preserve">
+    <value>最近一周</value>
   </data>
-  <data name="StatsPage_ErrorBar.Title" xml:space="preserve">
-    <value>Stats</value>
+  <data name="StatsPage_Recency_Month" xml:space="preserve">
+    <value>最近一月</value>
   </data>
-  <data name="StatsPage_NoHistory" xml:space="preserve">
-    <value>No history yet. Refresh the dashboard to collect a first point.</value>
+  <data name="StatsPage_Recency_Quarter" xml:space="preserve">
+    <value>最近一季</value>
   </data>
-  <data name="StatsPage_NoPerModHistory" xml:space="preserve">
-    <value>No per-mod history yet. Refresh the dashboard to record top mods.</value>
+  <data name="StatsPage_Recency_Year" xml:space="preserve">
+    <value>最近一年</value>
   </data>
-  <data name="StatsPage_ChartTitle_History" xml:space="preserve">
-    <value>History</value>
+  <data name="StatsPage_Recency_All" xml:space="preserve">
+    <value>全部</value>
   </data>
-  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
-    <value>Details</value>
+  <data name="AboutPage_Title.Text" xml:space="preserve">
+    <value>关于</value>
   </data>
-  <data name="StatsPage_TableSort_Name.Content" xml:space="preserve">
-    <value>Name</value>
+  <data name="AboutPage_Version.Text" xml:space="preserve">
+    <value>版本</value>
   </data>
-  <data name="StatsPage_TableSort_Latest.Content" xml:space="preserve">
-    <value>Latest</value>
+  <data name="AboutPage_Description.Text" xml:space="preserve">
+    <value>一款开源应用程序，用于追踪和管理你的Nexus模组组合，配备实时统计和分析功能。</value>
   </data>
-  <data name="StatsPage_TableSort_Delta.Content" xml:space="preserve">
-    <value>Δ</value>
+  <data name="AboutPage_Feedback.Text" xml:space="preserve">
+    <value>反馈和建议</value>
   </data>
-  <data name="StatsPage_TableHeader_Mod.Text" xml:space="preserve">
-    <value>Mod</value>
+  <data name="AboutPage_Source.Text" xml:space="preserve">
+    <value>源代码</value>
   </data>
-  <data name="StatsPage_TableHeader_Domain.Text" xml:space="preserve">
-    <value>Game</value>
+  <data name="AboutPage_License.Text" xml:space="preserve">
+    <value>许可证</value>
   </data>
-  <data name="StatsPage_TableHeader_Latest.Text" xml:space="preserve">
-    <value>Latest</value>
-  </data>
-  <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
-    <value>Δ</value>
+  <data name="AboutPage_MITLicense" xml:space="preserve">
+    <value>MIT许可证</value>
   </data>
 </root>

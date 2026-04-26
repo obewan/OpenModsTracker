@@ -43,94 +43,94 @@
     <value>Open Mods Tracker</value>
   </data>
   <data name="UnknownAuthor" xml:space="preserve">
-    <value>Unknown Author</value>
+    <value>Onbekende auteur</value>
   </data>
   <data name="NoSummary" xml:space="preserve">
-    <value>No summary provided by the API.</value>
+    <value>API heeft geen samenvatting verstrekt.</value>
   </data>
   <data name="UnknownVersion" xml:space="preserve">
-    <value>Unknown version</value>
+    <value>Onbekende versie</value>
   </data>
   <data name="StatusUnavailable" xml:space="preserve">
-    <value>Status unavailable</value>
+    <value>Status niet beschikbaar</value>
   </data>
   <data name="Never" xml:space="preserve">
-    <value>Never</value>
+    <value>Nooit</value>
   </data>
   <data name="AuthorLabel" xml:space="preserve">
-    <value>Author: </value>
+    <value>Auteur: </value>
   </data>
   <data name="UpdatedLabel" xml:space="preserve">
-    <value>Updated: </value>
+    <value>Bijgewerkt: </value>
   </data>
   <data name="CreatedLabel" xml:space="preserve">
-    <value>Created: </value>
+    <value>Gemaakt: </value>
   </data>
   <data name="NexusUser" xml:space="preserve">
-    <value>Nexus User</value>
+    <value>Nexus-gebruiker</value>
   </data>
   <data name="InvalidAccount" xml:space="preserve">
-    <value>Invalid Account</value>
+    <value>Ongeldig account</value>
   </data>
   <data name="Standard" xml:space="preserve">
-    <value>Standard</value>
+    <value>Standaard</value>
   </data>
   <data name="HomePage_Cockpit.Text" xml:space="preserve">
-    <value>Creator cockpit</value>
+    <value>Maker-dashboard</value>
   </data>
   <data name="HomePage_Subtitle.Text" xml:space="preserve">
-    <value>A clear view of your Nexus mods: traction, engagement, top performing portfolio.</value>
+    <value>Een duidelijk overzicht van je Nexus-mods: downloads, betrokkenheid, presterend portfolio.</value>
   </data>
   <data name="HomePage_Account.Text" xml:space="preserve">
     <value>Account</value>
   </data>
   <data name="HomePage_Tier.Text" xml:space="preserve">
-    <value>Tier</value>
+    <value>Niveau</value>
   </data>
   <data name="HomePage_LastRefresh.Text" xml:space="preserve">
-    <value>Last refresh</value>
+    <value>Laatste vernieuwing</value>
   </data>
   <data name="HomePage_RefreshBtn.Content" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Vernieuwen</value>
   </data>
   <data name="HomePage_DailyQuota.Text" xml:space="preserve">
-    <value>Daily API quota</value>
+    <value>Dagelijkse API-quota</value>
   </data>
   <data name="HomePage_HourlyQuota.Text" xml:space="preserve">
-    <value>Hourly API quota</value>
+    <value>Uurlijkse API-quota</value>
   </data>
   <data name="HomePage_DashboardState.Title" xml:space="preserve">
-    <value>Dashboard state</value>
+    <value>Dashboard-status</value>
   </data>
   <data name="HomePage_NexusAPI.Title" xml:space="preserve">
     <value>Nexus API</value>
   </data>
   <data name="HomePage_TopDownloads.Text" xml:space="preserve">
-    <value>Top downloads</value>
+    <value>Meeste downloads</value>
   </data>
   <data name="HomePage_TopEndorsements.Text" xml:space="preserve">
-    <value>Top endorsements</value>
+    <value>Meeste endorsements</value>
   </data>
   <data name="HomePage_ModsToWatch.Text" xml:space="preserve">
-    <value>Mods to watch</value>
+    <value>Mods om te volgen</value>
   </data>
   <data name="HomePage_ModsToWatchSub.Text" xml:space="preserve">
-    <value>The cards below highlight the most useful metrics to spot the mods driving your portfolio.</value>
+    <value>De volgende kaarten markeren de meest nuttige statistieken om mods te identificeren die je portfolio stimuleren.</value>
   </data>
   <data name="HomePage_DownloadsHistory.Text" xml:space="preserve">
-    <value>Downloads history</value>
+    <value>Downloadgeschiedenis</value>
   </data>
   <data name="OpenBtn.Content" xml:space="preserve">
-    <value>Open</value>
+    <value>Openen</value>
   </data>
   <data name="ModsPage_Title.Text" xml:space="preserve">
     <value>Portfolio</value>
   </data>
   <data name="ModsPage_Subtitle.Text" xml:space="preserve">
-    <value>All tracked mods, sorted by performance.</value>
+    <value>Alle gevolgde mods, gesorteerd op prestaties.</value>
   </data>
   <data name="ModsPage_SortBy.Text" xml:space="preserve">
-    <value>Sort by:</value>
+    <value>Sorteren op:</value>
   </data>
   <data name="ModsPage_SortDownloads.Content" xml:space="preserve">
     <value>Downloads</value>
@@ -139,145 +139,145 @@
     <value>Endorsements</value>
   </data>
   <data name="ModsPage_SortUpdated.Content" xml:space="preserve">
-    <value>Updated</value>
+    <value>Bijgewerkt</value>
   </data>
   <data name="ModsPage_SortViews.Content" xml:space="preserve">
-    <value>Views</value>
+    <value>Weergaven</value>
   </data>
   <data name="ModsPage_SortComments.Content" xml:space="preserve">
-    <value>Comments</value>
+    <value>Reacties</value>
   </data>
   <data name="ModsPage_Search.PlaceholderText" xml:space="preserve">
-    <value>Search by name...</value>
+    <value>Zoeken op naam...</value>
   </data>
   <data name="ModsPage_DiscoverBtn.Content" xml:space="preserve">
-    <value>Discover new mods</value>
+    <value>Ontdek nieuwe mods</value>
   </data>
   <data name="ModsPage_Discover_NoApiKey" xml:space="preserve">
-    <value>Add your Nexus API key in Settings first.</value>
+    <value>Voeg eerst je Nexus API-sleutel toe in de instellingen.</value>
   </data>
   <data name="ModsPage_Discover_NoProfile" xml:space="preserve">
-    <value>Open the dashboard once so we can detect your Nexus profile name.</value>
+    <value>Open het dashboard één keer om je Nexus-gebruikersnaam te detecteren.</value>
   </data>
   <data name="ModsPage_Discover_NoneFound" xml:space="preserve">
-    <value>No new mods found for your profile.</value>
+    <value>Geen nieuwe mods gevonden voor je profiel.</value>
   </data>
   <data name="ModsPage_Discover_FoundTitle" xml:space="preserve">
-    <value>{0} new mods found</value>
+    <value>{0} nieuwe mods gevonden</value>
   </data>
   <data name="ModsPage_Discover_AddAll" xml:space="preserve">
-    <value>Add all</value>
+    <value>Alle toevoegen</value>
   </data>
   <data name="ModsPage_Discover_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Annuleren</value>
   </data>
   <data name="ModsPage_Discover_AddedStatus" xml:space="preserve">
-    <value>Added {0} mods to your portfolio.</value>
+    <value>{0} mods toegevoegd aan je portfolio.</value>
   </data>
   <data name="SettingsPage_Title.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>Instellingen</value>
   </data>
   <data name="SettingsPage_General.Text" xml:space="preserve">
-    <value>General</value>
+    <value>Algemeen</value>
   </data>
   <data name="SettingsPage_Language.Text" xml:space="preserve">
-    <value>Language</value>
+    <value>Taal</value>
   </data>
   <data name="SettingsPage_Theme.Text" xml:space="preserve">
-    <value>Application Theme</value>
+    <value>App-thema</value>
   </data>
   <data name="SettingsPage_API.Text" xml:space="preserve">
     <value>Nexus API</value>
   </data>
   <data name="SettingsPage_APIKey.Header" xml:space="preserve">
-    <value>Personal API Key</value>
+    <value>Persoonlijke API-sleutel</value>
   </data>
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
-    <value>Required to fetch data from Nexus Mods.</value>
+    <value>Nodig om Nexus Mods-gegevens op te halen.</value>
   </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
-    <value>Portfolio Configuration</value>
+    <value>Portfolio-instellingen</value>
   </data>
   <data name="SettingsPage_PortfolioSub.Text" xml:space="preserve">
-    <value>Enter your mod URLs or IDs (one per line).</value>
+    <value>Voer je mod-URL's of ID's in (één per regel).</value>
   </data>
   <data name="SettingsPage_GeneralInfo.Text" xml:space="preserve">
-    <value>Configure your personal API key and the list of mods to track. One line per mod, with a Nexus URL or game|id format.</value>
+    <value>Configureer je persoonlijke API-sleutel en de lijst van mods om te volgen. Eén mod per regel, gebruik Nexus URL of game|id formaat.</value>
   </data>
   <data name="SettingsPage_RevealBtn.Content" xml:space="preserve">
-    <value>Show</value>
+    <value>Weergeven</value>
   </data>
   <data name="SettingsPage_SaveBtn.Content" xml:space="preserve">
-    <value>Save</value>
+    <value>Opslaan</value>
   </data>
   <data name="SettingsPage_TestBtn.Content" xml:space="preserve">
-    <value>Test</value>
+    <value>Testen</value>
   </data>
   <data name="SettingsPage_SaveRefreshBtn.Content" xml:space="preserve">
-    <value>Save and refresh</value>
+    <value>Opslaan en vernieuwen</value>
   </data>
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
-    <value>One mod URL per line</value>
+    <value>Eén mod-URL per regel</value>
   </data>
   <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
-    <value>Parsing summary</value>
+    <value>Analyse samenvatting</value>
   </data>
   <data name="SettingsPage_AdviceLabel" xml:space="preserve">
     <value>Tip</value>
   </data>
   <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Since the documented public API doesn't yet directly list all mods from an author, the portfolio serves as the source of truth for your dashboard.</value>
+    <value>Omdat de gedocumenteerde openbare API nog niet direct alle mods van een auteur vermeldt, dient het portfolio als de bron van waarheid voor je dashboard.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
-    <value>GraphQL Import</value>
+    <value>GraphQL-import</value>
   </data>
   <data name="SettingsPage_ImportGraphQLInfo.Text" xml:space="preserve">
-    <value>Your Nexus profile can now be imported automatically via the GraphQL v2 API. You can enter your Nexus username or a URL like `next.nexusmods.com/profile/...`.</value>
+    <value>Je Nexus-profiel kan nu automatisch worden geïmporteerd via GraphQL v2 API. Je kunt je Nexus-gebruikersnaam of URL invoeren zoals `next.nexusmods.com/profile/...`.</value>
   </data>
   <data name="SettingsPage_ImportProfileInput.PlaceholderText" xml:space="preserve">
-    <value>Nexus username or profile URL</value>
+    <value>Nexus-gebruikersnaam of profiel-URL</value>
   </data>
   <data name="SettingsPage_ImportBtn.Content" xml:space="preserve">
-    <value>Import my mods</value>
+    <value>Mijn mods importeren</value>
   </data>
   <data name="SettingsPage_ThemeSaved" xml:space="preserve">
-    <value>Theme saved. Restart the application to see the change everywhere.</value>
+    <value>Thema opgeslagen. Start de app opnieuw om de wijziging overal te zien.</value>
   </data>
   <data name="SettingsPage_ConfigSaved" xml:space="preserve">
-    <value>Configuration saved locally.</value>
+    <value>Configuratie lokaal opgeslagen.</value>
   </data>
   <data name="SettingsPage_ValidationSuccess" xml:space="preserve">
-    <value>Nexus validation successful.</value>
+    <value>Nexus-validatie geslaagd.</value>
   </data>
   <data name="SettingsPage_ValidationFailed" xml:space="preserve">
-    <value>Validation failed: </value>
+    <value>Validatie mislukt: </value>
   </data>
   <data name="SettingsPage_ConfigSavedRefreshed" xml:space="preserve">
-    <value>Configuration saved and dashboard refreshed.</value>
+    <value>Configuratie opgeslagen en dashboard vernieuwd.</value>
   </data>
   <data name="SettingsPage_ImportInProgress" xml:space="preserve">
-    <value>GraphQL import in progress...</value>
+    <value>GraphQL-import bezig...</value>
   </data>
   <data name="SettingsPage_ImportFinished" xml:space="preserve">
-    <value>Author import via GraphQL finished.</value>
+    <value>Auteur-import via GraphQL voltooid.</value>
   </data>
   <data name="SettingsPage_ImportFailed" xml:space="preserve">
-    <value>Import failed: </value>
+    <value>Import mislukt: </value>
   </data>
   <data name="SettingsPage_KeySaved" xml:space="preserve">
-    <value>Key saved. You can test it or return to the dashboard.</value>
+    <value>Sleutel opgeslagen. Je kunt deze testen of terugkeren naar het dashboard.</value>
   </data>
   <data name="SettingsPage_ModsZero" xml:space="preserve">
-    <value>0 mods detected. Add Nexus URLs or game|id pairs.</value>
+    <value>0 mods gedetecteerd. Voeg Nexus URL's of game|id paren toe.</value>
   </data>
   <data name="SettingsPage_ModsOne" xml:space="preserve">
-    <value>1 mod detected: </value>
+    <value>1 mod gedetecteerd: </value>
   </data>
   <data name="SettingsPage_ModsMany" xml:space="preserve">
-    <value> mods detected. First mod: </value>
+    <value> mods. Eerste mod: </value>
   </data>
   <data name="SettingsPage_LangSaved" xml:space="preserve">
-    <value>Language saved. Restart app to apply.</value>
+    <value>Taal opgeslagen. Start de app opnieuw om toe te passen.</value>
   </data>
   <data name="Nav_Home.Content" xml:space="preserve">
     <value>Dashboard</value>
@@ -286,37 +286,37 @@
     <value>Mods</value>
   </data>
   <data name="Nav_Settings.Content" xml:space="preserve">
-    <value>Settings</value>
+    <value>Instellingen</value>
   </data>
   <data name="Nav_About.Content" xml:space="preserve">
-    <value>About</value>
+    <value>Over</value>
   </data>
   <data name="MainWindow_AppTitle.Text" xml:space="preserve">
     <value>Open Mods Tracker</value>
   </data>
   <data name="MainWindow_AppSubtitle.Text" xml:space="preserve">
-    <value>Nexus dashboard to track your mods and see what really performs.</value>
+    <value>Nexus-paneel om je mods te volgen en te zien wat echt werkt.</value>
   </data>
   <data name="Nav_Stats.Content" xml:space="preserve">
-    <value>Stats</value>
+    <value>Statistieken</value>
   </data>
   <data name="ModsPage_Domain.Text" xml:space="preserve">
-    <value>Game:</value>
+    <value>Spel:</value>
   </data>
   <data name="StatsPage_Title.Text" xml:space="preserve">
-    <value>Stats</value>
+    <value>Statistieken</value>
   </data>
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
-    <value>Charts and trends based on your local history.</value>
+    <value>Grafieken en trends gebaseerd op je lokale geschiedenis.</value>
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
-    <value>Game</value>
+    <value>Spel</value>
   </data>
   <data name="StatsPage_Recency.Text" xml:space="preserve">
-    <value>Recency</value>
+    <value>Periode</value>
   </data>
   <data name="StatsPage_Metric.Text" xml:space="preserve">
-    <value>Metric</value>
+    <value>Statistiek</value>
   </data>
   <data name="StatsPage_Downloads.Content" xml:space="preserve">
     <value>Downloads</value>
@@ -325,13 +325,13 @@
     <value>Endorsements</value>
   </data>
   <data name="StatsPage_ModeTotals.Content" xml:space="preserve">
-    <value>Totals</value>
+    <value>Totaal</value>
   </data>
   <data name="StatsPage_ModeTop5.Content" xml:space="preserve">
     <value>Top 10 mods</value>
   </data>
   <data name="StatsPage_ModeTotalsLabel" xml:space="preserve">
-    <value>Totals</value>
+    <value>Totaal</value>
   </data>
   <data name="StatsPage_ModeTop10Label" xml:space="preserve">
     <value>Top 10 mods</value>
@@ -342,43 +342,40 @@
   <data name="StatsPage_Metric_Endorsements" xml:space="preserve">
     <value>Endorsements</value>
   </data>
-  <data name="StatsPage_InfoBar.Title" xml:space="preserve">
-    <value>Stats</value>
+  <data name="StatsPage_Recency_Week" xml:space="preserve">
+    <value>Afgelopen week</value>
   </data>
-  <data name="StatsPage_ErrorBar.Title" xml:space="preserve">
-    <value>Stats</value>
+  <data name="StatsPage_Recency_Month" xml:space="preserve">
+    <value>Afgelopen maand</value>
   </data>
-  <data name="StatsPage_NoHistory" xml:space="preserve">
-    <value>No history yet. Refresh the dashboard to collect a first point.</value>
+  <data name="StatsPage_Recency_Quarter" xml:space="preserve">
+    <value>Afgelopen kwartaal</value>
   </data>
-  <data name="StatsPage_NoPerModHistory" xml:space="preserve">
-    <value>No per-mod history yet. Refresh the dashboard to record top mods.</value>
+  <data name="StatsPage_Recency_Year" xml:space="preserve">
+    <value>Afgelopen jaar</value>
   </data>
-  <data name="StatsPage_ChartTitle_History" xml:space="preserve">
-    <value>History</value>
+  <data name="StatsPage_Recency_All" xml:space="preserve">
+    <value>Alles</value>
   </data>
-  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
-    <value>Details</value>
+  <data name="AboutPage_Title.Text" xml:space="preserve">
+    <value>Over</value>
   </data>
-  <data name="StatsPage_TableSort_Name.Content" xml:space="preserve">
-    <value>Name</value>
+  <data name="AboutPage_Version.Text" xml:space="preserve">
+    <value>Versie</value>
   </data>
-  <data name="StatsPage_TableSort_Latest.Content" xml:space="preserve">
-    <value>Latest</value>
+  <data name="AboutPage_Description.Text" xml:space="preserve">
+    <value>Een open-source applicatie om je Nexus Mods-portfolio te volgen en beheren met realtime statistieken en analyses.</value>
   </data>
-  <data name="StatsPage_TableSort_Delta.Content" xml:space="preserve">
-    <value>Δ</value>
+  <data name="AboutPage_Feedback.Text" xml:space="preserve">
+    <value>Feedback en suggesties</value>
   </data>
-  <data name="StatsPage_TableHeader_Mod.Text" xml:space="preserve">
-    <value>Mod</value>
+  <data name="AboutPage_Source.Text" xml:space="preserve">
+    <value>Broncode</value>
   </data>
-  <data name="StatsPage_TableHeader_Domain.Text" xml:space="preserve">
-    <value>Game</value>
+  <data name="AboutPage_License.Text" xml:space="preserve">
+    <value>Licentie</value>
   </data>
-  <data name="StatsPage_TableHeader_Latest.Text" xml:space="preserve">
-    <value>Latest</value>
-  </data>
-  <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
-    <value>Δ</value>
+  <data name="AboutPage_MITLicense" xml:space="preserve">
+    <value>MIT-licentie</value>
   </data>
 </root>

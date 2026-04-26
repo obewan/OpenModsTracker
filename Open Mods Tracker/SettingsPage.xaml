@@ -34,8 +34,16 @@
                         <StackPanel Orientation="Horizontal" Spacing="12">
                             <TextBlock x:Uid="SettingsPage_Language" Text="Langue" VerticalAlignment="Center" />
                             <ComboBox x:Name="LanguageComboBox" Width="150" SelectionChanged="LanguageComboBox_SelectionChanged">
-                                <ComboBoxItem Content="English" Tag="en-US" />
-                                <ComboBoxItem Content="Français" Tag="fr-FR" />
+                                <ComboBoxItem Content="English" Tag="en-US" />                                
+                                <ComboBoxItem Content="中文" Tag="zh-CN" />
+                                <ComboBoxItem Content="Deutsch" Tag="de-DE" />
+                                <ComboBoxItem Content="Español" Tag="es-ES" />
+                                <ComboBoxItem Content="Français" Tag="fr-FR" />                                                                
+                                <ComboBoxItem Content="Italiano" Tag="it-IT" />
+                                <ComboBoxItem Content="日本語" Tag="ja-JP" />                                
+                                <ComboBoxItem Content="Português" Tag="pt-BR" />
+                                <ComboBoxItem Content="Русский" Tag="ru-RU" />
+                                <ComboBoxItem Content="Nederlands" Tag="nl-NL" />                                
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>
@@ -60,11 +68,11 @@
                         <CheckBox Grid.Column="1"
                                   x:Name="RevealCheckBox"
                                   x:Uid="SettingsPage_RevealBtn"
-                                  Content="Afficher"
+                                  Content="Show"
                                   Checked="RevealModeCheckbox_Changed"
                                   Unchecked="RevealModeCheckbox_Changed" />
-                        <Button Grid.Column="2" x:Uid="SettingsPage_SaveBtn" Content="Sauver" Click="SaveSettingsButton_Click" />
-                        <Button Grid.Column="3" x:Uid="SettingsPage_TestBtn" Content="Tester" Click="ValidateButton_Click" IsEnabled="{Binding CanValidate}" />
+                        <Button Grid.Column="2" x:Uid="SettingsPage_SaveBtn" Content="Save" Click="SaveSettingsButton_Click" />
+                        <Button Grid.Column="3" x:Uid="SettingsPage_TestBtn" Content="Test" Click="ValidateButton_Click" IsEnabled="{Binding CanValidate}" />
                     </Grid>
                     <TextBlock Text="{Binding ValidationMessage}" Foreground="{StaticResource AppMutedBrush}" TextWrapping="WrapWholeWords" />
                 </StackPanel>
@@ -81,7 +89,7 @@
                             <TextBlock x:Uid="SettingsPage_Portfolio" Text="Portfolio de mods" FontSize="22" FontWeight="SemiBold" />
                             <TextBlock x:Uid="SettingsPage_PortfolioSub" Text="Exemples: `https://www.nexusmods.com/skyrimspecialedition/mods/12604` ou `fallout4|12345`." Opacity="0.7" TextWrapping="WrapWholeWords" />
                         </StackPanel>
-                        <Button Grid.Column="1" x:Uid="SettingsPage_SaveRefreshBtn" Content="Sauver et rafraichir" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
+                        <Button Grid.Column="1" x:Uid="SettingsPage_SaveRefreshBtn" Content="Save and refresh" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
                     </Grid>
 
                     <TextBox x:Name="PortfolioTextBox"
@@ -90,7 +98,7 @@
                              TextWrapping="Wrap"
                              VerticalAlignment="Stretch"
                              x:Uid="SettingsPage_PortfolioInput"
-                             PlaceholderText="Une URL de mod par ligne"
+                             PlaceholderText="One mod URL per line"
                              TextChanged="PortfolioTextBox_TextChanged" />
 
                     <Grid ColumnSpacing="18">
@@ -100,14 +108,14 @@
                         </Grid.ColumnDefinitions>
                         <Border Background="#1AFFFFFF" CornerRadius="18" Padding="18">
                             <StackPanel Spacing="8">
-                                <TextBlock Text="Resume de parsing" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="SettingsPage_PortfolioSummaryLabel" Text="Resume de parsing" FontWeight="SemiBold" />
                                 <TextBlock Text="{Binding PortfolioSummary}" />
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="1" Background="#1AFFFFFF" CornerRadius="18" Padding="18">
                             <StackPanel Spacing="8">
-                                <TextBlock Text="Conseil" FontWeight="SemiBold" />
-                                <TextBlock Text="Comme l'API publique documentee ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de verite pour ton tableau de bord." TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Uid="SettingsPage_AdviceLabel" Text="Conseil" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="SettingsPage_AdviceText" Text="Like the API publique documentee ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de verite pour ton tableau de bord." TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -116,17 +124,19 @@
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock Text="Import GraphQL" FontSize="22" FontWeight="SemiBold" />
-                    <TextBlock Text="Le profil Nexus peut maintenant etre importe automatiquement via l'API GraphQL v2. Tu peux saisir ton pseudo Nexus ou une URL `next.nexusmods.com/profile/...`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_ImportGraphQL" Text="Import GraphQL" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_ImportGraphQLInfo" Text="Your Nexus profile can now be imported automatically via the GraphQL v2 API. You can enter your Nexus username or a URL like `next.nexusmods.com/profile/...`." Opacity="0.7" TextWrapping="WrapWholeWords" />
                     <Grid ColumnSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="ImportProfileTextBox"
-                                 PlaceholderText="Pseudo Nexus ou URL de profil" />
+                                 x:Uid="SettingsPage_ImportProfileInput"
+                                 PlaceholderText="Nexus username or profile URL" />
                         <Button Grid.Column="1"
-                                Content="Importer mes mods"
+                                x:Uid="SettingsPage_ImportBtn"
+                                Content="Import my mods"
                                 Click="ImportProfileButton_Click"
                                 IsEnabled="{Binding CanValidate}" />
                     </Grid>
