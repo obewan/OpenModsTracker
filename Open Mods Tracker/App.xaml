@@ -17,7 +17,7 @@
                     <LinearGradientBrush x:Key="HeroGradientBrush" StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#1E293B" Offset="0" />
                         <GradientStop Color="#0F172A" Offset="0.55" />
-                        <GradientStop Color="#7C2D12" Offset="1" />
+                        <GradientStop Color="#233a5e" Offset="1" />
                     </LinearGradientBrush>
                 </ResourceDictionary>
                 <ResourceDictionary x:Key="Light">

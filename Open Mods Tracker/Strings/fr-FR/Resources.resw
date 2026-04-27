@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Requise pour récupérer les données depuis Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Colle ici ta clé API Nexus</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Configuration du Portfolio</value>
   </data>
@@ -218,14 +221,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>Une URL de mod par ligne</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Résumé du parsing</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Conseil</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Comme l'API publique documentée ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de vérité pour ton tableau de bord.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>Le portfolio sert de référence pour ton tableau de bord.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>Import GraphQL</value>
@@ -306,6 +309,9 @@
   </data>
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Courbes et tendances basées sur l'historique local.</value>
+  </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Détails</value>
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Jeu</value>

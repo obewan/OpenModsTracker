@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Required to fetch data from Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Paste your Nexus API key here</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Portfolio Configuration</value>
   </data>
@@ -219,14 +222,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>One mod URL per line</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Parsing summary</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Tip</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Since the documented public API doesn't yet directly list all mods from an author, the portfolio serves as the source of truth for your dashboard.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>The portfolio serves as the reference for your dashboard.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>GraphQL Import</value>
@@ -308,6 +311,9 @@
   </data>
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Charts and trends based on your local history.</value>
+  </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Details</value>
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Game</value>

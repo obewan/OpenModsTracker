@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Необходим для получения данных с Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Вставьте здесь свой ключ API Nexus</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Настройки портфеля</value>
   </data>
@@ -219,14 +222,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>Один URL мода в строке</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Сводка анализа</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Совет</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Поскольку публичный документированный API ещё не перечисляет напрямую все моды автора, портфель служит источником истины для вашей панели.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>Портфолио служит ориентиром для вашей панели управления.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>GraphQL импорт</value>
@@ -308,6 +311,9 @@
   </data>
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Графики и тренды на основе вашей локальной истории.</value>
+  </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Подробности</value>
   </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Игра</value>

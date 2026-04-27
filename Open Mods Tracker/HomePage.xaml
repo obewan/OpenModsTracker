@@ -29,19 +29,19 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Spacing="10">
-                            <TextBlock x:Uid="HomePage_Cockpit" Text="Creator cockpit" FontSize="32" FontWeight="SemiBold" />
-                            <TextBlock x:Uid="HomePage_Subtitle" Text="Une vue claire de tes mods Nexus: traction, engagement, portfolio le plus performant." MaxWidth="720" Opacity="0.82" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Uid="HomePage_Cockpit" FontSize="32" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="HomePage_Subtitle" MaxWidth="720" Opacity="0.82" TextWrapping="WrapWholeWords" />
                             <StackPanel Orientation="Horizontal" Spacing="18">
                                 <StackPanel>
-                                    <TextBlock x:Uid="HomePage_Account" Text="Compte" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_Account" Opacity="0.68" />
                                     <TextBlock Text="{Binding UserDisplayName}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <TextBlock x:Uid="HomePage_Tier" Text="Tier" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_Tier" Opacity="0.68" />
                                     <TextBlock Text="{Binding UserTier}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <TextBlock x:Uid="HomePage_LastRefresh" Text="Dernier refresh" Opacity="0.68" />
+                                    <TextBlock x:Uid="HomePage_LastRefresh" Opacity="0.68" />
                                     <TextBlock Text="{Binding RefreshedAt}" FontSize="18" FontWeight="SemiBold" />
                                 </StackPanel>
                             </StackPanel>
@@ -68,11 +68,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Spacing="6">
-                            <TextBlock x:Uid="HomePage_DailyQuota" Text="Quota API journalier" Opacity="0.68" />
+                            <TextBlock x:Uid="HomePage_DailyQuota" Opacity="0.68" />
                             <TextBlock Text="{Binding DailyQuota}" FontSize="24" FontWeight="SemiBold" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Spacing="6">
-                            <TextBlock x:Uid="HomePage_HourlyQuota" Text="Quota API horaire" Opacity="0.68" />
+                            <TextBlock x:Uid="HomePage_HourlyQuota" Opacity="0.68" />
                             <TextBlock Text="{Binding HourlyQuota}" FontSize="24" FontWeight="SemiBold" />
                         </StackPanel>
                     </Grid>

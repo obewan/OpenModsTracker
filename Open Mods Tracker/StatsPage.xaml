@@ -21,9 +21,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel>
-                        <TextBlock x:Uid="StatsPage_Title" Text="Stats" FontSize="32" FontWeight="SemiBold" />
-                        <TextBlock x:Uid="StatsPage_Subtitle"
-                                   Text="Charts and trends based on your local history."
+                        <TextBlock x:Uid="StatsPage_Title" FontSize="32" FontWeight="SemiBold" />
+                        <TextBlock x:Uid="StatsPage_Subtitle"                                   
                                    Opacity="0.68"
                                    TextWrapping="WrapWholeWords" />
                     </StackPanel>
@@ -35,17 +34,17 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Orientation="Horizontal" Spacing="12">
-                            <TextBlock x:Uid="StatsPage_Domain" Text="Game" VerticalAlignment="Center" Opacity="0.72" />
+                            <TextBlock x:Uid="StatsPage_Domain" VerticalAlignment="Center" Opacity="0.72" />
                             <ComboBox Width="220"
                                       ItemsSource="{Binding Domains}"
                                       SelectedItem="{Binding SelectedDomain, Mode=TwoWay}" />
 
-                            <TextBlock x:Uid="StatsPage_Recency" Text="Recency" VerticalAlignment="Center" Opacity="0.72" />
+                            <TextBlock x:Uid="StatsPage_Recency" VerticalAlignment="Center" Opacity="0.72" />
                             <ComboBox Width="160"
                                       ItemsSource="{Binding RecencyOptions}"
                                       SelectedItem="{Binding SelectedRecency, Mode=TwoWay}" />
 
-                            <TextBlock x:Uid="StatsPage_Metric" Text="Metric" VerticalAlignment="Center" Opacity="0.72" />
+                            <TextBlock x:Uid="StatsPage_Metric" VerticalAlignment="Center" Opacity="0.72" />
                             <ComboBox Width="220"
                                       SelectedIndex="{Binding SelectedMetricIndex, Mode=TwoWay}"
                                       SelectionChanged="MetricCombo_SelectionChanged">
@@ -86,8 +85,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock x:Uid="StatsPage_TableTitle"
-                                       Text="Details"
+                            <TextBlock x:Uid="StatsPage_TableTitle"                                       
                                        FontSize="18"
                                        FontWeight="SemiBold" />
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
