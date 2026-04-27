@@ -378,4 +378,25 @@
   <data name="AboutPage_MITLicense" xml:space="preserve">
     <value>Licenza MIT</value>
   </data>
+  <data name="SummaryCard_Leader" xml:space="preserve">
+    <value>Leader: {0}</value>
+  </data>
+  <data name="SummaryCard_PortfolioEmpty" xml:space="preserve">
+    <value>Portfolio vuoto</value>
+  </data>
+  <data name="SummaryCard_TrackedMods" xml:space="preserve">
+    <value>{0} mods tracciati</value>
+  </data>
+  <data name="SummaryCard_TopSocial" xml:space="preserve">
+    <value>Top social: {0}</value>
+  </data>
+  <data name="SummaryCard_NoData" xml:space="preserve">
+    <value>Nessun dato</value>
+  </data>
+  <data name="SummaryCard_LastUpdate" xml:space="preserve">
+    <value>Ultimo aggiornamento: {0}</value>
+  </data>
+  <data name="SummaryCard_UnknownLastUpdate" xml:space="preserve">
+    <value>Ultimo aggiornamento sconosciuto</value>
+  </data>
 </root>

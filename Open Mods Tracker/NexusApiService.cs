@@ -398,28 +398,28 @@ query mods($filter: ModsFilter, $offset: Int, $count: Int, $viewUploaderHidden: 
                 Title = "Downloads",
                 Value = FormatCompact(totalDownloads),
                 AccentBrush = CreateBrush("#F97316"),
-                Subtitle = bestDownload is null ? "Portfolio vide" : $"Leader: {bestDownload.DisplayName}"
+                Subtitle = bestDownload is null ? Localizer.GetString("SummaryCard_PortfolioEmpty") : string.Format(Localizer.GetString("SummaryCard_Leader"), bestDownload.DisplayName)
             },
             new SummaryCard
             {
                 Title = "Unique DLs",
                 Value = FormatCompact(totalUniqueDownloads),
                 AccentBrush = CreateBrush("#22C55E"),
-                Subtitle = $"{mods.Count} mods surveilles"
+                Subtitle = string.Format(Localizer.GetString("SummaryCard_TrackedMods"), mods.Count)
             },
             new SummaryCard
             {
                 Title = "Endorsements",
                 Value = FormatCompact(totalEndorsements),
                 AccentBrush = CreateBrush("#38BDF8"),
-                Subtitle = bestEndorsements is null ? "Aucune donnee" : $"Top social: {bestEndorsements.DisplayName}"
+                Subtitle = bestEndorsements is null ? Localizer.GetString("SummaryCard_NoData") : string.Format(Localizer.GetString("SummaryCard_TopSocial"), bestEndorsements.DisplayName)
             },
             new SummaryCard
             {
                 Title = "Mods suivis",
                 Value = FormatCompact(mods.Count),
                 AccentBrush = CreateBrush("#A78BFA"),
-                Subtitle = lastUpdated is null ? "Derniere mise a jour inconnue" : $"Derniere update: {lastUpdated.DisplayName}"
+                Subtitle = lastUpdated is null ? Localizer.GetString("SummaryCard_UnknownLastUpdate") : string.Format(Localizer.GetString("SummaryCard_LastUpdate"), lastUpdated.DisplayName)
             }
         ];
     }

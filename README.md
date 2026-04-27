@@ -127,5 +127,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Nexus Mods API](https://app.swaggerhub.com/apis-docs/NexusMods/nexus-mods_public_api_params_in_form_data/1.0) — For providing the API
 - [WinUI 3](https://learn.microsoft.com/en-us/windows/apps/winui/) — For the UI framework
 
+## Links
+- [OMT on Nexus](https://www.nexusmods.com/site/mods/1849)
+- [OMT on Dams-Labs](https://dams-labs.net/omt)
+
 
 
