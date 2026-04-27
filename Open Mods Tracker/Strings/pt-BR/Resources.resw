@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Necessário para buscar dados do Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Cole aqui sua chave API do Nexus</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Configurações do portfólio</value>
   </data>
@@ -219,14 +222,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>Uma URL de mod por linha</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Resumo da análise</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Dica</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Como a API pública documentada ainda não lista diretamente todos os mods de um autor, o portfólio serve como a fonte de verdade para seu painel.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>O portfólio serve como referência para o seu painel.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>Importação GraphQL</value>
@@ -309,6 +312,9 @@
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Gráficos e tendências baseados no seu histórico local.</value>
   </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Jogo</value>
   </data>
@@ -378,4 +384,24 @@
   <data name="AboutPage_MITLicense" xml:space="preserve">
     <value>Licença MIT</value>
   </data>
-</root>
+  <data name="SummaryCard_Leader" xml:space="preserve">
+    <value>Lider: {0}</value>
+  </data>
+  <data name="SummaryCard_PortfolioEmpty" xml:space="preserve">
+    <value>Portfolio vazio</value>
+  </data>
+  <data name="SummaryCard_TrackedMods" xml:space="preserve">
+    <value>{0} mods rastreados</value>
+  </data>
+  <data name="SummaryCard_TopSocial" xml:space="preserve">
+    <value>Top social: {0}</value>
+  </data>
+  <data name="SummaryCard_NoData" xml:space="preserve">
+    <value>Sem dados</value>
+  </data>
+  <data name="SummaryCard_LastUpdate" xml:space="preserve">
+    <value>Ultima atualizacao: {0}</value>
+  </data>
+  <data name="SummaryCard_UnknownLastUpdate" xml:space="preserve">
+    <value>Ultima atualizacao desconhecida</value>
+  </data></root>

@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Requise pour récupérer les données depuis Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Colle ici ta clé API Nexus</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Configuration du Portfolio</value>
   </data>
@@ -218,14 +221,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>Une URL de mod par ligne</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Résumé du parsing</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Conseil</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Comme l'API publique documentée ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de vérité pour ton tableau de bord.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>Le portfolio sert de référence pour ton tableau de bord.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>Import GraphQL</value>
@@ -307,6 +310,9 @@
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Courbes et tendances basées sur l'historique local.</value>
   </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Détails</value>
+  </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Jeu</value>
   </data>
@@ -378,5 +384,62 @@
   </data>
   <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
     <value>Δ</value>
+  </data>
+  <data name="AboutPage_Title.Text" xml:space="preserve">
+    <value>A propos</value>
+  </data>
+  <data name="AboutPage_Description.Text" xml:space="preserve">
+    <value>Un tracker de mods pour les moddeurs pour suivre les telechargements, les endorsements et les performances du portfolio.</value>
+  </data>
+  <data name="AboutPage_Version.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AboutPage_Feedback.Text" xml:space="preserve">
+    <value>Commentaires et suggestions</value>
+  </data>
+  <data name="AboutPage_Source.Text" xml:space="preserve">
+    <value>Code source</value>
+  </data>
+  <data name="AboutPage_License.Text" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="AboutPage_MITLicense" xml:space="preserve">
+    <value>Licence MIT</value>
+  </data>
+  <data name="StatsPage_Recency_All" xml:space="preserve">
+    <value>Tout le temps</value>
+  </data>
+  <data name="StatsPage_Recency_Year" xml:space="preserve">
+    <value>Annee passe</value>
+  </data>
+  <data name="StatsPage_Recency_Quarter" xml:space="preserve">
+    <value>Trimestre passe</value>
+  </data>
+  <data name="StatsPage_Recency_Month" xml:space="preserve">
+    <value>Mois passe</value>
+  </data>
+  <data name="StatsPage_Recency_Week" xml:space="preserve">
+    <value>Semaine passee</value>
+  </data>
+  <data name="SummaryCard_Leader" xml:space="preserve">
+    <value>Leader: {0}</value>
+  </data>
+  <data name="SummaryCard_PortfolioEmpty" xml:space="preserve">
+    <value>Portfolio vide</value>
+  </data>
+  <data name="SummaryCard_TrackedMods" xml:space="preserve">
+    <value>{0} mods surveilles</value>
+  </data>
+  <data name="SummaryCard_TopSocial" xml:space="preserve">
+    <value>Top social: {0}</value>
+  </data>
+  <data name="SummaryCard_NoData" xml:space="preserve">
+    <value>Aucune donnee</value>
+  </data>
+  <data name="SummaryCard_LastUpdate" xml:space="preserve">
+    <value>Derniere update: {0}</value>
+  </data>
+  <data name="SummaryCard_UnknownLastUpdate" xml:space="preserve">
+    <value>Derniere mise a jour inconnue</value>
   </data>
 </root>

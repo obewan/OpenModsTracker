@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>获取Nexus模组数据所需。</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>在这里粘贴你的 Nexus API 密钥</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>组合设置</value>
   </data>
@@ -219,14 +222,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>每行一个模组URL</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>分析摘要</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>建议</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>由于公开记录的API尚未直接列出作者的所有模组，组合作为控制台的真实来源。</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>作品集作为你的仪表板的参考来源。</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>GraphQL导入</value>
@@ -309,6 +312,9 @@
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>基于本地历史的图表和趋势。</value>
   </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>游戏</value>
   </data>
@@ -377,5 +383,26 @@
   </data>
   <data name="AboutPage_MITLicense" xml:space="preserve">
     <value>MIT许可证</value>
+  </data>
+  <data name="SummaryCard_Leader" xml:space="preserve">
+    <value>领先: {0}</value>
+  </data>
+  <data name="SummaryCard_PortfolioEmpty" xml:space="preserve">
+    <value>作品集为空</value>
+  </data>
+  <data name="SummaryCard_TrackedMods" xml:space="preserve">
+    <value>追踪 {0} 个模组</value>
+  </data>
+  <data name="SummaryCard_TopSocial" xml:space="preserve">
+    <value>热门社交: {0}</value>
+  </data>
+  <data name="SummaryCard_NoData" xml:space="preserve">
+    <value>无数据</value>
+  </data>
+  <data name="SummaryCard_LastUpdate" xml:space="preserve">
+    <value>最后更新: {0}</value>
+  </data>
+  <data name="SummaryCard_UnknownLastUpdate" xml:space="preserve">
+    <value>最后更新未知</value>
   </data>
 </root>

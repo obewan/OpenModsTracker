@@ -12,8 +12,8 @@
         <StackPanel Padding="28" Spacing="20">
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="12">
-                    <TextBlock x:Uid="SettingsPage_Title" Text="Parametres Nexus" FontSize="28" FontWeight="SemiBold" />
-                    <TextBlock x:Uid="SettingsPage_GeneralInfo" Text="Configure la cle API personnelle et la liste des mods a suivre. Une ligne par mod, avec une URL Nexus ou le format game|id." Opacity="0.72" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_Title" FontSize="28" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_GeneralInfo" Opacity="0.72" TextWrapping="WrapWholeWords" />
                 </StackPanel>
             </Border>
 
@@ -21,10 +21,10 @@
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock x:Uid="SettingsPage_General" Text="Général" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_General" FontSize="22" FontWeight="SemiBold" />
                     <StackPanel Orientation="Horizontal" Spacing="24">
                         <StackPanel Orientation="Horizontal" Spacing="12">
-                            <TextBlock x:Uid="SettingsPage_Theme" Text="Theme" VerticalAlignment="Center" />
+                            <TextBlock x:Uid="SettingsPage_Theme" VerticalAlignment="Center" />
                             <ToggleSwitch x:Name="themeToggleSwitch"
                                           OffContent="Dark"
                                           OnContent="Light"
@@ -32,7 +32,7 @@
                                           Loaded="OnThemeSwitch_Loaded" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Spacing="12">
-                            <TextBlock x:Uid="SettingsPage_Language" Text="Langue" VerticalAlignment="Center" />
+                            <TextBlock x:Uid="SettingsPage_Language" VerticalAlignment="Center" />
                             <ComboBox x:Name="LanguageComboBox" Width="150" SelectionChanged="LanguageComboBox_SelectionChanged">
                                 <ComboBoxItem Content="English" Tag="en-US" />                                
                                 <ComboBoxItem Content="中文" Tag="zh-CN" />
@@ -52,8 +52,8 @@
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock x:Uid="SettingsPage_API" Text="Cle API" FontSize="22" FontWeight="SemiBold" />
-                    <TextBlock x:Uid="SettingsPage_APIKeyInfo" Text="La cle personnelle se genere depuis la page API Access de Nexus Mods. Elle reste locale a l'application." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_API" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_APIKeyInfo" Opacity="0.7" TextWrapping="WrapWholeWords" />
                     <Grid ColumnSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -62,8 +62,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <PasswordBox x:Name="ApiKeyPasswordBox"
-                                     x:Uid="SettingsPage_APIKeyInput"
-                                     PlaceholderText="Colle ici ta cle API Nexus"
+                                     x:Uid="SettingsPage_APIKeyInput"                                     
                                      PasswordChanged="ApiKeyPasswordBox_PasswordChanged" />
                         <CheckBox Grid.Column="1"
                                   x:Name="RevealCheckBox"
@@ -86,8 +85,8 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <StackPanel>
-                            <TextBlock x:Uid="SettingsPage_Portfolio" Text="Portfolio de mods" FontSize="22" FontWeight="SemiBold" />
-                            <TextBlock x:Uid="SettingsPage_PortfolioSub" Text="Exemples: `https://www.nexusmods.com/skyrimspecialedition/mods/12604` ou `fallout4|12345`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Uid="SettingsPage_Portfolio" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock x:Uid="SettingsPage_PortfolioSub" Opacity="0.7" TextWrapping="WrapWholeWords" />
                         </StackPanel>
                         <Button Grid.Column="1" x:Uid="SettingsPage_SaveRefreshBtn" Content="Save and refresh" Click="SaveAndRefreshButton_Click" IsEnabled="{Binding CanValidate}" />
                     </Grid>
@@ -98,7 +97,6 @@
                              TextWrapping="Wrap"
                              VerticalAlignment="Stretch"
                              x:Uid="SettingsPage_PortfolioInput"
-                             PlaceholderText="One mod URL per line"
                              TextChanged="PortfolioTextBox_TextChanged" />
 
                     <Grid ColumnSpacing="18">
@@ -108,14 +106,14 @@
                         </Grid.ColumnDefinitions>
                         <Border Background="#1AFFFFFF" CornerRadius="18" Padding="18">
                             <StackPanel Spacing="8">
-                                <TextBlock x:Uid="SettingsPage_PortfolioSummaryLabel" Text="Resume de parsing" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="SettingsPage_PortfolioSummaryLabel" FontWeight="SemiBold" />
                                 <TextBlock Text="{Binding PortfolioSummary}" />
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="1" Background="#1AFFFFFF" CornerRadius="18" Padding="18">
                             <StackPanel Spacing="8">
-                                <TextBlock x:Uid="SettingsPage_AdviceLabel" Text="Conseil" FontWeight="SemiBold" />
-                                <TextBlock x:Uid="SettingsPage_AdviceText" Text="Like the API publique documentee ne liste pas encore directement tous les mods d'un auteur, le portfolio sert de source de verite pour ton tableau de bord." TextWrapping="WrapWholeWords" />
+                                <TextBlock x:Uid="SettingsPage_AdviceLabel" FontWeight="SemiBold" />
+                                <TextBlock x:Uid="SettingsPage_AdviceText" TextWrapping="WrapWholeWords" />
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -124,16 +122,15 @@
 
             <Border Style="{StaticResource SectionCardStyle}">
                 <StackPanel Spacing="18">
-                    <TextBlock x:Uid="SettingsPage_ImportGraphQL" Text="Import GraphQL" FontSize="22" FontWeight="SemiBold" />
-                    <TextBlock x:Uid="SettingsPage_ImportGraphQLInfo" Text="Your Nexus profile can now be imported automatically via the GraphQL v2 API. You can enter your Nexus username or a URL like `next.nexusmods.com/profile/...`." Opacity="0.7" TextWrapping="WrapWholeWords" />
+                    <TextBlock x:Uid="SettingsPage_ImportGraphQL" FontSize="22" FontWeight="SemiBold" />
+                    <TextBlock x:Uid="SettingsPage_ImportGraphQLInfo" Opacity="0.7" TextWrapping="WrapWholeWords" />
                     <Grid ColumnSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBox x:Name="ImportProfileTextBox"
-                                 x:Uid="SettingsPage_ImportProfileInput"
-                                 PlaceholderText="Nexus username or profile URL" />
+                                 x:Uid="SettingsPage_ImportProfileInput" />
                         <Button Grid.Column="1"
                                 x:Uid="SettingsPage_ImportBtn"
                                 Content="Import my mods"

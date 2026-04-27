@@ -2,7 +2,7 @@
 ; Download Inno Setup from https://jrsoftware.org/isinfo.php
 
 #define MyAppName "Open Mods Tracker"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Open Mods Tracker"
 #define MyAppURL "https://github.com/obewan/OpenModsTracker"
 #define MyAppExeName "Open Mods Tracker.exe"

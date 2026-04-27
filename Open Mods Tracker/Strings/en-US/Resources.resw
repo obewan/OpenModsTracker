@@ -195,6 +195,9 @@
   <data name="SettingsPage_APIKeyInfo.Text" xml:space="preserve">
     <value>Required to fetch data from Nexus Mods.</value>
   </data>
+  <data name="SettingsPage_APIKeyInput.PlaceholderText" xml:space="preserve">
+    <value>Paste your Nexus API key here</value>
+  </data>
   <data name="SettingsPage_Portfolio.Text" xml:space="preserve">
     <value>Portfolio Configuration</value>
   </data>
@@ -219,14 +222,14 @@
   <data name="SettingsPage_PortfolioInput.PlaceholderText" xml:space="preserve">
     <value>One mod URL per line</value>
   </data>
-  <data name="SettingsPage_PortfolioSummaryLabel" xml:space="preserve">
+  <data name="SettingsPage_PortfolioSummaryLabel.Text" xml:space="preserve">
     <value>Parsing summary</value>
   </data>
-  <data name="SettingsPage_AdviceLabel" xml:space="preserve">
+  <data name="SettingsPage_AdviceLabel.Text" xml:space="preserve">
     <value>Tip</value>
   </data>
-  <data name="SettingsPage_AdviceText" xml:space="preserve">
-    <value>Since the documented public API doesn't yet directly list all mods from an author, the portfolio serves as the source of truth for your dashboard.</value>
+  <data name="SettingsPage_AdviceText.Text" xml:space="preserve">
+    <value>The portfolio serves as the reference for your dashboard.</value>
   </data>
   <data name="SettingsPage_ImportGraphQL.Text" xml:space="preserve">
     <value>GraphQL Import</value>
@@ -309,6 +312,9 @@
   <data name="StatsPage_Subtitle.Text" xml:space="preserve">
     <value>Charts and trends based on your local history.</value>
   </data>
+  <data name="StatsPage_TableTitle.Text" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="StatsPage_Domain.Text" xml:space="preserve">
     <value>Game</value>
   </data>
@@ -380,5 +386,62 @@
   </data>
   <data name="StatsPage_TableHeader_Delta.Text" xml:space="preserve">
     <value>Δ</value>
+  </data>
+  <data name="AboutPage_Title.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutPage_Description.Text" xml:space="preserve">
+    <value>A mods tracker for modders to track downloads, endorsements, and portfolio performance over time.</value>
+  </data>
+  <data name="AboutPage_Version.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AboutPage_Feedback.Text" xml:space="preserve">
+    <value>Feedback and suggestions</value>
+  </data>
+  <data name="AboutPage_Source.Text" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="AboutPage_License.Text" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="AboutPage_MITLicense" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="StatsPage_Recency_All" xml:space="preserve">
+    <value>All time</value>
+  </data>
+  <data name="StatsPage_Recency_Year" xml:space="preserve">
+    <value>Past year</value>
+  </data>
+  <data name="StatsPage_Recency_Quarter" xml:space="preserve">
+    <value>Past quarter</value>
+  </data>
+  <data name="StatsPage_Recency_Month" xml:space="preserve">
+    <value>Past month</value>
+  </data>
+  <data name="StatsPage_Recency_Week" xml:space="preserve">
+    <value>Past week</value>
+  </data>
+  <data name="SummaryCard_Leader" xml:space="preserve">
+    <value>Leader: {0}</value>
+  </data>
+  <data name="SummaryCard_PortfolioEmpty" xml:space="preserve">
+    <value>Portfolio empty</value>
+  </data>
+  <data name="SummaryCard_TrackedMods" xml:space="preserve">
+    <value>{0} mods tracked</value>
+  </data>
+  <data name="SummaryCard_TopSocial" xml:space="preserve">
+    <value>Top social: {0}</value>
+  </data>
+  <data name="SummaryCard_NoData" xml:space="preserve">
+    <value>No data</value>
+  </data>
+  <data name="SummaryCard_LastUpdate" xml:space="preserve">
+    <value>Last update: {0}</value>
+  </data>
+  <data name="SummaryCard_UnknownLastUpdate" xml:space="preserve">
+    <value>Unknown last update</value>
   </data>
 </root>
